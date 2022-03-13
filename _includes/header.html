@@ -1,0 +1,27 @@
+<header class="site-header" role="banner">
+
+  <div class="wrapper">
+    {%- assign site_pages = site.data.navigation -%}
+
+    {%- if site_pages -%}
+      <nav class="navbar navbar-expand-md navbar-light my-navbar">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              {%- for page in site_pages -%}
+                <li class="nav-item">
+                  <a class="nav-link px-3" href="{{ page.link }}"> {{- page.name -}} </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    {%- endif -%}
+  </div>
+</header>

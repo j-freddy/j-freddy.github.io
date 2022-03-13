@@ -1,0 +1,19 @@
+@import "open-color";
+
+$my-white: #fff;
+$background-img: url("img/bg-1-trace.svg");
+
+* {
+  background-color: $my-white;
+}
+
+.my-navbar {
+  .navbar-nav {
+    margin-left: 0px;
+  }
+}
+
+.page-content {
+  background: $background-img no-repeat fixed;
+  background-size: cover;
+}
