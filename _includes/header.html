@@ -14,7 +14,9 @@
             <ul class="navbar-nav">
               {%- for page in site_pages -%}
                 <li class="nav-item">
-                  <a class="nav-link px-3" href="{{ page.link }}"> {{- page.name -}} </a>
+                  <a class="nav-link px-3" href="{{ page.link }}">
+                    {{ page.name }}
+                  </a>
                 </li>
               {%- endfor -%}
             </ul>
