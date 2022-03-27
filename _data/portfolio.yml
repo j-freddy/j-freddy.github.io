@@ -1,18 +1,67 @@
 - name: Peer Assessment
-  img: "img/test.jpg"
+  img: "img/portfolio/peer-assessment.png"
+  preview: "https://peer-assessment.doc.ic.ac.uk"
+  source_code: "https://gitlab.doc.ic.ac.uk/edtech/peer-assessment"
+  frameworks:
+    - Flask
+    - Python
+    - JavaScript
+    - AJAX
+    - SQL
+    - HTML
+    - BootStrap
+    - SCSS
+    - CI/CD
+    - TDD
+  description: |
+    Peer Assessment is a web app used by the Department of Computing at Imperial 
+    College. I was one of the main developers during my internship with DoC 
+    EdTech, Imperial College in Summer 2021.<br><br>
+
+    I am thankful to Ivan Procaccini, Andrea Callia D'Iddio and Robert Chatley 
+    who supervised me and introduced me to test-driven development and other 
+    agile development practices.<br><br>
+
+    I have also volunteered to develop the official site for Doc EdTech at 
+    <a href="https://edtech.pages.doc.ic.ac.uk" target="_blank"
+       rel="noopener noreferrer">
+      https://edtech.pages.doc.ic.ac.uk
+    </a>.
 - name: Duel!
-  img: "img/test.jpg"
+  img: "img/portfolio/duel.png"
+  preview: "https://litetj.itch.io/duel"
+  frameworks:
+    - Unity
+    - C#
 - name: WACC
-  img: "img/test.jpg"
+  img: "img/portfolio/wacc.png"
+  source_code: "https://gitlab.doc.ic.ac.uk/lab2122_spring/WACC_11"
+  frameworks:
+    - Scala
+    - Parsley
+    - ARM1176JZF-S
+    - CI/CD
+    - TDD
 - name: SolarSearch
-  img: "img/test.jpg"
+  img: "img/portfolio/solarsearch.png"
+  source_code: "https://github.com/IC-Hack-2022/site"
+  frameworks:
+    - PyTorch
+    - Flask
+    - Python
+    - Rasterio
+    - JavaScript
+    - MongoDB
+    - HTML
+    - BootStrap
+    - SCSS
 - name: ARM Emulator
   img: "img/test.jpg"
 - name: Infiltrate
-  img: "img/test.jpg"
+  img: "img/portfolio/infiltrate.png"
 - name: Pintos
   img: "img/test.jpg"
 - name: Pawn Race
-  img: "img/test.jpg"
+  img: "img/portfolio/pawn-race.png"
 - name: Genetic Algorithm Simulator
   img: "img/test.jpg"
