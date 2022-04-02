@@ -14,15 +14,18 @@
     - CI/CD
     - TDD
   description: |
-    Peer Assessment is a web app used by the Department of Computing at Imperial 
-    College. I was one of the main developers during my internship with DoC 
-    EdTech, Imperial College in Summer 2021.<br><br>
+    Peer Assessment is a web app used by the Department of Computing at Imperial
+    College, allowing students to peer-assess each other and providing staff
+    with a seamless administration interface. I was one of the main developers
+    during my internship with DoC EdTech, Imperial College in Summer 2021.
+    <br><br>
 
-    I am thankful to Ivan Procaccini, Andrea Callia D'Iddio and Robert Chatley 
-    who supervised me and introduced me to test-driven development and other 
-    agile development practices.<br><br>
+    I am very thankful to Ivan Procaccini, Dr. Andrea Callia D'Iddio and Dr.
+    Robert Chatley who supervised me and introduced me to test-driven
+    development and other modern agile development practices.<br><br>
 
-    I have also volunteered to develop the official site for Doc EdTech at 
+    After my internship, I volunteered to develop the official site for Doc
+    EdTech at 
     <a href="https://edtech.pages.doc.ic.ac.uk" target="_blank"
        rel="noopener noreferrer">
       https://edtech.pages.doc.ic.ac.uk
@@ -33,6 +36,22 @@
   frameworks:
     - Unity
     - C#
+  description: |
+    Duel! is a 2P shooter game I developed in Unity in 1 week for Brackeys Jam
+    2020.2.<br><br>
+
+    Given the time constraints, I opted for a simple game idea that is easily
+    extendable, with a focus on providing an elegant interface and user
+    experience. This involved smooth animations, a custom keybinds option, as
+    well as rewriting the player physics, as Unity's default physics engine was
+    rough and inconsistent. Overall, it was a very exciting experience to work
+    with limited time.<br><br>
+
+    Watch the "behind the scenes" video:<br>
+    <a href="https://www.youtube.com/watch?v=2NnTHHqoIrw" target="_blank"
+       rel="noopener noreferrer">
+      https://www.youtube.com/watch?v=2NnTHHqoIrw
+    </a>
 - name: WACC
   img: "img/portfolio/wacc.png"
   source_code: "https://gitlab.doc.ic.ac.uk/lab2122_spring/WACC_11"
@@ -42,6 +61,17 @@
     - ARM1176JZF-S
     - CI/CD
     - TDD
+  description: |
+    WACC is an imperative language that supports fundamental constructs such as
+    variables, loops, conditional branching, arrays and functions. The preview
+    image is a code snippet from a Tic-Tac-Toe AI written in WACC.<br><br>
+
+    Our challenge in the 2022 Spring term of Imperial College? Given 6 weeks,
+    write a compiler that performs syntax and semantic analysis on any WACC
+    file, then (if valid) generates executable code for the ARM11 architecture.
+    The four of us successfully implemented this in Scala and Parsley (parser
+    combinator library) and got a 99% score during the backend code review.
+
 - name: SolarSearch
   img: "img/portfolio/solarsearch.png"
   source_code: "https://github.com/IC-Hack-2022/site"
