@@ -4,9 +4,6 @@ title: Portfolio
 scripts: |
   <script src="../assets/js/portfolio.js"></script>
 ---
-<!-- <p>
-  [Click image to expand]
-</p> -->
 
 {%- assign site_projects = site.data.portfolio -%}
 {%- assign assets_path = "../assets/" -%}
@@ -23,10 +20,10 @@ scripts: |
                class="card-img-top border-bottom project-preview"
                id="project-preview-{{ forloop.index }}">
           <div class="card-body text-center">
-            <small><b>{{ project.name }}</b></small>
+            <small class="card-project-name"><b>{{ project.name }}</b></small>
             {%- if project.frameworks -%}
-              <div class="border-bottom"></div>
-              <small>{{ project.frameworks[0] }}</small>
+              <div></div>
+              <small class="badge rounded-pill project-framework-pill">{{ project.frameworks[0] }}</small>
             {%- endif -%}
           </div>
         </div>
@@ -36,30 +33,33 @@ scripts: |
            id="project-modal-{{ forloop.index }}">
         <div class="w3-modal-content w3-animate-zoom">
           <div class="w3-card mb-5">
-            <span class="w3-button w3-display-topright project-modal-close"
-                  id="project-modal-close-{{ forloop.index }}">
-              &times;
-            </span>
             <img src="{{ assets_path }}{{ project.img }}"
                  class="border-bottom">
-            <div class="w3-container p-3">
+            <div class="w3-container m-3 p-3">
+              <!-- Project frameworks -->
               {%- if project.frameworks -%}
-              <small>
+              <!-- List group design -->
+              <!-- <small>
                 <ul class="list-group list-group-horizontal">
                   {%- for framework in project.frameworks -%}
                     <li class="list-group-item">{{ framework }}</li>
                   {%- endfor -%}
                 </ul>
-              </small>
+              </small> -->
+              <!-- Pills design -->
+              {%- for framework in project.frameworks -%}
+                  <small class="badge rounded-pill project-framework-pill ms-3">{{ framework }}</small>
+                {%- endfor -%}
               {%- endif -%}
-              <div class="m-3">
+              <!-- Project description -->
+              <div class="mt-4">
                 {%- if project.description -%}
-                  <h5>Description</h5>
+                  <h5 class="my-modal-header">Description</h5>
                   <p>{{ project.description }}</p>
                 {%- endif -%}
 
                 {%- if project.preview -%}
-                  <h5>Preview</h5>
+                  <h5 class="my-modal-header">Preview</h5>
                   <ul>
                     <li><a href="{{ project.preview }}" target="_blank"
                           rel="noopener noreferrer">
@@ -69,7 +69,7 @@ scripts: |
                 {%- endif -%}
                 
                 {%- if project.source_code -%}
-                  <h5>Source Code</h5>
+                  <h5 class="my-modal-header">Source Code</h5>
                   <ul>
                     <li><a href="{{ project.source_code }}" target="_blank"
                            rel="noopener noreferrer">

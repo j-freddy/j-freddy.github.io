@@ -1,30 +1,5 @@
 @import "open-color";
-
-// Colours
-$my-theme-darkest: $oc-violet-9;
-$my-theme-darker: $oc-violet-8;
-$my-theme-dark: $oc-violet-7;
-$my-white: #fff;
-$my-lightest: $oc-gray-0;
-$my-lighter: $oc-gray-2;
-$my-light: $oc-gray-3;
-$my-dark: $oc-gray-7;
-$my-darker: $oc-gray-8;
-$my-darkest: $oc-gray-9;
-$my-black: #000;
-
-// Background
-$bg-base-path: "img/bg/";
-$background: url($bg-base-path + "bg-trace-2.svg");
-$background-home: url($bg-base-path + "bg-trace-2-colour.svg");
-
-// Font
-$font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-  Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-// Spacing
-$spacing-unit: 30px;
-$content-width: calc(max(58vw, 900px));
+@import "variables";
 
 @mixin background-cover($img) {
   background: $img no-repeat fixed;
@@ -33,31 +8,73 @@ $content-width: calc(max(58vw, 900px));
 
 * {
   font-family: $font-main;
+  color: $my-darkest;
 }
 
+// Navbar
 .site-header {
-  border-top: 4px solid $my-dark;
-  border-bottom: 1px solid $my-light;
+  border-top: 6px solid $my-darker;
+  border-bottom: 0;
 
   .my-navbar {
+    .navbar-brand {
+      font-size: 1.5em;
+      color: $my-darkest;
+    }
+
     .navbar-nav {
       margin-left: 0px;
+      font-size: 0.9em;
+
+      .nav-link {
+        text-decoration: none;
+      }
     }
   } 
 }
 
+// Home layout
 .home-body {
   @include background-cover($background-home);
 }
 
+// Page layout
 .page-body {
   @include background-cover($background);
+
+  .post-header {
+    .post-title {
+      font-weight: 600;
+    }
+  }
+}
+
+// Footer
+.site-footer {
+  border-top: 0;
+
+  .footer-text {
+    color: $my-dark;
+  }
 }
 
 #my-portfolio {
   .project-preview {
     &:hover {
       cursor: pointer;
+    }
+  }
+
+  .project-framework-pill {
+    background-color: $my-lighter;
+    color: $my-dark;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .project-modal {
+    .my-modal-header {
+      font-weight: bold;
     }
   }
 }
