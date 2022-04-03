@@ -44,8 +44,8 @@
     extendable, with a focus on providing an elegant interface and user
     experience. This involved smooth animations, a custom keybinds option, as
     well as rewriting the player physics, as Unity's default physics engine was
-    rough and inconsistent. Overall, it was a very exciting experience to work
-    with limited time.<br><br>
+    rough and inconsistent. Overall, it was very exciting to work with limited
+    time.<br><br>
 
     Watch the "behind the scenes" video:<br>
     <a href="https://www.youtube.com/watch?v=2NnTHHqoIrw" target="_blank"
@@ -54,7 +54,6 @@
     </a>
 - name: WACC
   img: "img/portfolio/wacc.png"
-  source_code: "https://gitlab.doc.ic.ac.uk/lab2122_spring/WACC_11"
   frameworks:
     - Scala
     - Parsley
@@ -66,11 +65,12 @@
     variables, loops, conditional branching, arrays and functions. The preview
     image is a code snippet from a Tic-Tac-Toe AI written in WACC.<br><br>
 
-    Our challenge in the 2022 Spring term of Imperial College? Given 6 weeks,
+    Our challenge in the 2022 Spring term at Imperial College? Given 6 weeks,
     write a compiler that performs syntax and semantic analysis on any WACC
     file, then (if valid) generates executable code for the ARM11 architecture.
     The four of us successfully implemented this in Scala and Parsley (parser
-    combinator library) and got a 99% score during the backend code review.
+    combinator library) and got a 99% score in the backend code review.
+    <br><br>
 
 - name: SolarSearch
   img: "img/portfolio/solarsearch.png"
@@ -85,13 +85,51 @@
     - HTML
     - BootStrap
     - SCSS
+  description: |
+    Solar Searcher is powered by a deep learning neural network AI and developed
+    during IC Hack 22 in 24 hours.<br><br>
+
+    Given a country, the web app generates a ranking of areas within the country
+    that are most feasible for building solar farms. The ranking algorithm
+    accounts for terrain, weather, atmospheric pollution and other factors,
+    using a mixture of computer vision and third-party data.<br><br>
+    
+    More details can be found here:<br>
+    <a href="https://devpost.com/software/solarsearch" target="_blank"
+       rel="noopener noreferrer">
+      https://devpost.com/software/solarsearch
+    </a>
+    
 - name: ARM Emulator
   img: "img/test.jpg"
+  frameworks:
+    - C
 - name: Infiltrate
   img: "img/portfolio/infiltrate.png"
+  preview: "https://litetj.itch.io/infiltrate-demo"
+  frameworks:
+    - Unity
+    - C#
+  description: |
+    I have always been an avid enjoyer of platformer games, dating back to when
+    I discovered SuperTux in primary school. This is my attempt at developing
+    one in Unity, and I was quite happy with how it turned out.<br><br>
+
+    Unfortunately, I never turned this into a fully-fledged game.
+
 - name: Pintos
   img: "img/test.jpg"
+  frameworks:
+    - C
 - name: Pawn Race
   img: "img/portfolio/pawn-race.png"
+  frameworks:
+    - Java
+    - JavaFX
 - name: Genetic Algorithm Simulator
   img: "img/test.jpg"
+  frameworks:
+    - JavaScript
+    - Pixi.js
+    - HTML
+    - CSS
