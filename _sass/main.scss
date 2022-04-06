@@ -64,18 +64,42 @@
   padding-top: 30px;
 
   #my-jumbotron {
-    .icon-earmuffs {
-      font-size: 6em;
+    .earmuffs-container {
+      padding-right: 2em;
+
+      .icon-earmuffs {
+        font-size: 6em;
+      }
+
+      text-align: end;
+
+      @media (max-width: map-get($grid-breakpoints, md)) {
+        text-align: center;
+      }
     }
   
-    .title-role {
-      font-size: 1.5em;
-      font-weight: 600;
-    }
-  
-    .title-name {
-      font-size: 4em;
-      font-weight: 600;
+    .title-container {
+      .title-role {
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+    
+      .title-name {
+        font-size: 4em;
+        font-weight: 600;
+      }
+
+      @media (max-width: map-get($grid-breakpoints, sm)) {
+        .title-name {
+          font-size: 3em;
+        }
+      }
+
+      text-align: start;
+
+      @media (max-width: map-get($grid-breakpoints, md)) {
+        text-align: center;
+      }
     }
   }
 
