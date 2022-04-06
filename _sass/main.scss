@@ -118,6 +118,11 @@
 
     p {
       color: $my-lighter;
+
+      #welcome-msg {
+        color: $my-lighter;
+        font-weight: bold;
+      }
     }
 
     .my-button {
