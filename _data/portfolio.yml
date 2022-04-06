@@ -21,7 +21,7 @@
     <br><br>
 
     I am very thankful to Ivan Procaccini, Dr. Andrea Callia D'Iddio and Dr.
-    Robert Chatley who supervised me and introduced me to test-driven
+    Robert Chatley who supervised me and introduced me to misc/test-driven
     development and other modern agile development practices.<br><br>
 
     After my internship, I volunteered to develop the official site for Doc
@@ -101,7 +101,7 @@
     </a>
     
 - name: ARM Emulator
-  img: "img/test.jpg"
+  img: "img/misc/test.jpg"
   frameworks:
     - C
 - name: Infiltrate
@@ -118,7 +118,7 @@
     Unfortunately, I never turned this into a fully-fledged game.
 
 - name: Pintos
-  img: "img/test.jpg"
+  img: "img/misc/test.jpg"
   frameworks:
     - C
 - name: Pawn Race
@@ -127,7 +127,7 @@
     - Java
     - JavaFX
 - name: Genetic Algorithm Simulator
-  img: "img/test.jpg"
+  img: "img/misc/test.jpg"
   frameworks:
     - JavaScript
     - Pixi.js
