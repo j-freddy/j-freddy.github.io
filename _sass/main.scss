@@ -1,14 +1,14 @@
-@import "open-color";
 @import "variables";
-
-@mixin background-cover($img) {
-  background: $img no-repeat fixed;
-  background-size: cover;
-}
+@import "mixins";
 
 * {
   font-family: $font-main;
   color: $my-darkest;
+}
+
+// Custom icons
+.icon-earmuffs {
+  @include custom-icon(url("img/misc/earmuffs.svg"));
 }
 
 // Navbar
@@ -58,6 +58,59 @@
   }
 }
 
+#my-home {
+  // Default padding was 30px but this leaves space at the bottom
+  padding: 0;
+  padding-top: 30px;
+
+  #my-jumbotron {
+    .icon-earmuffs {
+      font-size: 6em;
+    }
+  
+    .title-role {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+  
+    .title-name {
+      font-size: 4em;
+      font-weight: 600;
+    }
+  }
+
+  // $my-darker with alpha
+  // $my-colour: rgba(52, 58, 64, 0.8);
+  // $my-darkest with alpha
+  $my-colour: rgba(33, 37, 41, 0.7);
+
+  .divider-1 {
+    $width: calc(max(100%, #{map-get($grid-breakpoints, md)}));
+    @include divider-bottom($width, 100px, $my-colour);
+  }
+
+  #my-container {
+    background: $my-colour;
+
+    p {
+      color: $my-lighter;
+    }
+
+    .my-button {
+      color: $my-darkest;
+      text-decoration: none;
+    }
+  }
+
+  .site-footer {
+    background: $my-colour;
+
+    .footer-text {
+      color: $my-lighter;
+    }
+  }
+}
+
 #my-portfolio {
   .project-preview {
     &:hover {
@@ -66,7 +119,7 @@
   }
 
   .project-framework-pill {
-    background-color: $my-lighter;
+    background-color: $my-lightest !important;
     color: $my-dark;
     font-size: 12px;
     font-weight: 600;

@@ -1,0 +1,40 @@
+@mixin background-cover($img) {
+  background: $img no-repeat fixed;
+  background-size: cover;
+}
+
+@mixin custom-icon($img) {
+  background: $img;
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+}
+
+@mixin divider($width, $height, $fill) {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+
+  svg {
+    position: relative;
+    display: block;
+    width: $width;
+    height: $height;
+  }
+
+  .shape-fill {
+    fill: $fill;
+  }
+}
+
+@mixin divider-top($width, $height, $fill) {
+  @include divider($width, $height, $fill);
+  top: 0;
+}
+
+@mixin divider-bottom($width, $height, $fill) {
+  @include divider($width, $height, $fill);
+  bottom: 0;
+}
