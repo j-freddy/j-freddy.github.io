@@ -24,8 +24,11 @@ email: "jiang.tf.2020@gmail.com"
 description: >-
   Portfolio and blog of a university software engineer.
 baseurl: ""
+# Do not display dates in blog posts
+permalink: /:title
 url: "https://j-freddy.github.io"
 github_username:  j-freddy
+blog_preview_size: "50"
 
 # Build settings
 theme: minima
