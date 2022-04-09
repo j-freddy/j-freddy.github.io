@@ -1,0 +1,85 @@
+#my-home {
+  // Default padding was 30px but this leaves space at the bottom
+  padding: 0;
+  padding-top: 30px;
+
+  #my-jumbotron {
+    .earmuffs-container {
+      padding-right: 2em;
+
+      .icon-earmuffs {
+        font-size: 6em;
+      }
+
+      text-align: end;
+
+      @media (max-width: map-get($grid-breakpoints, md)) {
+        text-align: center;
+      }
+    }
+  
+    .title-container {
+      .title-role {
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+    
+      .title-name {
+        font-size: 4em;
+        font-weight: 600;
+      }
+
+      @media (max-width: map-get($grid-breakpoints, sm)) {
+        .title-name {
+          font-size: 3em;
+        }
+      }
+
+      text-align: start;
+
+      @media (max-width: map-get($grid-breakpoints, md)) {
+        text-align: center;
+      }
+    }
+  }
+
+  // $my-darker with alpha
+  // $my-colour: rgba(52, 58, 64, 0.8);
+  // $my-darkest with alpha
+  $my-colour: rgba(33, 37, 41, 0.7);
+
+  .divider-1 {
+    $width: calc(max(100%, #{map-get($grid-breakpoints, md)}));
+    @include divider-bottom($width, 100px, $my-colour);
+  }
+
+  #my-container {
+    background: $my-colour;
+
+    p, h1, h2, h3, h4, h5, h6, b, i {
+      color: $my-lighter;
+    }
+
+    a {
+      color: $my-theme-light;
+
+      i {
+        color: $my-theme-light;
+      }
+    }
+
+    .site-description {
+      border-left: 4px solid $my-lighter;
+      border-radius: 4px;
+      padding: 0 1em 0 1em;
+    }
+  }
+
+  .site-footer {
+    background: $my-colour;
+
+    .footer-text {
+      color: $my-lighter;
+    }
+  }
+}

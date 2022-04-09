@@ -1,10 +1,12 @@
 @import "open-color";
 
 // Colours
-$my-theme-light: $oc-violet-1;
-$my-theme-darkest: $oc-violet-9;
-$my-theme-darker: $oc-violet-8;
-$my-theme-dark: $oc-violet-7;
+$my-theme-lightest: $oc-cyan-1;
+$my-theme-lighter: $oc-cyan-2;
+$my-theme-light: $oc-cyan-3;
+$my-theme-darkest: $oc-cyan-9;
+$my-theme-darker: $oc-cyan-8;
+$my-theme-dark: $oc-cyan-7;
 $my-white: #fff;
 $my-lightest: $oc-gray-0;
 $my-lighter: $oc-gray-2;
@@ -32,3 +34,7 @@ $grid-breakpoints: (
   xl: 1200px,
   xxl: 1400px
 );
+
+// Overriden variables
+$spacing-unit: 30px;
+$content-width: calc(max(58vw, 900px));

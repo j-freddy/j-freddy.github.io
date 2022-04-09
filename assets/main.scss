@@ -1,9 +1,13 @@
 ---
 ---
+// Variables and mixins can only be defined once
+// So to customise them, place them before importing Minima
+@import "variables"; // Custom variables / overriding variables
+@import "mixins";    // Custom mixins
 
-// Overriden Variables
-$spacing-unit: 30px;
-$content-width: calc(max(58vw, 900px));
+// Import Minima
+@import "minima";    // Default SCSS
 
-@import "minima"; // Default SCSS
-@import "main";   // Custom SCSS
+// Styling properties can be overriden
+// So to customise them, place them after importing Minima
+@import "main";      // Custom SCSS

@@ -28,21 +28,41 @@ layout: home
   </div>
 </div>
 <div class="flex-grow-1" id="my-container">
-  <div class="text-center site-description">
-    <p>
-      <span id="welcome-msg">Welcome to my site!</span><br>
-      I am a 2nd year Joint Maths and Computing student at Imperial College
-      London.
-    </p>
-    <div>
-      <a type="button" class="btn btn-light me-3 my-button" role="button"
-         href="{% link portfolio/index.html %}">
-        View Projects
-      </a>
-      <a type="button" class="btn btn-light my-button" role="button"
-         href="{% link blog/index.html %}">
-        Read Blog
-      </a>
+  <div class="wrapper px-5 py-3">
+    <div class="site-description">
+      <h5><b>Welcome to my site!</b></h5>
+      <p>
+        I am a 2nd year Joint Maths and Computing student at Imperial College
+        London.
+      </p>
+
+      <div>
+        <a href="{% link portfolio/index.html %}">
+          <i class="fa-solid fa-lightbulb me-2"></i>View Projects
+        </a><br>
+        <a href="{% link blog.html %}">
+          <i class="fa-solid fa-book me-2"></i>Read Blog
+        </a>
+      </div>
     </div>
+
+    {%- if site.posts.size > 0 -%}
+      <div class="mt-5">
+        {%- assign post = site.posts[0] -%}
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+
+        <h5><b>Latest blog post</b></h5>
+
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        <p>
+          {{ post.content | markdownify | strip_html | truncatewords: site.blog_preview_size }}
+        </p>
+      </div>
+      {%- endif -%}
   </div>
 </div>
