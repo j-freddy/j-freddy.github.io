@@ -2,6 +2,8 @@
 layout: default
 ---
 
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+
 <main class="page-content page-body" aria-label="Content">
   <div class="wrapper">
     <article class="post">
@@ -12,8 +14,11 @@ layout: default
 
       <div class="mb-4">
         <p>
-          <i class="fa-solid fa-calendar me-3"></i>{{ page.date }}<br>
-          <i class="fa-solid fa-user me-3"></i>{{ page.author }}
+          <i class="fa-solid fa-calendar me-3"></i>{{ page.date | date: date_format }}<br>
+          
+          {%- if page.author -%}
+            <i class="fa-solid fa-user me-3"></i>{{ page.author }}
+          {%- endif -%}
         </p>
       </div>
     

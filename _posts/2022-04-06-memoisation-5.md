@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Memoisation
-date: April 6, 2022
+title: Memoisation 42
+date: April 16, 2022
 author: Freddy
 ---
 
