@@ -1,3 +1,4 @@
+# Used to generate navbar
 - name: Home
   link: /
 - name: Portfolio
