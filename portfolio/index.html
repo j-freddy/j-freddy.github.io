@@ -53,9 +53,14 @@ scripts: |
               {%- endif -%}
               <!-- Project description -->
               <div class="mt-4">
+                <h5 class="my-modal-header">Description</h5>
                 {%- if project.description -%}
-                  <h5 class="my-modal-header">Description</h5>
                   <p>{{ project.description }}</p>
+                {%- else -%}
+                  <p>
+                    A description will be written in the future<br>
+                    probably :)
+                  </p>
                 {%- endif -%}
 
                 {%- if project.preview -%}

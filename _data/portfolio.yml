@@ -29,7 +29,7 @@
     <a href="https://edtech.pages.doc.ic.ac.uk" target="_blank"
        rel="noopener noreferrer">
       https://edtech.pages.doc.ic.ac.uk
-    </a>.
+    </a>
 - name: Duel!
   img: "img/portfolio/duel.png"
   preview: "https://litetj.itch.io/duel"
@@ -51,7 +51,9 @@
     <a href="https://www.youtube.com/watch?v=2NnTHHqoIrw" target="_blank"
        rel="noopener noreferrer">
       https://www.youtube.com/watch?v=2NnTHHqoIrw
-    </a>
+    </a><br><br>
+
+    Try out the game! Grab a friend, and duel to the death!
 - name: WACC
   img: "img/portfolio/wacc.png"
   frameworks:
@@ -87,7 +89,7 @@
     - SCSS
   description: |
     Solar Searcher is powered by a deep learning neural network AI and developed
-    during IC Hack 22 in 24 hours.<br><br>
+    during IC Hack 22 in 24 hours. (It was quite intense - we didn't sleep!)<br><br>
 
     Given a country, the web app generates a ranking of areas within the country
     that are most feasible for building solar farms. The ranking algorithm
@@ -115,7 +117,8 @@
     I discovered SuperTux in primary school. This is my attempt at developing
     one in Unity, and I was quite happy with how it turned out.<br><br>
 
-    Unfortunately, I never turned this into a fully-fledged game.
+    Unfortunately, I never turned this into a fully-fledged game. You can play
+    the demo using the link below.
 
 - name: Pintos
   img: "img/misc/test.jpg"
@@ -123,13 +126,34 @@
     - C
 - name: Pawn Race
   img: "img/portfolio/pawn-race.png"
+  source_code: "https://github.com/j-freddy/pawn-race"
   frameworks:
     - Java
     - JavaFX
+  description: |
+    During my 1st year at Imperial, the Department of Computing held an AI
+    Kotlin Pawn Race, and I was one of the winners! (using a MCTS strategy)
+    <br><br>
+
+    Fast forward to the Summer term and I was
+    <a href="https://github.com/j-freddy/chess" target="_blank"
+       rel="noopener noreferrer">
+      programming chess</a>
+    in Java as a side hobby. I prototyped it to support Pawn Race and challenged
+    myself to create a stronger AI. This time, I used Minimax with alpha-beta
+    pruning, using the strategy of "space control" as a static evaluator. It
+    triumphed over my Kotlin AI.
 - name: Genetic Algorithm Simulator
   img: "img/misc/test.jpg"
+  preview: "https://freddyproject.github.io/Machine_Learning_Simulator"
+  source_code: "https://github.com/FreddyProject/FreddyProject.github.io/tree/master/Machine_Learning_Simulator"
   frameworks:
     - JavaScript
     - Pixi.js
     - HTML
     - CSS
+  description: |
+    This is my project for the AQA A-level Computer Science NEA. Back then, I
+    already had a deep interest in machine learning, and used the opportunity
+    to research and build (from scratch) a genetic/evolutionary algorithm to
+    train AIs to play a platformer.
