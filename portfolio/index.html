@@ -38,16 +38,7 @@ scripts: |
             <div class="w3-container m-3 p-3">
               <!-- Project frameworks -->
               {%- if project.frameworks -%}
-              <!-- List group design -->
-              <!-- <small>
-                <ul class="list-group list-group-horizontal">
-                  {%- for framework in project.frameworks -%}
-                    <li class="list-group-item">{{ framework }}</li>
-                  {%- endfor -%}
-                </ul>
-              </small> -->
-              <!-- Pills design -->
-              {%- for framework in project.frameworks -%}
+                {%- for framework in project.frameworks -%}
                   <small class="badge rounded-pill project-framework-pill ms-3">{{ framework }}</small>
                 {%- endfor -%}
               {%- endif -%}

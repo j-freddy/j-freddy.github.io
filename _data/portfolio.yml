@@ -67,7 +67,7 @@
     variables, loops, conditional branching, arrays and functions. The preview
     image is a code snippet from a Tic-Tac-Toe AI written in WACC.<br><br>
 
-    Our challenge in the 2022 Spring term at Imperial College? Given 6 weeks,
+    Our challenge in the 2022 Spring term? Given 6 weeks,
     write a compiler that performs syntax and semantic analysis on any WACC
     file, then (if valid) generates executable code for the ARM11 architecture.
     The four of us successfully implemented this in Scala and Parsley (parser
@@ -88,8 +88,9 @@
     - BootStrap
     - SCSS
   description: |
-    Solar Searcher is powered by a deep learning neural network AI and developed
-    during IC Hack 22 in 24 hours. (It was quite intense - we didn't sleep!)<br><br>
+    SolarSearch is powered by a deep learning neural network AI and developed
+    during IC Hack 22 in 24 hours. (It was quite intense - we didn't sleep!)
+    <br><br>
 
     Given a country, the web app generates a ranking of areas within the country
     that are most feasible for building solar farms. The ranking algorithm
@@ -103,7 +104,7 @@
     </a>
     
 - name: ARM Emulator
-  img: "img/misc/test.jpg"
+  img: "img/portfolio/c-arm.png"
   frameworks:
     - C
 - name: Infiltrate
@@ -121,9 +122,18 @@
     the demo using the link below.
 
 - name: Pintos
-  img: "img/misc/test.jpg"
+  img: "img/portfolio/pintos.png"
   frameworks:
     - C
+  description: |
+    Pintos is an operating system with a monolithic kernel. It supports basic
+    functionality such as multithreading, running user programs and file
+    systems.<br><br>
+
+    Our challenge in Summer 2021 is to implement and extend its functionality,
+    including non-busy wait, implementing system calls, priority scheduling and
+    priority donation.
+
 - name: Pawn Race
   img: "img/portfolio/pawn-race.png"
   source_code: "https://github.com/j-freddy/pawn-race"
@@ -144,7 +154,7 @@
     pruning, using the strategy of "space control" as a static evaluator. It
     triumphed over my Kotlin AI.
 - name: Genetic Algorithm Simulator
-  img: "img/misc/test.jpg"
+  img: "img/portfolio/genetic-algorithm-simulator.png"
   preview: "https://freddyproject.github.io/Machine_Learning_Simulator"
   source_code: "https://github.com/FreddyProject/FreddyProject.github.io/tree/master/Machine_Learning_Simulator"
   frameworks:
