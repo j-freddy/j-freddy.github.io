@@ -10,6 +10,19 @@
   @include custom-icon(url("img/misc/earmuffs.svg"));
 }
 
+// General
+a {
+  color: $my-theme-darkest;
+
+  i {
+    color: $my-theme-darkest;
+  }
+
+  &:visited {
+    color: $my-theme-darkest;
+  }
+}
+
 // Navbar
 .site-header {
   border-top: 6px solid $my-darker;
@@ -59,3 +72,4 @@
 
 @import "home";
 @import "portfolio";
+@import "contact";
