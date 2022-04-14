@@ -6,26 +6,43 @@ layout: default
 
 <main class="page-content page-body" aria-label="Content">
   <div class="wrapper">
-    <article class="post">
+    <div class="row">
+      <div class="col-md-9">
+        <article class="post">
   
-      <header class="post-header">
-        <h1 class="post-title text-center mt-3">{{ page.title | escape }}</h1>
-      </header>
+          <header class="post-header">
+            <h1 class="post-title mt-3">{{ page.title | escape }}</h1>
+          </header>
+    
+          <div class="mb-4">
+            <p>
+              <i class="fa-solid fa-calendar me-3"></i>{{ page.date | date: date_format }}<br>
+              
+              {%- if page.author -%}
+                <i class="fa-solid fa-user me-3"></i>{{ page.author }}
+              {%- endif -%}
+            </p>
+          </div>
+        
+          <div class="post-content">
+            {{ content }}
+          </div>
+        
+        </article>
+      </div>
+      <div class="col mt-5 pt-5">
+        <h5><b>More Blog Posts</b></h5>
 
-      <div class="mb-4">
+        {%- for post in site.posts -%}
         <p>
-          <i class="fa-solid fa-calendar me-3"></i>{{ page.date | date: date_format }}<br>
-          
-          {%- if page.author -%}
-            <i class="fa-solid fa-user me-3"></i>{{ page.author }}
-          {%- endif -%}
+          <small>
+            <a href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </small>
         </p>
+        {%- endfor -%}
       </div>
-    
-      <div class="post-content">
-        {{ content }}
-      </div>
-    
-    </article> 
+    </div> 
   </div>
 </main>
