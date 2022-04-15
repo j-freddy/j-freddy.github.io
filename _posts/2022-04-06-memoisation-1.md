@@ -3,6 +3,7 @@ layout: post
 title: Apples and Cherries
 date: April 6, 2022
 author: Freddy
+cover_img: "misc/test.jpg"
 ---
 
 ## Introduction

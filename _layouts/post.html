@@ -3,6 +3,7 @@ layout: default
 ---
 
 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+{%- assign img_path = "assets/img/" -%}
 
 <main class="page-content page-body" aria-label="Content">
   <div class="wrapper">
@@ -14,7 +15,7 @@ layout: default
             <h1 class="post-title mt-3">{{ page.title | escape }}</h1>
           </header>
     
-          <div class="mb-4">
+          <div>
             <p>
               <i class="fa-solid fa-calendar me-3"></i>{{ page.date | date: date_format }}<br>
               
@@ -22,15 +23,19 @@ layout: default
                 <i class="fa-solid fa-user me-3"></i>{{ page.author }}
               {%- endif -%}
             </p>
+            {%- if page.cover_img -%}
+              <img src="{{img_path}}{{page.cover_img}}" class="img-fluid">
+            {%- endif -%}
+            <img src="">
           </div>
         
-          <div class="post-content">
+          <div class="post-content my-post">
             {{ content }}
           </div>
         
         </article>
       </div>
-      <div class="col mt-5 pt-5">
+      <div class="col mt-5 pt-5 px-3">
         <h5><b>More Blog Posts</b></h5>
 
         {%- for post in site.posts -%}
