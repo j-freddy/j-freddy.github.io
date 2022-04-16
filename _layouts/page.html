@@ -2,18 +2,26 @@
 layout: default
 ---
 
+{%- if page.title-layout == "jumbotron" -%}
+<main class="page-content page-body post-body p-0" aria-label="Content">
+{%- else -%}
 <main class="page-content page-body" aria-label="Content">
-  <div class="wrapper">
-    <article class="post">
-  
-      <header class="post-header">
+{%- endif -%}
+  <article class="post">
+
+    <header class="post-header">
+      {%- if page.title-layout == "jumbotron" -%}
+      {%- include title-jumbotron.html -%}
+      {%- else -%}
         <h1 class="post-title text-center mt-3">{{ page.title | escape }}</h1>
-      </header>
-    
+      {%- endif -%}
+    </header>
+  
+    <div class="wrapper">
       <div class="post-content">
         {{ content }}
       </div>
-    
-    </article> 
-  </div>
+    </div>
+  
+  </article>
 </main>
