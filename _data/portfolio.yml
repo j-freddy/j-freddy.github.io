@@ -107,6 +107,10 @@
   img: "img/portfolio/c-arm.png"
   frameworks:
     - C
+  description: |
+    In Summer 2021, we created a two-pass assembler that converts ARM assembly
+    code into binary. We also coded an emulator that runs binary code, complete
+    with the three-stage pipeline, CPSR flags and barrel shifters.
 - name: Infiltrate
   img: "img/portfolio/infiltrate.png"
   preview: "https://litetj.itch.io/infiltrate-demo"
@@ -130,7 +134,7 @@
     functionality such as multithreading, running user programs and file
     systems.<br><br>
 
-    Our challenge in Summer 2021 is to implement and extend its functionality,
+    Our challenge in Fall 2022 is to implement and extend its functionality,
     including non-busy wait, implementing system calls, priority scheduling and
     priority donation.
 
