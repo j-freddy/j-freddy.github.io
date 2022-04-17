@@ -10,6 +10,10 @@ cover_img: "misc/test.jpg"
 
 This is a test blog! Delete it later.
 
+Latex testing $$\alpha$$:
+
+$$ f(x) = x + 3 $$
+
 ## Definition
 
 An optimisation technique in which calculated results are stored and reused. It is a form of caching.
