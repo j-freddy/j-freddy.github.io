@@ -59,8 +59,8 @@ sorts of curves. Here's an exotic curve below.
 <img src="{{img_dir}}bezier-loop.gif"
      alt="cubic-bezier" width="240px" class="img-thumbnail">
 
-We can generate further shapes by joining multiple Bezier curves together. We
-will explore this in the next section.
+We can generate further shapes by joining multiple Bezier curves together to
+form **B-splines**. We will explore this in the next section.
 
 ## Bezier curves in vector art
 
@@ -106,6 +106,8 @@ control points for 3 cubic Bezier curves, but 2 points are shared.
 
 ## The maths behind Bezier curves
 
+### De Casteljau's algorithm
+
 Recall how we constructed Bezier curves through recursive lerping. To lerp
 between 2 points $$p$$ and $$q$$, we use this equation:
 
@@ -116,22 +118,43 @@ recurrence relation.
 
 $$
 \begin{align}
-     &p_i^{(0)} = p_i & &i = 0, \ldots, n\\
-     &p_i^{(j)} = p_i^{(j-1)} (1 - t) + p_{i+1}^{(j-1)} t & &i = 0, \ldots, n-j
+     &p_i^{(0)}(t) = p_i & &i = 0, \ldots, n\\
+     &p_i^{(j)}(t) = (1 - t)p_i^{(j-1)} + t p_{i+1}^{(j-1)} & &i = 0, \ldots, n-j
 \end{align}
 $$
 
-Intuitively, $$p_i^{(j)}$$ describes the intermediary lerped points. The actual
-point along the Bezier curve at time $$t$$ is $$p_0^{(n)}$$.
+Intuitively, $$p_i^{(j)}(t)$$ describes the intermediary lerped points at time
+$$t$$. The actual point along the Bezier curve at time $$t$$ is
+$$p_0^{(n)}(t)$$, which we'll also denote $$B(t)$$.
 
-This algorithm is known as **De Casteljau's algorithm**.
+### Bernstein form
 
-If we expand this recurrence relation, we get another representation, called the
-**Bernstein form**.
+By expanding the recurrence relation in De Casteljau's algorithm, we get the
+explicit representation. This is the **Bernstein form**.
 
-[code Bezier curve]({{site.baseurl}}{%- link _posts/2022-04-22-programming-bezier-curves.md -%})
+As a reminder, $${p_0, \ldots, p_n}$$ are the control points, and $$B(t)$$ is
+our point along the Bezier curve.
 
-- using polynomials to define the curves
-  - De Casteljau's algorithm (recursive) is slower but more numerically stable
-- features of Bezier Curves (e.g. easily find derivatives)
-- applications
+$$
+\begin{align}
+     &B(t) = \sum_{i=1}^n b_{i, n}(t) p_i & & \\
+     &b_{i, n}(t) = \binom{n}{i} (1-t)^{n-i} t^i & &\text{(Bernstein basis polynomials)}
+\end{align}
+$$
+
+This is faster than De Casteljau's algorithm, but less numerically stable (that
+is, less accurate under pertubed input data).
+
+In this form, it is easy to compute the derivative of any point along a Bezier
+curve. This is useful in applied mechanics, for example, when the vertical
+heights of roads or other platforms are modelled as Bezier curves.
+
+$$B'(t) = n \sum_{i=0}^{n-1} b_{i, n-1}(t) (p_{i+1} - p_i)$$
+
+## Further reading
+
+- On a [separate blog post]({{site.baseurl}}{%- link _posts/2022-04-22-programming-bezier-curves.md -%}),
+I give a tutorial on how to write a program that draws Bezier curves.
+- [The Beauty of Bezier Curves](https://www.youtube.com/watch?v=aVwxzDHniEw) is
+an exceptional, beginner-friendly video that discusses more properties of Bezier
+curves.
