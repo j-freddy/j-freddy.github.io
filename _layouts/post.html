@@ -1,9 +1,16 @@
 ---
 layout: default
+scripts: |
+  <script src="../assets/js/backToTopButton.js"></script>
 ---
 
 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 {%- assign img_path = "assets/img/" -%}
+
+<!-- Back to top button -->
+<button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
 
 <main class="page-content page-body post-body" aria-label="Content">
   <div class="wrapper">
@@ -46,6 +53,6 @@ layout: default
         </p>
         {%- endfor -%}
       </div>
-    </div> 
+    </div>
   </div>
 </main>

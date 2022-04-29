@@ -21,6 +21,17 @@ a {
   }
 }
 
+// Back to top button
+#btn-back-to-top {
+  position: fixed;
+  bottom: 1.5em;
+  right: 1.5em;
+  display: none;
+  border-radius: 999px;
+  background-color: $my-theme-dark;
+  color: $my-lightest;
+}
+
 // Navbar
 .site-header {
   border-top: 6px solid $my-darker;

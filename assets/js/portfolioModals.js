@@ -46,6 +46,4 @@ function handleModals() {
   });
 }
 
-window.addEventListener("load", () => {
-  handleModals();
-});
+window.addEventListener("load", handleModals);
