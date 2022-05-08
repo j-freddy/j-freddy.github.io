@@ -1,5 +1,5 @@
 function handleBackToTop() {
-  const scrollOffsetTrigger = 40
+  const scrollOffsetTrigger = 40;
   const button = document.getElementById("btn-back-to-top");
 
   // Show button if user scrolls down a bit

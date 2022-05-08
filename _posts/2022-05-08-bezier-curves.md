@@ -1,9 +1,14 @@
 ---
 layout: post
 title: Bezier Curves
-date: April 19, 2022
+date: May 8, 2022
 author: Freddy
 cover_img: "blog/bezier-curves/bezier-road.png"
+scripts: |
+  <script src="../assets/js/bezier-curves/point.js"></script>
+  <script src="../assets/js/bezier-curves/bezierCurve.js"></script>
+  <script src="../assets/js/bezier-curves/GUI.js"></script>
+  <script src="../assets/js/bezier-curves/main.js"></script>
 ---
 
 <div class="blog-preamble">
@@ -12,8 +17,9 @@ cover_img: "blog/bezier-curves/bezier-road.png"
 
 <span id="blog-summary">
 If you've ever worked with vector art, you've almost certainly come across
-Bezier curves. But what exactly are they? This article introduces the idea
-behind a Bezier curve and discusses its applications.
+Bezier curves. But what exactly are they? This article explains how to construct
+a Bezier curve, discusses where they are used, and describes underlying
+mathematics.
 </span>
 
 A Bézier curve is smooth and continuous.
@@ -43,7 +49,7 @@ Now, lerp over **A** and **B**, and we get a curve!
      alt="quadratic-bezier" width="240px" class="img-thumbnail">
 
 This is the idea behind constructing a Bezier curve. We call **P**, **Q**, **R**
-the **control points**. With 3 control points, we have 2 stages of lerping to
+our **control points**. With 3 control points, we have 2 stages of lerping to
 generate a quadratic Bezier curve. We can add an additional control point, which
 generates a cubic Bezier curve through 3 stages of lerping.
 
@@ -51,16 +57,27 @@ generates a cubic Bezier curve through 3 stages of lerping.
      alt="cubic-bezier" width="240px" class="img-thumbnail">
 
 We can keep adding control points indefinitely, although quadratic and cubic
-Bezier curves are used most often. You can observe, by construction, that a
+Bezier curves are used most often. You can observe that, by construction, a
 Bezier curve is extremely lightweight! To define a cubic Bezier curve, you only
-need to specify 4 control points. By moving the control points, we can form all
-sorts of curves. Here's an exotic curve below.
+need 4 control points. By moving the control points, we can form all kinds of
+curves. Here's an exotic curve below.
 
 <img src="{{img_dir}}bezier-loop.gif"
      alt="cubic-bezier" width="240px" class="img-thumbnail">
 
 We can generate further shapes by joining multiple Bezier curves together to
-form **B-splines**. We will explore this in the next section.
+form **B-splines**. We will explore this later.
+
+## Try it out yourself!
+
+Drag the control points with your mouse.
+
+<canvas id="my-bezier-canvas" width="300" height="240">
+     Your browser does not support canvas.
+</canvas>
+
+\
+([Source code](https://github.com/j-freddy/bezier-curves/tree/interactive))
 
 ## Bezier curves in vector art
 
@@ -74,8 +91,8 @@ Selecting the path reveals some details.
 <img src="{{img_dir}}inkscape-curve-detail.png"
      alt="example-inkscape-detailed" width="480px" class="img-thumbnail">
 
-These details reveal that the path is, in fact, composed of 3 cubic Bezier
-curves. We annotate one curve below.
+These details reveal that the path is, in fact, 3 cubic Bezier curves fused
+together. We annotate one curve below.
 
 <img src="{{img_dir}}inkscape-curve-annotated.png"
      alt="example-inkscape-annotated" width="480px" class="img-thumbnail">
@@ -94,15 +111,6 @@ this is how the path is defined (in the `.svg` file).
 
 A quick count yields 10 pairs of coordinates. This makes sense, as we expect 12
 control points for 3 cubic Bezier curves, but 2 points are shared.
-
-## Try it out yourself!
-
-<!-- This might be viable -->
-<!-- assets/js/bezier-curve/script.js (probably better as multiple files) -->
-<!-- Or -->
-<!-- assets/js/bezier-curve.js -->
-<canvas id="my-bezier-canvas" style="border: 1px solid black">
-</canvas>
 
 ## The maths behind Bezier curves
 
@@ -125,7 +133,7 @@ $$
 
 Intuitively, $$p_i^{(j)}(t)$$ describes the intermediary lerped points at time
 $$t$$. The actual point along the Bezier curve at time $$t$$ is
-$$p_0^{(n)}(t)$$, which we'll also denote $$B(t)$$.
+$$p_0^{(n)}(t)$$, which we denote as $$B(t)$$.
 
 ### Bernstein form
 
@@ -153,7 +161,7 @@ $$B'(t) = n \sum_{i=0}^{n-1} b_{i, n-1}(t) (p_{i+1} - p_i)$$
 
 ## Further reading
 
-- On a [separate blog post]({{site.baseurl}}{%- link _posts/2022-04-22-programming-bezier-curves.md -%}),
+- On a [separate blog post]({{site.baseurl}}{%- link _posts/2022-05-08-programming-bezier-curves.md -%}),
 I give a tutorial on how to write a program that draws Bezier curves.
 - [The Beauty of Bezier Curves](https://www.youtube.com/watch?v=aVwxzDHniEw) is
 an exceptional, beginner-friendly video that discusses more properties of Bezier
