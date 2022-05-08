@@ -106,7 +106,9 @@ Now, we want to draw the Bezier curve, but how do we do that?
 
 Consider any non-linear curve defined by a function $$f$$. To render it on a
 computer, we must create a discrete approximation. We take samples of $$x$$,
-find the $$y$$ values and join them together with lines.
+find the $$y$$ values and join them together with lines. In the image below,
+our rendered curve would be the red lines. If we take enough samples, the red
+lines will eventually look like a curve.
 
 <img src="{{img_dir}}discretisation.png"
      alt="discretising-curve" width="420px" class="img-thumbnail">
