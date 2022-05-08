@@ -39,6 +39,3 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 # WEBrick for simple HTTP servers (Windows)
 gem "webrick", "~> 1.7"
-
-# KaTex
-gem "kramdown-math-katex", "~> 1.0.1"
