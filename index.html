@@ -45,6 +45,7 @@ layout: home
       </div>
     </div>
 
+    <!-- Blog preview -->
     {%- if site.posts.size > 0 -%}
       <div class="mt-5">
         {%- assign post = site.posts[0] -%}
@@ -62,6 +63,31 @@ layout: home
           {{ post.content | markdownify | strip_html | truncatewords: site.blog_preview_size }}
         </p>
       </div>
-      {%- endif -%}
+    {%- endif -%}
+
+    <!-- Social media -->
+    {%- assign socials = site.data.social_media -%}
+
+    <div class="text-center">
+      <div class="d-inline-block my-4 px-5 py-3" id="my-socials">
+        <h5><b>Find me</b></h5>
+
+        {%- for social in socials -%}
+        <div class="row text-start">
+          <div class="col-3">
+            <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
+              <i class="{{social.icon}} me-2"></i>
+            </a>  
+          </div>
+
+          <div class="col">
+            <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
+              {{social.platform}}
+            </a>
+          </div>
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
   </div>
 </div>
