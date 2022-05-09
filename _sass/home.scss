@@ -75,8 +75,16 @@
     }
 
     #my-socials {
-      border: 2px solid $my-light;
+      $my-dark-opaque: rgba(73, 80, 87, 0.6);
+
+      border: 2px solid $my-dark;
       border-radius: 8px;
+      background-color: $my-dark-opaque;
+      padding: 1em 3em 1em 3em;
+
+      i {
+        color: $my-lighter;
+      }
     }
   }
 
