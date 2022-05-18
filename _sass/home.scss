@@ -43,10 +43,9 @@
     }
   }
 
-  // $my-darker with alpha
-  // $my-colour: rgba(52, 58, 64, 0.8);
-  // $my-darkest with alpha
-  $my-colour: rgba(33, 37, 41, 0.7);
+  // $oc-cyan-8 with alpha
+  $my-theme-colour-alpha: rgba(12, 133, 153, 0.75);
+  $my-colour: darken($my-theme-colour-alpha, 25%);
 
   .divider-1 {
     $width: calc(max(100%, #{map-get($grid-breakpoints, md)}));
@@ -68,23 +67,19 @@
       }
     }
 
-    .site-description {
-      border-left: 4px solid $my-lighter;
-      border-radius: 4px;
-      padding: 0 1em 0 1em;
+    #home-me {
+      border: 4px solid $my-darkest;
+      border-radius: 999px;
     }
 
-    #my-socials {
-      $my-dark-opaque: rgba(73, 80, 87, 0.6);
+    .container-info {
+      @include dark-container($my-darkest);
+      border-radius: 8px 32px 8px 32px;
+    }
 
-      border: 2px solid $my-dark;
-      border-radius: 8px;
-      background-color: $my-dark-opaque;
-      padding: 1em 3em 1em 3em;
-
-      i {
-        color: $my-lighter;
-      }
+    .container-blog {
+      @include dark-container($my-darker);
+      border-radius: 32px;
     }
   }
 

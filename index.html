@@ -2,6 +2,8 @@
 layout: home
 ---
 
+{%- assign assets_path = "../assets/" -%}
+
 <div class="container text-center" id="my-jumbotron">
   <div class="home-title mt-3 mb-5 pb-5">
     <div class="row align-items-center">
@@ -13,6 +15,19 @@ layout: home
         <h1 class="title-name">Freddy Jiang</h1>
         <p><i class="fa-solid fa-location-dot me-2"></i>United Kingdom</p>
       </div>
+    </div>
+
+    <div class="mt-3 mb-5">
+      <a href="{% link portfolio/index.html %}"
+         class="btn btn-primary my-button mx-2 px-4 py-2"
+         role="button">
+        <i class="fa-solid fa-lightbulb me-2"></i>View Projects
+      </a>
+      <a href="{% link blog.html %}"
+         class="btn btn-primary my-button mx-2 px-4 py-2"
+         role="button">
+        <i class="fa-solid fa-book me-2"></i>Read Blog
+      </a>
     </div>
   </div>
 </div>
@@ -28,20 +43,48 @@ layout: home
 </div>
 <div class="flex-grow-1" id="my-container">
   <div class="wrapper px-5 py-3">
-    <div class="site-description">
-      <h5><b>Welcome to my site!</b></h5>
-      <p>
-        Hi! I'm a 2nd year Joint Maths and Computing student at Imperial
-        College London.
-      </p>
+    <div class="row">
+      <div class="col-md-4 col-lg-3 my-3">
+        <!-- Photo -->
+        <img src="{{ assets_path }}img/misc/me.png"
+             id="home-me">
+      </div>
+      <div class="col-md my-3">
+        <!-- About me -->
+        <div class="container-info">
+          <h5><b>Welcome to my site!</b></h5>
+          <p>
+            Hi! I'm currently studying Joint Maths and Computing at Imperial
+            College London. Also a chess enthusiast, pianist and lover of
+            progressive-trance vocaloid music.<br><br>
 
-      <div>
-        <a href="{% link portfolio/index.html %}">
-          <i class="fa-solid fa-lightbulb me-2"></i>View Projects
-        </a><br>
-        <a href="{% link blog.html %}">
-          <i class="fa-solid fa-book me-2"></i>Read Blog
-        </a>
+            On this site, you can explore a collection of my projects. I also
+            write articles on tech-related topics.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3 my-3">
+        <!-- Social media -->
+        {%- assign socials = site.data.social_media -%}
+        <div class="d-inline-block container-info">
+          <h5><b>Find me</b></h5>
+
+          {%- for social in socials -%}
+          <div class="row">
+            <div class="col-3">
+              <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
+                <i class="{{social.icon}} me-2"></i>
+              </a>  
+            </div>
+
+            <div class="col">
+              <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
+                {{social.platform}}
+              </a>
+            </div>
+          </div>
+          {%- endfor -%}
+        </div>
       </div>
     </div>
 
@@ -51,43 +94,20 @@ layout: home
         {%- assign post = site.posts[0] -%}
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 
-        <h5><b>Latest blog post</b></h5>
+        <div class="container-blog">
+          <h5><b>Latest blog post</b></h5>
 
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        <p>
-          {{ post.content | markdownify | strip_html | truncatewords: site.blog_preview_size }}
-        </p>
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          <p>
+            {{ post.content | markdownify | strip_html | truncatewords: site.blog_preview_size }}
+          </p>
+        </div>
       </div>
     {%- endif -%}
-
-    <!-- Social media -->
-    {%- assign socials = site.data.social_media -%}
-
-    <div class="text-center">
-      <div class="d-inline-block my-4" id="my-socials">
-        <h5><b>Find me</b></h5>
-
-        {%- for social in socials -%}
-        <div class="row text-start">
-          <div class="col-3">
-            <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
-              <i class="{{social.icon}} me-2"></i>
-            </a>  
-          </div>
-
-          <div class="col">
-            <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
-              {{social.platform}}
-            </a>
-          </div>
-        </div>
-        {%- endfor -%}
-      </div>
-    </div>
   </div>
 </div>

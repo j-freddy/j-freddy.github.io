@@ -38,3 +38,13 @@
   @include divider($width, $height, $fill);
   bottom: 0;
 }
+
+@mixin dark-container($colour) {
+  border: 4px solid $colour;
+  background-color: $colour;
+  padding: 1.3em 2.3em 1.3em 2.3em;
+
+  i {
+    color: $my-lighter;
+  }
+}
