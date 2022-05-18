@@ -3,6 +3,7 @@ layout: post
 title: "Freeing Up Disk Space on Mac (DIY)"
 date: May 12, 2022
 author: Freddy
+published: false
 ---
 
 <div class="blog-preamble">
