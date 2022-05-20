@@ -8,6 +8,10 @@ p, h1, h2, h3, h4, h5, h6 {
   @include custom-icon(url("img/misc/earmuffs.svg"));
 }
 
+.icon-earmuffs-edit {
+  @include custom-icon(url("img/misc/earmuffs-edit.svg"));
+}
+
 // General
 a {
   color: $my-theme-darkest;

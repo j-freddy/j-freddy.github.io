@@ -7,8 +7,12 @@
     .earmuffs-container {
       padding-right: 2em;
 
-      .icon-earmuffs {
+      .icon-earmuffs-edit {
         font-size: 6em;
+
+        @media (max-width: map-get($grid-breakpoints, sm)) {
+          font-size: 8em;
+        }
       }
 
       text-align: end;
@@ -72,14 +76,23 @@
       border-radius: 999px;
     }
 
-    .container-info {
-      @include dark-container($my-darkest);
-      border-radius: 8px 32px 8px 32px;
+    // Small screen
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+      text-align: center;
+
+      #container-social {
+        @include dark-container($my-darkest);
+        border-radius: 8px;
+        text-align: start;
+      }
     }
 
-    .container-blog {
-      @include dark-container($my-darker);
-      border-radius: 32px;
+    // Large screen
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      .container-info {
+        @include dark-container($my-darkest);
+        border-radius: 8px 32px 8px 32px !important;
+      }
     }
   }
 

@@ -8,7 +8,7 @@ layout: home
   <div class="home-title mt-3 mb-5 pb-5">
     <div class="row align-items-center">
       <div class="col-md-5 earmuffs-container">
-        <h1><span class="icon-earmuffs"></span></h1>
+        <h1><span class="icon-earmuffs-edit"></span></h1>
       </div>
       <div class="col title-container">
         <h4 class="my-1 title-role">Software Engineer</h4>
@@ -66,7 +66,7 @@ layout: home
       <div class="col-md-4 col-lg-3 my-3">
         <!-- Social media -->
         {%- assign socials = site.data.social_media -%}
-        <div class="d-inline-block container-info">
+        <div class="d-inline-block container-info" id="container-social">
           <h5><b>Find me</b></h5>
 
           {%- for social in socials -%}
@@ -87,27 +87,5 @@ layout: home
         </div>
       </div>
     </div>
-
-    <!-- Blog preview -->
-    {%- if site.posts.size > 0 -%}
-      <div class="mt-5">
-        {%- assign post = site.posts[0] -%}
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-
-        <div class="container-blog">
-          <h5><b>Latest blog post</b></h5>
-
-          <span class="post-meta">{{ post.date | date: date_format }}</span>
-          <h3>
-            <a class="post-link" href="{{ post.url | relative_url }}">
-              {{ post.title | escape }}
-            </a>
-          </h3>
-          <p>
-            {{ post.content | markdownify | strip_html | truncatewords: site.blog_preview_size }}
-          </p>
-        </div>
-      </div>
-    {%- endif -%}
   </div>
 </div>
