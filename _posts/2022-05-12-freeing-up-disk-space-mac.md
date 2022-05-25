@@ -14,7 +14,9 @@ published: false
 Running out of disk space? Storage on Mac OS X gets used up quickly and
 mysteriously. This article is a comprehensive guide to freeing up disk space
 without using tools like CleanMyMac. In the process of doing so, we'll also
-discover exactly where all our big folders are.
+discover exactly where all our big folders are. As a disclaimer, this article is
+written with respect to Mac OS X Catalina, but is applicable to other Mac
+operating systems.
 </span>
 
 We'll start off with some surface checks.
@@ -96,28 +98,84 @@ What about these categories?
 
 ## Exploring the Other category
 
-This is where the danger zone begins. There's a reason why the `Other` category
-is hidden: modifying or deleting the wrong parts can cause some functionality to
-break.
+This is where the danger zone begins. Modifying or deleting the wrong parts can
+cause some functionality to break. That said, Mac will prevent you from modifying
+or deleting the *really* important files. Let's proceed with caution.
 
-That said, don't worry! Mac will prevent you from modifying or deleting the
-really important files. With that said, let's proceed with caution.
+Open a Finder window and press `CMD` + `SHIFT` + `G`. In the popup, type `/`.
+
+<img src="{{img_dir}}go-to-root.png"
+     alt="going-to-root" width="640px" class="img-thumbnail">
+
+You should now be here. This is the root directory. Every folder or file on your
+computer can be accessed from here. For example, you can reach the desktop via
+`Users > your_username > Desktop`. Our big friend Library is here as well.
+
+Now press `CMD` + `SHIFT` + `.`.
+
+<img src="{{img_dir}}root-all.png"
+     alt="root-with-hidden-files" width="640px" class="img-thumbnail">
+
+This reveals hidden folders and hidden files. These files are hidden by default,
+as they're usually system files that the user does not need to interact with.
+You can explore inside these hidden folders without harm.
+
+## How big are the hidden folders?
+
+Short answer: really big. Mac labels these folders as `Other`, and they make up
+a big chunk of it.
+
+The simplest way to explore the folders through the command line. Press `CMD` +
+`SPACE` and open Terminal. Type the following command, and hit enter. (Note:
+by convention, we'll prepend each command with a `$`. The actual command you
+type is `cd /`.)
+```
+$ cd /
+```
+
+We're back at Root, this time via the command line. Let's look at the folders in
+Root again.
+```
+$ ls
+
+Applications Preboot      Users        bin          dev          home         private      tmp          var
+Library      System       Volumes      cores        etc          opt          sbin         usr
+```
+
+The next command will scan the entire computer and list the largest folders and
+files.
+
+Before I present the command, let's talk about it. We're going to exclude System
+from our scan, since there's a loop: `System > Volumes > Macintosh HD` and we're
+back at Root. Now, if we were to run the scan, Mac is smart enough to figure
+this out, and will only scan the entire computer twice instead of infinitely.
+However, this is still redundant.
+
+The only other interesting folder in System is Library. This is **not** the
+Library folder we previously looked at. This is the System Library. You can
+select it in Finder and press `CMD + i`. Yup, it's also pretty big.
+
+<img src="{{img_dir}}system-library.png"
+     alt="system-library" width="360px" class="img-thumbnail">
+
+Inside it, you can find large folders, like `Desktop Pictures` which is 2GB in
+size. It's just a bunch of photos, but they're in such high definition that they
+use up a lot of space! Oh well, nothing we can do.
+
+Back to the command. Before running it, you can expect a **lot** of "Operations
+not permitted" messages. This is a good thing! These are files/folders that are
+so important that Mac is disabling you from trying to scan them.
+
+Finally, the full scan will take a long time (give at least 20 minutes). You can
+tell your computer is making progress when the lovely "Operations not permitted"
+messages continue to pop up. Alright, here it is.
+
+```
+$ du -I System -d 3 | sort -n
+```
 
 <!--
   - PART TWO
-  - Other?
-    - CMD + SHIFT + G then go to /
-      - this is Root. Everything on your entire computer can be found from here.
-      - our big friend Library folder is here as well :)
-      - Danger zone - proceed with caution.
-      - CMD + SHIFT + . reveals hidden files.
-        - Would your computer explode if you delete them, modify them, etc.?
-          - No. Well, some of them may be important for some functionalities.
-          But, you can visit these folders and view them, and it's all fine if
-          you don't touch them.
-          - In fact, we'll look to delete some of these hidden files.
-      - see the "usr" folder? It's probably very big.
-      - But, how big are the folders, really?
     - CMD + SPACE -> Terminal
     - $ cd /
     - $ ls
