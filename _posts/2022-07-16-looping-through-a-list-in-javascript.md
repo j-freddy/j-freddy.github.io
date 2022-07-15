@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "Looping Through a List in JavaScript"
-date: July 11, 2022
+date: July 16, 2022
 author: Freddy
-cover_img: "blog/freeing-up-disk-space-mac/imac.png"
+cover_img: "blog/looping-through-a-list/loop.jpg"
 ---
 
 <span id="blog-summary">
-Let's explore and compare the different ways of looping through a list in
-JavaScript: **for**, **forEach** and **for of**.
+This short article aims to explore and compare the different ways of looping
+through a list in JavaScript: **for**, **forEach** and **for of**.
 </span>
 
 Say we have a list, and we want to loop through it.
@@ -26,21 +26,19 @@ Our aim is to print the list as such:
 
 ## The familiar way
 
-Think back to when you started learning JavaScript. You were likely introduced
-to this method first.
 ```javascript
 for (let i = 0; i < fruits.length; i++) {
   console.log(i + ". " + fruits[i]);
 }
 ```
 
-This is the C-style **for** loop, as its syntax follows the pattern:
+This is the C-style **for** loop, as its syntax follows this pattern:
 ```c
 for (initialisation; condition; increment)
 ```
 
 As a side note, JavaScript introduced template literals in 2015, allowing us to
-write the following.
+code more succinctly.
 ```javascript
 // Full code
 const fruits = ["Apple", "Banana", "Cherry", "Date"];
@@ -53,7 +51,7 @@ for (let i = 0; i < fruits.length; i++) {
 ## forEach
 
 The previous program is imperative: code is executed statement by statement.
-JavaScript is predominantly an imperative language. However, the ES6 update in
+JavaScript is (predominantly) an imperative language. However, the ES6 update in
 2015 provided some functional tools, such as `forEach`.
 ```javascript
 fruits.forEach(fruit => console.log(fruit));
@@ -76,8 +74,8 @@ fruits.forEach((fruit, i) =>  console.log(`${i}. ${fruit}`));
 ### forEach sucks
 
 Unlike a **for** loop, **forEach** does not allow you to break out of the loop.
-**forEach** is also very slow. Many developers argue that **forEach** should
-never be used.
+**forEach** is also very slow. Many developers are against the usage of
+**forEach** - in any context.
 
 ## for of
 We move back to imperative programming with `for of`, also introduced in ES6 in
@@ -103,11 +101,10 @@ for (let [i, fruit] of fruits.entries()) {
 ## Trivia
 
 You may have noticed that I refer to `fruits` as a list and not an array. This
-is because `fruits` is mutable: you can add, remove and modify the list. To be
-pedantic, arrays do not exist natively in JavaScript, although the terms
-**list** and **array** have seemingly become synonymous within the JavaScript
+is because `fruits` is mutable: you can add, remove and modify the list. From a
+theoretical point of view, arrays are immutable by definition. However, the
+terms **list** and **array** have become synonymous within the JavaScript
 community.
 
-<!-- For loop -->
-<!-- ForEach loop -->
-<!-- For of loop -->
+In fact, even the
+[official documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) refers to them as arrays.
