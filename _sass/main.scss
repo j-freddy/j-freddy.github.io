@@ -60,9 +60,13 @@ a {
 
   .my-navbar {
     .navbar-brand {
-      font-size: 1.5em;
+      font-size: 1.25em;
       color: $my-darkest;
       text-decoration: none;
+
+      .icon-earmuffs {
+        font-size: 1.7em;
+      }
     }
 
     .navbar-nav {
@@ -75,6 +79,14 @@ a {
         &:hover {
           color: $my-darkest;
         }
+      }
+    }
+
+    .brand-temp {
+      visibility: hidden;
+
+      @media (max-width: map-get($grid-breakpoints, md)) {
+        display: none !important;
       }
     }
   } 

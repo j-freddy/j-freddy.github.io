@@ -3,11 +3,11 @@
 
   {%- if site_pages -%}
     <nav class="navbar navbar-expand-md navbar-light my-navbar px-3 pt-1 pb-2">
-      <div class="container-fluid pt-1">
+      <div class="container-fluid d-flex justify-content-between mt-1">
 
-        <a href="/" class="navbar-brand">
+        <a href="/" class="navbar-brand d-flex align-items-center">
           <span class="icon-earmuffs"></span>
-          <b>FJ</b>
+          <b class="ms-2">FJ</b>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,13 +18,19 @@
           <ul class="navbar-nav">
             {%- for page in site_pages -%}
               <li class="nav-item">
-                <a class="nav-link px-4" href="{{ page.link }}">
+                <a class="nav-link px-4 mx-1" href="{{ page.link }}">
                   {{ page.name }}
                 </a>
               </li>
             {%- endfor -%}
           </ul>
         </div>
+
+        <!-- Temporary fix to get navbar centered -->
+        <a href="/" class="navbar-brand d-flex align-items-center brand-temp">
+          <span class="icon-earmuffs"></span>
+          <b class="ms-2">FJ</b>
+        </a>
       </div>
     </div>
       

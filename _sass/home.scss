@@ -74,6 +74,10 @@
     #home-me {
       border: 4px solid $my-darkest;
       border-radius: 999px;
+
+      @media (max-width: map-get($grid-breakpoints, md)) {
+        max-width: 300px;
+      }
     }
 
     // Small screen
