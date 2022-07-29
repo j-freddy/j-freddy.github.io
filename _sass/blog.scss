@@ -1,5 +1,16 @@
 @import "syntax-highlighting";
 
+#my-posts-overview {
+  .post-link {
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+
+.post-body {
+  background: none;
+}
+
 .my-post {
   #blog-summary {
     font-style: italic;

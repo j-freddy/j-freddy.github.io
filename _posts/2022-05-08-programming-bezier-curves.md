@@ -3,6 +3,7 @@ layout: post
 title: Programming Bezier Curves
 date: May 8, 2022
 author: Freddy
+cover_img: "blog/programming-bezier-curves/melt.png"
 scripts: |
   <script src="../assets/js/bezier-curves/point.js"></script>
   <script src="../assets/js/bezier-curves/bezierCurve.js"></script>

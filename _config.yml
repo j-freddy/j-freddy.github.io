@@ -28,7 +28,6 @@ baseurl: ""
 permalink: /:title
 url: "https://j-freddy.github.io"
 github_username:  j-freddy
-blog_preview_size: "50"
 
 # Build settings
 theme: minima

@@ -18,12 +18,12 @@ scripts: |
         <div class="card">
           <img src="{{ assets_path }}{{ project.img }}"
                class="card-img-top border-bottom project-preview"
-               id="project-preview-{{ forloop.index }}">
+               id="project-preview-{{ forloop.index }}" />
           <div class="card-body text-center">
             <small class="card-project-name"><b>{{ project.name }}</b></small>
             {%- if project.frameworks -%}
               <div></div>
-              <small class="badge rounded-pill project-framework-pill">{{ project.frameworks[0] }}</small>
+              <small class="badge rounded-pill my-pill">{{ project.frameworks[0] }}</small>
             {%- endif -%}
           </div>
         </div>
@@ -39,7 +39,7 @@ scripts: |
               <!-- Project frameworks -->
               {%- if project.frameworks -%}
                 {%- for framework in project.frameworks -%}
-                  <small class="badge rounded-pill project-framework-pill ms-3">{{ framework }}</small>
+                  <small class="badge rounded-pill my-pill ms-3">{{ framework }}</small>
                 {%- endfor -%}
               {%- endif -%}
               <!-- Project description -->

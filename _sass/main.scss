@@ -42,6 +42,13 @@ a {
   }
 }
 
+.my-pill {
+  background-color: $my-lighter !important;
+  color: $my-darker;
+  font-size: 12px;
+  font-weight: 600;
+}
+
 // Back to top button
 #btn-back-to-top {
   position: fixed;
@@ -109,7 +116,7 @@ a {
     background-blend-mode: lighten;
     height: calc(max(20vw, 280px));
 
-    .post-description {
+    .page-description {
       font-weight: 600;
       font-size: 32px;
     }
@@ -120,10 +127,6 @@ a {
       font-weight: 600;
     }
   }
-}
-
-.post-body {
-  background: none;
 }
 
 // Footer

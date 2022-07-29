@@ -6,18 +6,60 @@ title-layout: jumbotron
 ---
 
 {%- if site.posts.size > 0 -%}
-  <ul class="post-list">
-    {%- for post in site.posts -%}
-    <li>
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      <span class="post-meta">{{ post.date | date: date_format }}</span>
-      <h3>
-        <a class="post-link" href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
-        </a>
-      </h3>
-      {{ post.content | markdownify | strip_html | truncatewords: site.blog_preview_size }}
-    </li>
-    {%- endfor -%}
-  </ul>
+  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+  {%- assign img_path = "assets/img/" -%}
+  {%- assign preview_size = 32 -%}
+
+  <div id="my-posts-overview">
+    <div class="row">
+      <div class="col-sm-6 px-2">
+        {%- for post in site.posts -%}
+          {%- assign flip_flop = forloop.index | modulo: 2 -%}
+          
+          {%- if flip_flop == 1 -%}
+            <!-- Render post -->
+            <div class="py-2">
+              <div class="card">
+                <img src="{{img_path}}{{post.cover_img}}"
+                     class="card-img-top border-bottom" />
+                <div class="card-body">
+                  <h3>
+                    <a class="stretched-link post-link" href="{{ post.url | relative_url }}">
+                      {{ post.title | escape }}
+                    </a>
+                  </h3>
+                  <p>{{ post.content | markdownify | strip_html | truncatewords: preview_size }}</p>
+                  <small class="badge my-pill float-end">{{ post.date | date: date_format }}</small>
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="col-sm-6 px-2">
+        {%- for post in site.posts -%}
+          {%- assign flip_flop = forloop.index | modulo: 2 -%}
+          
+          {%- if flip_flop == 0 -%}
+            <!-- Render post -->
+            <div class="py-2">
+              <div class="card">
+                <img src="{{img_path}}{{post.cover_img}}"
+                     class="card-img-top border-bottom" />
+                <div class="card-body">
+                  <h3>
+                    <a class="stretched-link post-link" href="{{ post.url | relative_url }}">
+                      {{ post.title | escape }}
+                    </a>
+                  </h3>
+                  <p>{{ post.content | markdownify | strip_html | truncatewords: preview_size }}</p>
+                  <small class="badge my-pill float-end">{{ post.date | date: date_format }}</small>
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
 {%- endif -%}

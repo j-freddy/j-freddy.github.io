@@ -3,7 +3,7 @@ layout: default
 ---
 
 {%- if page.title-layout == "jumbotron" -%}
-<main class="page-content page-body post-body p-0" aria-label="Content">
+<main class="page-content page-body p-0" aria-label="Content">
 {%- else -%}
 <main class="page-content page-body" aria-label="Content">
 {%- endif -%}
@@ -11,7 +11,7 @@ layout: default
 
     <header class="post-header">
       {%- if page.title-layout == "jumbotron" -%}
-      {%- include title-jumbotron.html -%}
+        {%- include title-jumbotron.html -%}
       {%- else -%}
         <h1 class="post-title text-center mt-3">{{ page.title | escape }}</h1>
       {%- endif -%}
