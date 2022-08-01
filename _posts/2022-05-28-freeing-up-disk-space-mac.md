@@ -4,19 +4,19 @@ title: "Freeing Up Disk Space on Mac (DIY)"
 date: May 28, 2022
 author: Freddy
 cover_img: "blog/freeing-up-disk-space-mac/imac.png"
+summary: |
+  Running out of disk space? Storage on Mac OS X gets used up quickly and
+  mysteriously. This article is a comprehensive guide to freeing up disk space
+  without tools like CleanMyMac. In the process of doing so, we'll also discover
+  exactly where all our big folders are. This article is written with respect to
+  Mac OS X Catalina, but is perfectly applicable to other Mac operating systems.
 ---
 
 <div class="blog-preamble">
   {%- assign img_dir = "assets/img/blog/freeing-up-disk-space-mac/" -%}
 </div>
 
-<span id="blog-summary">
-Running out of disk space? Storage on Mac OS X gets used up quickly and
-mysteriously. This article is a comprehensive guide to freeing up disk space
-without tools like CleanMyMac. In the process of doing so, we'll also discover
-exactly where all our big folders are. This article is written with respect to
-Mac OS X Catalina, but is perfectly applicable to other Mac operating systems.
-</span>
+<span id="blog-summary">{{ page.summary }}</span>
 
 We'll start off with some surface checks.
 

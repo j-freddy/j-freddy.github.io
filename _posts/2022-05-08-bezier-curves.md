@@ -4,6 +4,11 @@ title: Bezier Curves
 date: May 8, 2022
 author: Freddy
 cover_img: "blog/bezier-curves/bezier-road.png"
+summary: |
+  If you've ever worked with vector art, you've almost certainly come across
+  Bezier curves. But what exactly are they? This article explains how to
+  construct a Bezier curve, discusses where they are used, and describes
+  underlying mathematics.
 scripts: |
   <script src="../assets/js/bezier-curves/point.js"></script>
   <script src="../assets/js/bezier-curves/bezierCurve.js"></script>
@@ -15,12 +20,7 @@ scripts: |
   {%- assign img_dir = "assets/img/blog/bezier-curves/" -%}
 </div>
 
-<span id="blog-summary">
-If you've ever worked with vector art, you've almost certainly come across
-Bezier curves. But what exactly are they? This article explains how to construct
-a Bezier curve, discusses where they are used, and describes underlying
-mathematics.
-</span>
+<span id="blog-summary">{{ page.summary }}</span>
 
 A Bézier curve is smooth and continuous.
 

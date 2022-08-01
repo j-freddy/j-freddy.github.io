@@ -4,12 +4,12 @@ title: "Looping Through a List in JavaScript"
 date: July 16, 2022
 author: Freddy
 cover_img: "blog/looping-through-a-list/loop.jpg"
+summary: |
+  This short article aims to explore and compare the different ways of looping
+  through a list in JavaScript: **for**, **forEach** and **for of**.
 ---
 
-<span id="blog-summary">
-This short article aims to explore and compare the different ways of looping
-through a list in JavaScript: **for**, **forEach** and **for of**.
-</span>
+<span id="blog-summary">{{ page.summary }}</span>
 
 Say we have a list, and we want to loop through it.
 

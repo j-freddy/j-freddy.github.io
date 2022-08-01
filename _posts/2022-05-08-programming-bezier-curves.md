@@ -4,6 +4,12 @@ title: Programming Bezier Curves
 date: May 8, 2022
 author: Freddy
 cover_img: "blog/programming-bezier-curves/melt.png"
+summary: |
+  In a [previous post]({{site.baseurl}}{%- link _posts/2022-05-08-bezier-curves.md -%}),
+  we explore concepts of Bezier curves. In this article, we will write a program
+  in JavaScript that draws Bezier curves. As a disclaimer, we will not be
+  covering everything (e.g. using the JavaScript canvas), only the fundamentals.
+  Nonetheless, the source code is provided.
 scripts: |
   <script src="../assets/js/bezier-curves/point.js"></script>
   <script src="../assets/js/bezier-curves/bezierCurve.js"></script>
@@ -15,13 +21,7 @@ scripts: |
   {%- assign img_dir = "assets/img/blog/programming-bezier-curves/" -%}
 </div>
 
-<span id="blog-summary">
-In a [previous post]({{site.baseurl}}{%- link _posts/2022-05-08-bezier-curves.md -%}),
-we explore concepts of Bezier curves. In this article, we will write a program
-in JavaScript that draws Bezier curves. As a disclaimer, we will not be covering
-everything (e.g. using the JavaScript canvas), only the fundamentals.
-Nonetheless, the source code is provided.
-</span>
+<span id="blog-summary">{{ page.summary }}</span>
 
 Click [here](https://github.com/j-freddy/bezier-curves/tree/tutorial) for source
 code.

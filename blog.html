@@ -8,7 +8,6 @@ title-layout: jumbotron
 {%- if site.posts.size > 0 -%}
   {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
   {%- assign img_path = "assets/img/" -%}
-  {%- assign preview_size = 32 -%}
 
   <div id="my-posts-overview">
     <div class="row">
@@ -28,7 +27,7 @@ title-layout: jumbotron
                       {{ post.title | escape }}
                     </a>
                   </h3>
-                  <p>{{ post.content | markdownify | strip_html | truncatewords: preview_size }}</p>
+                  <p>{{ post.summary | markdownify | strip_html }}</p>
                   <small class="badge my-pill float-end">{{ post.date | date: date_format }}</small>
                 </div>
               </div>
@@ -52,7 +51,7 @@ title-layout: jumbotron
                       {{ post.title | escape }}
                     </a>
                   </h3>
-                  <p>{{ post.content | markdownify | strip_html | truncatewords: preview_size }}</p>
+                  <p>{{ post.summary | markdownify | strip_html }}</p>
                   <small class="badge my-pill float-end">{{ post.date | date: date_format }}</small>
                 </div>
               </div>
