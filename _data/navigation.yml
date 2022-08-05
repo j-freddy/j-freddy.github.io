@@ -3,5 +3,12 @@
   link: /
 - name: Portfolio
   link: /portfolio
+- name: Games
+  dropdown: true
+  subpages:
+    - name: Ultimate Tic-Tac-Toe
+      link: /ultimate-tic-tac-toe
+    - name: Lorem ipsum
+      link: /lorem-ipsum
 - name: Blog
   link: /blog

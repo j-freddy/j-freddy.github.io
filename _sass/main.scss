@@ -80,8 +80,9 @@ a {
       margin-left: 0px;
       font-size: 0.9em;
 
-      .nav-link {
+      .nav-link, .dropdown-item {
         text-decoration: none;
+        color: $my-grey;
 
         &:hover {
           color: $my-darkest;

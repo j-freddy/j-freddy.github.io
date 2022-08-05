@@ -17,11 +17,26 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
           <ul class="navbar-nav">
             {%- for page in site_pages -%}
-              <li class="nav-item">
-                <a class="nav-link px-4 mx-1" href="{{ page.link }}">
-                  {{ page.name }}
-                </a>
-              </li>
+            {%- if page.dropdown -%}
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ page.name }}
+                  </a>
+                  <ul class="dropdown-menu">
+                    {%- for subpage in page.subpages -%}
+                      <li>
+                        <a class="dropdown-item" href="{{ subpage.link }}">{{ subpage.name }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </li>
+              {%- else -%}
+                <li class="nav-item">
+                  <a class="nav-link px-4 mx-1" href="{{ page.link }}">
+                    {{ page.name }}
+                  </a>
+                </li>
+              {%- endif -%}
             {%- endfor -%}
           </ul>
         </div>
