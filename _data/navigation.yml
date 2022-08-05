@@ -7,7 +7,7 @@
   dropdown: true
   subpages:
     - name: Ultimate Tic-Tac-Toe
-      link: /ultimate-tic-tac-toe
+      link: /games/ultimate-tic-tac-toe
     - name: Lorem ipsum
       link: /lorem-ipsum
 - name: Blog
