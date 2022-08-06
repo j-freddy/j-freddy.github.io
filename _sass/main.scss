@@ -110,11 +110,7 @@ a {
   @include background-cover($background);
 
   #title-jumbotron {
-    background: $background-blog no-repeat;
-    background-size: cover;
-    // (253, 253, 253) -> #fdfdfd
-    background-color: rgba(253, 253, 253, 0.8);
-    background-blend-mode: lighten;
+    @include background-blur-default($background-blog);
     height: calc(max(20vw, 280px));
 
     .page-description {
@@ -141,5 +137,6 @@ a {
 
 @import "home";
 @import "portfolio";
+@import "games";
 @import "blog";
 @import "error";

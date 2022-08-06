@@ -3,6 +3,18 @@
   background-size: cover;
 }
 
+@mixin background-blur($img, $colour) {
+  background: $img no-repeat;
+  background-size: cover;
+  background-color: $colour;
+  background-blend-mode: lighten;
+}
+
+@mixin background-blur-default($img) {
+  // (253, 253, 253) -> #fdfdfd
+  @include background-blur($img, rgba(253, 253, 253, 0.8));
+}
+
 @mixin custom-icon($img) {
   background: $img;
   height: 1em;

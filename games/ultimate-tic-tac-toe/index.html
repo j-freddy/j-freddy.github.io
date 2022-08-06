@@ -1,6 +1,145 @@
 ---
 layout: page
 title: Ultimate Tic-Tac-Toe
+scripts: |
+  <!-- Model -->
+  <script src="dist/src/model/util/markType.js"></script>
+  <script src="dist/src/model/util/types.js"></script>
+  <script src="dist/src/model/util/moveWithPlayouts.js"></script>
+  <script src="dist/src/model/util/treeNode.js"></script>
+  <script src="dist/src/model/cell/cell.js"></script>
+  <script src="dist/src/model/board/boardStatus.js"></script>
+  <script src="dist/src/model/board/board.js"></script>
+  <script src="dist/src/model/cell/localCell.js"></script>
+  <script src="dist/src/model/board/localBoard.js"></script>
+  <script src="dist/src/model/board/globalBoard.js"></script>
+  <script src="dist/src/model/player/player.js"></script>
+  <script src="dist/src/model/player/playerHuman.js"></script>
+  <script src="dist/src/model/player/playerAI.js"></script>
+  <script src="dist/src/model/player/playerAIRandom.js"></script>
+  <script src="dist/src/model/player/playerAISmartRandomFeedback.js"></script>
+  <script src="dist/src/model/player/playerAIMCTS.js"></script>
+  <script src="dist/src/model/game.js"></script>
+  <!-- GUI -->
+  <script src="dist/src/gui/img.js"></script>
+  <script src="dist/src/gui/GUIData.js"></script>
+  <script src="dist/src/gui/GUI.js"></script>
+  <!-- Tests -->
+  <script src="dist/test/test.js"></script>
+  <!-- App -->
+  <script src="dist/src/app.js"></script>
 ---
+<!-- ======================================================================= -->
+<!-- You can view the source code here:                                      -->
+<!-- https://github.com/j-freddy/ultimate-tictactoe                          -->
+<!-- (Note: the source code may contain a few updates)                       -->
+<!-- DO NOT try to learn from the code under /dist                           -->
+<!-- That code is auto-translated from TypeScript!                           -->
+<!-- ======================================================================= -->
 
-<p>Hello world!</p>
+<main class="d-flex justify-content-center">
+  <div class="wrapper text-center shadow-sm py-5" id="ultimate-tic-tac-toe">
+    <canvas id="main-canvas" width="480px" height="480px">
+      Your browser does not support canvas.
+    </canvas>
+    <div>
+      <button class="btn btn-dark mt-4 mb-3" type="button" 
+              data-bs-toggle="collapse"
+              data-bs-target="#config">
+        Config
+      </button>
+
+      <div class="collapse multi-collapse" id="config">
+        <div class="card card-body">
+          <form>
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Player X</label>
+                <br>
+                <!-- Select player cross -->
+                <div class="btn-group-vertical player-select">
+                  <input type="radio" class="btn-check" name="radio-player-x"
+                        id="radio-human-x" autocomplete="off" checked>
+                  <label class="btn btn-outline-secondary"
+                         for="radio-human-x">
+                    Human
+                  </label>
+                
+                  <input type="radio" class="btn-check" name="radio-player-x" 
+                         id="radio-ai-easy-x" autocomplete="off">
+                  <label class="btn btn-outline-secondary"
+                         for="radio-ai-easy-x">
+                    AI Easy
+                    <br>
+                    <small>(random moves)</small>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="radio-player-x" 
+                         id="radio-ai-medium-x" autocomplete="off">
+                  <label class="btn btn-outline-secondary"
+                         for="radio-ai-medium-x">
+                    AI Medium
+                    <br>
+                    <small>(smart random feedback)</small>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="radio-player-x" 
+                         id="radio-ai-hard-x" autocomplete="off">
+                  <label class="btn btn-outline-secondary"
+                         for="radio-ai-hard-x">
+                    AI Hard
+                    <br>
+                    <small>(smart MCTS depth 3)</small>
+                  </label>
+                </div>
+              </div>
+              <div class="col">
+                <label class="form-label">Player O</label>
+                <br>
+                <!-- Select player nought -->
+                <div class="btn-group-vertical player-select">
+                  <input type="radio" class="btn-check" name="radio-player-o"
+                         id="radio-human-o" autocomplete="off" checked>
+                  <label class="btn btn-outline-secondary"
+                         for="radio-human-o">
+                    Human
+                  </label>
+                
+                  <input type="radio" class="btn-check" name="radio-player-o" 
+                         id="radio-ai-easy-o" autocomplete="off">
+                  <label class="btn btn-outline-secondary"
+                         for="radio-ai-easy-o">
+                    AI Easy
+                    <br>
+                    <small>(random moves)</small>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="radio-player-o" 
+                         id="radio-ai-medium-o" autocomplete="off">
+                  <label class="btn btn-outline-secondary"
+                         for="radio-ai-medium-o">
+                    AI Medium
+                    <br>
+                    <small>(smart random feedback)</small>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="radio-player-o" 
+                         id="radio-ai-hard-o" autocomplete="off">
+                  <label class="btn btn-outline-secondary"
+                         for="radio-ai-hard-o">
+                    AI Hard
+                    <br>
+                    <small>(smart MCTS depth 3)</small>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-dark" id="config-button">
+              New Game
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

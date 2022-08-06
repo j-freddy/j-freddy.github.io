@@ -1,0 +1,26 @@
+#ultimate-tic-tac-toe {
+  @include background-blur-default(white);
+  width: 800px;
+
+  #main-canvas {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+
+  #config {
+    width: 480px;
+    margin: auto;
+
+    .form-label {
+      font-weight: bold;
+    }
+
+    .player-select label {
+      line-height: 1.25;
+
+      small {
+        font-size: 10px;
+      }
+    }
+  }
+}
