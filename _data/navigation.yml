@@ -8,7 +8,5 @@
   subpages:
     - name: Ultimate Tic-Tac-Toe
       link: /games/ultimate-tic-tac-toe
-    - name: Lorem ipsum
-      link: /lorem-ipsum
 - name: Blog
   link: /blog

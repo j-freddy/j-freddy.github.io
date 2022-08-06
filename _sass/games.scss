@@ -1,5 +1,5 @@
 #ultimate-tic-tac-toe {
-  @include background-blur-default(white);
+  @include background-blur-default(none);
   width: 800px;
 
   #main-canvas {
@@ -22,5 +22,10 @@
         font-size: 10px;
       }
     }
+  }
+
+  .source-link {
+    float: right;
+    text-decoration: underline;
   }
 }
