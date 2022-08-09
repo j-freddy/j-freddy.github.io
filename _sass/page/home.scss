@@ -47,9 +47,8 @@
     }
   }
 
-  // $oc-cyan-8 with alpha
-  $my-theme-colour-alpha: rgba(12, 133, 153, 0.75);
-  $my-colour: darken($my-theme-colour-alpha, 25%);
+  // $oc-cyan-8 darkened
+  $my-colour: #415559;
 
   .divider-1 {
     $width: calc(max(100%, #{map-get($grid-breakpoints, md)}));
@@ -57,7 +56,8 @@
   }
 
   #my-container {
-    background: $my-colour;
+    background: $background-donut, $my-colour;
+    background-size: auto 100%;
 
     p, h1, h2, h3, h4, h5, h6, b, i {
       color: $my-lighter;
@@ -76,7 +76,7 @@
       border-radius: 999px;
 
       @media (max-width: map-get($grid-breakpoints, md)) {
-        max-width: 300px;
+        max-width: 304px;
       }
     }
 
