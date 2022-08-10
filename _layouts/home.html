@@ -15,10 +15,13 @@
 
     {%- include scripts.html -%}
 
+    {%- if layout.scripts -%}
+      {{ layout.scripts }}
+    {%- endif -%}
+
     {%- if page.scripts -%}
       {{ page.scripts }}
     {%- endif -%}
 
   </body>
-
 </html>
