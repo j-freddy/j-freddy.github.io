@@ -80,12 +80,27 @@ a {
       margin-left: 0px;
       font-size: 0.9em;
 
-      .nav-link, .dropdown-item {
+      .nav-link {
         text-decoration: none;
         color: $my-grey;
 
         &:hover {
           color: $my-darkest;
+        }
+      }
+
+      .dropdown-item {
+        text-decoration: none;
+        color: $my-grey;
+
+        &:hover {
+          color: $my-darkest;
+          background-color: $my-lighter;
+        }
+
+        &:active {
+          color: $my-darkest;
+          background-color: $my-lighter;
         }
       }
     }
