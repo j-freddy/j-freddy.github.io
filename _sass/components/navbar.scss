@@ -1,0 +1,53 @@
+.site-header {
+  border-top: 6px solid $my-darker;
+  border-bottom: 0;
+
+  .my-navbar {
+    .navbar-brand {
+      font-size: 1.25em;
+      color: $my-darkest;
+      text-decoration: none;
+
+      .icon-earmuffs {
+        font-size: 1.7em;
+      }
+    }
+
+    .navbar-nav {
+      margin-left: 0px;
+      font-size: 0.9em;
+
+      .nav-link {
+        text-decoration: none;
+        color: $my-grey;
+
+        &:hover {
+          color: $my-darkest;
+        }
+      }
+
+      .dropdown-item {
+        text-decoration: none;
+        color: $my-grey;
+
+        &:hover {
+          color: $my-darkest;
+          background-color: $my-lighter;
+        }
+
+        &:active {
+          color: $my-darkest;
+          background-color: $my-lighter;
+        }
+      }
+    }
+
+    .brand-temp {
+      visibility: hidden;
+
+      @media (max-width: map-get($grid-breakpoints, md)) {
+        display: none !important;
+      }
+    }
+  } 
+}

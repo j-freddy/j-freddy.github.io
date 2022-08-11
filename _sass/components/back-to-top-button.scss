@@ -1,0 +1,9 @@
+#btn-back-to-top {
+  position: fixed;
+  bottom: 1.5em;
+  right: 1.5em;
+  display: none;
+  border-radius: 999px;
+  background-color: $my-theme-dark;
+  color: $my-lightest;
+}
