@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+---
+layout: abstract/base
+---
 
-  {%- include head.html -%}
+{%- include header.html -%}
 
-  <body>
+{{ content }}
 
-    {%- include header.html -%}
-
-    {{ content }}
-
-    {%- include footer.html -%}
-
-    {%- include scripts.html -%}
-
-    {%- if layout.scripts -%}
-      {{ layout.scripts }}
-    {%- endif -%}
-
-    {%- if page.scripts -%}
-      {{ page.scripts }}
-    {%- endif -%}
-
-  </body>
-</html>
+{%- include footer.html -%}

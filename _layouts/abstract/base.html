@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <!-- Head -->
+  {%- include head.html -%}
+
+  <!-- Body -->
+  <body>
+    <!-- Content -->
+    {{ content }}
+
+    <!-- Scripts -->
+    {%- include scripts.html -%}
+
+    {%- if layout.scripts -%}
+      {{ layout.scripts }}
+    {%- endif -%}
+
+    {%- if page.scripts -%}
+      {{ page.scripts }}
+    {%- endif -%}
+
+  </body>
+</html>
