@@ -1,8 +1,14 @@
+// TODO This file should only style .my-navbar, not .site-header
+
 .site-header {
+  // Overriding Minima
   border-top: 6px solid $my-darker;
+  // Overriding Minima
   border-bottom: 0;
 
   .my-navbar {
+    $collapse-size: md;
+
     .navbar-brand {
       font-size: 1.25em;
       color: $my-darkest;
@@ -14,18 +20,39 @@
     }
 
     .navbar-nav {
-      margin-left: 0px;
+      margin-left: 0;
       font-size: 0.9em;
 
       .nav-link {
         text-decoration: none;
         color: $my-grey;
+        padding: 0 32px 0 32px;
+
+        i {
+          color: $my-grey;
+        }
 
         &:hover {
           color: $my-darkest;
+
+          i {
+            color: $my-darkest;
+          }
+        }
+
+        @media (max-width: map-get($grid-breakpoints, $collapse-size)) {
+          border-bottom: 1px solid $my-light;
         }
       }
 
+      .dropdown-toggle {
+        // Remove default Bootstrap dropdown caret
+        &:after {
+          display: none;
+        }
+      }
+
+      // TODO Redesign this (looks ugly)
       .dropdown-item {
         text-decoration: none;
         color: $my-grey;
@@ -42,10 +69,11 @@
       }
     }
 
-    .brand-temp {
+    // Temporary element to get navbar centered
+    .nav-filler {
       visibility: hidden;
 
-      @media (max-width: map-get($grid-breakpoints, md)) {
+      @media (max-width: map-get($grid-breakpoints, $collapse-size)) {
         display: none !important;
       }
     }

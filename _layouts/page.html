@@ -11,7 +11,7 @@ layout: default
 
     <header class="post-header">
       {%- if page.title-layout == "jumbotron" -%}
-        {%- include title-jumbotron.html -%}
+        {%- include components/title-jumbotron.html -%}
       {%- else -%}
         <h1 class="post-title text-center mt-3">{{ page.title | escape }}</h1>
       {%- endif -%}
