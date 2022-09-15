@@ -26,12 +26,12 @@ that lack an accurate static evaluator.
 
 ## Monte Carlo method
 
-MCTS is inspired by a class of computational algorithms known as Monte Carlo
-experiments. Such algorithms use repeated sampling to find a numeric solution.
+MCTS is part of a class of computational algorithms known as Monte Carlo
+experiments. These algorithms use repeated sampling to find a numeric solution.
 
 A famous example is throwing darts randomly at a board, then calculating the
 ratio of darts that land inside the quadrant to find the value of Pi. Assuming
-the darts are uniformly distributed, this approach yields a very good
+the darts are uniformly distributed, this approach eventually yields a very good
 approximation of Pi.
 
 <div class="d-flex align-items-center mb-4" id="monte-carlo-method">
@@ -72,7 +72,7 @@ given a brief summary below, but will make more sense with the upcoming example.
 - Expansion
   - If this position has not been previously simulated from, do not expand it.
     Otherwise, expand the node by creating children corresponding to all valid
-    moves in the position. Then, proceed to simulate the 1st child node.
+    moves in the position. Then, proceed to simulate from the 1st child node.
 - Simulation
   - Both players make random moves until the game ends. This stage is also
     called playout or rollout.
@@ -81,23 +81,93 @@ given a brief summary below, but will make more sense with the upcoming example.
 
 ## Example: Tic-Tac-Toe
 
-- current board:
-  O = X
-  = O =
-  X = =
-- use search depth 2
+<img src="{{img_dir}}fig-1.svg"
+     alt="example-position" width="240px" class="img-thumbnail">
+
+This is the current position. The AI is playing X, and it uses MCTS to
+decide its next move.
+
+<img src="{{img_dir}}fig-2.svg"
+     alt="example-initial-tree" width="240px" class="img-thumbnail">
+
+The initial tree consists of just 1 node with 0 playouts.
+
+### Selection
+
+We start from the root. In this case, the root is the leaf, so we are done.
+
+### Expansion
+
+<img src="{{img_dir}}fig-3.svg"
+     alt="example-expansion" width="284px" class="img-thumbnail">
+
+This position has not been simulated from, so we expand by creating children. In
+practice, we create a child node for each valid move, but in this example we
+will only create a node for 2 move options for simplicity.
+
+### Simulation
+
+<img src="{{img_dir}}fig-4.svg"
+     alt="example-expansion" width="240px" class="img-thumbnail">
+
+We make random moves until the game ends.
+
+### Backpropagation
+
+<img src="{{img_dir}}fig-5.svg"
+     alt="example-expansion" width="284px" class="img-thumbnail">
+
+In our simulation, the game ended in a draw. We update our child node to
+**0.5/1** (**0.5** as we drew, and **1** as we had 1 simulation).
+
+We then update its parent node to reflect this. Notice that the numbers on a
+node should be equal to the sum of the numbers on its children.
+
+### Next steps
+
+<img src="{{img_dir}}fig-6.svg"
+     alt="example-expansion" width="284px" class="img-thumbnail">
+
+Assume we did another iteration and simulated the right leaf node, which we
+lost. How do we perform the selection stage now?
+
+Instead of traversing to a leaf node at random, we can use the UCT algorithm:
+Upper Confidence Trees. This is defined as the following.
+
+$$
+\frac{\text{wins of current node}}{\text{total playouts of current node}} + c \sqrt{\frac{\ln{(\text{total playouts of parent node})}}{\text{total playouts of current node}}}
+$$
+
+$$c$$ is a constant, $$2$$ is often used. We start at the root node, and
+traverse downwards. For each tree level, we choose the child with the highest
+UCT, until a leaf node is reached. Division by zero counts as infinity, so this
+prioritises leaf nodes that have not been simulated before.
+
+The UCT algorithm prioritises simulating nodes with a higher simulated chance of
+winning for the AI. More precisely, the algorithm is defined as:
+
+$$
+\frac{w_i}{s_i} + c \sqrt{\frac{\ln{s_p}}{s_i}}
+$$
+
+<img src="{{img_dir}}fig-7.svg"
+     alt="example-expansion" width="284px" class="img-thumbnail">
+
+Going back to our example, we choose the left child node and continue to the
+expansion stage.
+
+<img src="{{img_dir}}fig-8.svg"
+     alt="example-expansion" width="572px" class="img-thumbnail">
+
+And the algorithm continues... but our example ends here.
 
 ## MCTS in practice
 
-- uses in practice
-- copy code from ultimate tic-tac-toe
+MCTS is used in neural networks for games like chess, Go and bridge. Some of the
+strongest engines like AlphaGo, AlphaZero and Leela Chess Zero uses MCTS with
+deep learning.
 
-## Notes
+MCTS is a good choice for games that lack an accurate static evaluator, like
+Ultimate Tic-Tac-Toe.
 
-- https://en.wikipedia.org/wiki/Monte_Carlo_tree_search
-- introduction
-  - purpose / use over minimax (no static evaluation)
-- how it works
-- example: ultimate tic-tac-toe
-  - show some code
-  - analyse effect of depth on time complexity
+[my mcts project]({{site.baseurl}}{%- link games/ultimate-tic-tac-toe/index.html -%})
