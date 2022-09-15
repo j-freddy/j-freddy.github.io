@@ -68,3 +68,19 @@
     font-size: 0.9em;
   }
 }
+
+// =============================================================================
+// Specific pages
+// =============================================================================
+
+// Monte Carlo Tree Search
+
+#monte-carlo-method {
+  #start-simulation-button {
+    min-width: 96px;
+  }
+
+  p {
+    margin-bottom: 8px;
+  }
+}
