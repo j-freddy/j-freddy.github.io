@@ -10,10 +10,10 @@ summary: |
   construct a Bezier curve, discusses where they are used, and describes
   underlying mathematics.
 scripts: |
-  <script src="../assets/js/bezier-curves/point.js"></script>
-  <script src="../assets/js/bezier-curves/bezierCurve.js"></script>
-  <script src="../assets/js/bezier-curves/GUI.js"></script>
-  <script src="../assets/js/bezier-curves/main.js"></script>
+  <script src="../assets/js/blog/bezier-curves/point.js"></script>
+  <script src="../assets/js/blog/bezier-curves/bezierCurve.js"></script>
+  <script src="../assets/js/blog/bezier-curves/GUI.js"></script>
+  <script src="../assets/js/blog/bezier-curves/main.js"></script>
 ---
 
 <div class="blog-preamble">
