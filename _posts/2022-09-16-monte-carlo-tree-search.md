@@ -1,11 +1,14 @@
 ---
 layout: post
 title: "Monte Carlo Tree Search"
-date: September 13, 2022
+date: September 16, 2022
 author: Freddy
-cover_img: "blog/benchmarking-loops-in-javascript/timer.png"
+cover_img: "blog/mcts/tree-searching.png"
 summary: |
-  Bruh.
+  Monte Carlo tree search is a staple algorithm in the field of machine
+  learning. It is employed by some of the leading AI in strategy games like
+  chess and Go. It is also a relatively easy algorithm to implement. This
+  article describes the methodology of the Monte Carlo tree search.
 scripts: |
   <script src="../assets/js/blog/mcts/position.js"></script>
   <script src="../assets/js/blog/mcts/board.js"></script>
@@ -54,10 +57,10 @@ approximation of Pi.
 ## How does MCTS work?
 
 A search tree is a tree where paths from the root to the leaf represents a
-possible sequence of moves in the turn-based game.
+possible sequence of moves in a turn-based game.
 
-<img src="{{img_dir}}search-tree.svg"
-     alt="example-inkscape" class="img-thumbnail">
+<img src="{{img_dir}}search-tree.svg" alt="example-inkscape"
+     class="img-thumbnail">
 
 The idea of MCTS is based on expanding the search tree via choosing random moves
 until the game ends, then using the result to update the weight of parent nodes.
@@ -77,20 +80,20 @@ given a brief summary below, but will make more sense with the upcoming example.
   - Both players make random moves until the game ends. This stage is also
     called playout or rollout.
 - Backpropagation
-  - Use the result to update the weight of parent nodes.
+  - Use the result of the game to update the weight of parent nodes.
 
 ## Example: Tic-Tac-Toe
 
 <img src="{{img_dir}}fig-1.svg"
      alt="example-position" width="240px" class="img-thumbnail">
 
-This is the current position. The AI is playing X, and it uses MCTS to
-decide its next move.
+This is the current position. Our AI plays X, and it uses MCTS to decide its
+next move.
 
 <img src="{{img_dir}}fig-2.svg"
      alt="example-initial-tree" width="240px" class="img-thumbnail">
 
-The initial tree consists of just 1 node with 0 playouts.
+The initial tree consists of 1 node (our current position) with 0 playouts.
 
 ### Selection
 
@@ -102,8 +105,8 @@ We start from the root. In this case, the root is the leaf, so we are done.
      alt="example-expansion" width="284px" class="img-thumbnail">
 
 This position has not been simulated from, so we expand by creating children. In
-practice, we create a child node for each valid move, but in this example we
-will only create a node for 2 move options for simplicity.
+practice, we create a child node for each valid move, but in this example, here
+we only create a node for 2 move options for the sake of simplicity.
 
 ### Simulation
 
@@ -153,8 +156,8 @@ $$
 <img src="{{img_dir}}fig-7.svg"
      alt="example-expansion" width="284px" class="img-thumbnail">
 
-Going back to our example, we choose the left child node and continue to the
-expansion stage.
+Going back to our example, we choose the left child node as it has the higher
+UCT (using $$c=2$$) and continue to the expansion stage.
 
 <img src="{{img_dir}}fig-8.svg"
      alt="example-expansion" width="572px" class="img-thumbnail">
@@ -170,4 +173,98 @@ deep learning.
 MCTS is a good choice for games that lack an accurate static evaluator, like
 Ultimate Tic-Tac-Toe.
 
-[my mcts project]({{site.baseurl}}{%- link games/ultimate-tic-tac-toe/index.html -%})
+[This]({{site.baseurl}}{%- link games/ultimate-tic-tac-toe/index.html -%}) is my
+attempt at creating an AI for Ultimate Tic-Tac-Toe, written in TypeScript. The
+[source
+code](https://github.com/j-freddy/ultimate-tictactoe/blob/main/ts/src/model/player/playerAIMCTS.ts)
+for MCTS is copied below. It is quick to implement, spanning only a few hundred
+lines.
+
+See if you can beat the AI! Press **Config** and select **Human** against **AI
+Hard**, then start a new game.
+
+```typescript
+private executeMCTSIter(boardCopy: GlobalBoard): void {
+  // Selection
+  let currNode = this.head;
+  let currMarkType = this.markType;
+  // Keep track of parents for backpropagation
+  let parents: TreeNode<MoveWithPlayouts>[] = [];
+
+  while (!currNode.isLeaf()) {
+    parents.push(currNode);
+    currNode = this.getChildWithTopUCT(currNode);
+    let moveWithEval = currNode.value!;
+    // Update board
+    boardCopy.setCellValueWithMove(moveWithEval.markType!, moveWithEval.move);
+    boardCopy.updateActiveBoards(moveWithEval.move.localIndex);
+    // Keep track of mark type
+    currMarkType = this.getOtherMarkType(currMarkType);
+  }
+
+  // Expansion
+  if (currNode.value!.getNumPlayouts() > 0) {
+    const moves = this.getValidMovesThatDoNotLose(boardCopy);
+    const children = moves.map(move => {
+      return new TreeNode(
+        new MoveWithPlayouts(move, boardCopy.copy(), currMarkType)
+      );
+    });
+    currNode.setChildren(children);
+
+    if (children.length > 0) {
+      parents.push(currNode);
+      currNode = children[0];
+      const moveWithEval = currNode.value!;
+      // Update board
+      boardCopy.setCellValueWithMove(
+        moveWithEval.markType!, moveWithEval.move
+      );
+      boardCopy.updateActiveBoards(moveWithEval.move.localIndex);
+      // Keep track of mark type
+      currMarkType = this.getOtherMarkType(currMarkType);
+    }
+  }
+
+  // Simulation
+  const chosenNode = currNode;
+  const result = this.simulatePlayout(boardCopy, currMarkType);
+  chosenNode.value!.update(result);
+
+  // Backpropagation
+  for (let node of parents) {
+    node.value!.update(result);
+  }
+}
+
+protected simulatePlayout(board: GlobalBoard,
+                          currentMarkType: MarkType): BoardStatus {
+  let boardCopy = board.copy();
+
+  // Simulate game until it ends
+  while (boardCopy.getStatus() === BoardStatus.InProgress) {
+    let move = this.getSmartRandomMove(boardCopy, currentMarkType);
+
+    boardCopy.setCellValue(currentMarkType, move.globalIndex,
+                            move.localIndex);
+    boardCopy.updateActiveBoards(move.localIndex);
+
+    // Switch player
+    currentMarkType = this.getOtherMarkType(currentMarkType);
+  }
+
+  return boardCopy.getStatus();
+}
+```
+
+## Further reading
+
+- Dr. John Levine of University of Strathclyde gave a [fantastic
+  lecture](https://www.youtube.com/watch?v=UXW2yZndl7U) on MCTS. I highly
+  recommend watching this video.
+- The [Wikipedia article](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search)
+  on MCTS is very well maintained, especially the **Principle of operation**
+  category.
+- GeeksforGeeks has a [good
+  article](https://www.geeksforgeeks.org/ml-monte-carlo-tree-search-mcts) and
+  provides basic pseudocode on the algorithm.
