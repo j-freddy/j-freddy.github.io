@@ -127,7 +127,10 @@ class GUI {
         }
     }
     refresh() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.fillStyle = "#fdfdfd";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.restore();
         this.drawGlobalBoard();
     }
     getPositionOnBoard(x, y) {
