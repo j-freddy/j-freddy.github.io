@@ -59,6 +59,10 @@
         border-radius: 0;
         top: 32px;
 
+        li {
+          padding: 0;
+        }
+
         .dropdown-item {
           padding: 0.75em 1em 0.75em 1em;
           text-decoration: none;
