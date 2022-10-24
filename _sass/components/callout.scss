@@ -1,6 +1,21 @@
 .callout {
-  background-color: $oc-yellow-0;
-  border-left: 4px solid $oc-yellow-3;
+  background-color: $my-theme-lightest;
+  border-left: 4px solid $my-theme-lighter;
   padding: 1em;
   margin-bottom: 1em;
+}
+
+.callout-yellow {
+  background-color: $oc-yellow-0;
+  border-color: $oc-yellow-3;
+}
+
+.callout-red {
+  background-color: $oc-red-1;
+  border-color: $oc-red-3;
+}
+
+.callout-green {
+  background-color: $oc-green-1;
+  border-color: $oc-green-3;
 }
