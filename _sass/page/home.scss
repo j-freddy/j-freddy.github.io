@@ -4,6 +4,14 @@
   padding-top: 30px;
 
   #my-jumbotron {
+    // Make Jumbotron bigger for extra-large screens
+    // So the home page is mostly taken up by the title
+    @media (min-width: map-get($grid-breakpoints, xl)) {
+      padding-top: 2em;
+      padding-bottom: 3em;
+      font-size: 1.25em;
+    }
+
     .earmuffs-container {
       padding-right: 2em;
 
