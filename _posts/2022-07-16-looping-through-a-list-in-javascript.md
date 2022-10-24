@@ -71,11 +71,14 @@ const fruits = ["Apple", "Banana", "Cherry", "Date"];
 fruits.forEach((fruit, i) =>  console.log(`${i}. ${fruit}`));
 ```
 
-### forEach sucks
-
-Unlike a **for** loop, **forEach** does not allow you to break out of the loop.
-**forEach** is also very slow. Many developers are against the usage of
-**forEach** - in any context.
+<div class="callout callout-danger">
+  <b>forEach</b> sucks.
+  <br />
+  <br />
+  Unlike a <b>for</b> loop, <b>forEach</b> does not allow you to break out of
+  the loop. <b>forEach</b> is also very slow. Many developers are against the
+  usage of <b>forEach</b> - in any context.
+</div>
 
 ## for of
 We move back to imperative programming with `for of`, also introduced in ES6 in

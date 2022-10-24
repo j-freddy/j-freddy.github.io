@@ -170,8 +170,10 @@ MCTS is used in neural networks for games like chess, Go and bridge. Some of the
 strongest engines like AlphaGo, AlphaZero and Leela Chess Zero uses MCTS with
 deep learning.
 
-MCTS is a good choice for games that lack an accurate static evaluator, like
-Ultimate Tic-Tac-Toe.
+<div class="callout callout-success">
+  MCTS is a good choice for games that lack an accurate static evaluator, like
+  Ultimate Tic-Tac-Toe.
+</div>
 
 [This]({{site.baseurl}}{%- link games/ultimate-tic-tac-toe/index.html -%}) is my
 attempt at creating an AI for Ultimate Tic-Tac-Toe, written in TypeScript. The

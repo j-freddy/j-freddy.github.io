@@ -144,9 +144,9 @@ while **forEach** is tediously slow.
 <img src="{{img_dir}}results-graph.png"
      alt="applications-list" width="640px" class="img-thumbnail">
 
-(The black line on the right of each bar graph indicates the fastest and slowest
+The black line on the right of each bar graph indicates the fastest and slowest
 times of the 27 experiments. **for** had very consistent times and the line
-could only be seen when I zoomed in.)
+could only be seen when I zoomed in.
 
 ## Extras
 
