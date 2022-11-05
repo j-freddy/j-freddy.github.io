@@ -157,7 +157,7 @@ $$
 
 <div class="callout callout-danger">
   This is faster than De Casteljau's algorithm, but less numerically stable
-  (that is, less accurate under pertubed input data).
+  (that is, less accurate under perturbed input data).
 </div>
 
 In this form, it is easy to compute the derivative of any point along a Bezier
