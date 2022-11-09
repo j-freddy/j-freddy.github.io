@@ -41,6 +41,18 @@ pixel to its nearest seed. We have now created a Voronoi diagram!
   are needed to uniquely define the partitions.
 </div>
 
+<div class="callout callout-info">
+  <p>There are multiple ways of interpreting the construction of a Voronoi diagram.
+  However, the nearest neighbour interpretation explains 2 nice features of
+  these diagrams.</p>
+  <ol>
+    <li>Take any 2 adjacent cells, and connect the corresponding seeds to form a
+    line segment. The edge of the 2 cells is a perpendicular bisector of this
+    line segment.</li>
+    <li>Each vertex is equidistant to 3 seeds.</li>
+  </ol>
+</div>
+
 Alternatively, we can think of constructing a Voronoi diagram as the following
 procedure:
 1. Start with some arbitrary seeds. We can think of each seed as a circle of
@@ -50,50 +62,59 @@ procedure:
 4. Continue to expand the radius until only straight lines are remaining on the
    plane.
 
-The gif below demonstrates this interpretation.
+The gif below demonstrates this method.
 
 <img src="{{img_dir}}voronoi-growth.gif"
      alt="visualising-voronoi-growth" width="360px" class="img-thumbnail">
 
-## Properties of Voronoi diagram
-
 ## Voronoi patterns in nature
 
-## Try it out yourself!
+Like the golden ratio, Voronoi patterns also appears everywhere in nature. Here
+are some examples!
+
+### Drying mud
+
+<img src="{{img_dir}}drying-mud.png"
+     alt="drying-mud" class="img-thumbnail">
+
+### Soap bubbles
+
+<img src="{{img_dir}}soap-bubbles.jpg"
+     alt="soap-bubbles" class="img-thumbnail">
+
+### Giraffe
+
+<img src="{{img_dir}}giraffe.jpg"
+     alt="giraffe" class="img-thumbnail">
+
+### Honeycombs
+
+<img src="{{img_dir}}honeycombs.jpg"
+     alt="honeycombs" class="img-thumbnail">
 
 ## Time complexity analysis
 
-## Application: Texturing water
-
-## Further reading
-
 <!--
-
-- [short] introduction
-  - show example
-  - show patterns arising in nature: giraffe, drying mud, bubbles
-  - applications: water & 3D terrain generation
-- voronoi: fundamentals
-  - start with 2 points (seeds)
-  - expand radius until they overlap
-  - overlap => draw a line
-  - we have created Voronoi cells
-  - https://upload.wikimedia.org/wikipedia/commons/d/d9/Voronoi_growth_euclidean.gif
-- voronoi: properties
-  - edges: same distance
-  - vertices: same distance
-- Try it yourself!
-  - extension: we can use metrics other than Euclidean distance, e.g. Manhattan distance
 - voronoi: efficiency
   - compute: Fortune's algorithm: O(n log n)
   - storage: only need to store seeds
   - efficiency in animations: move the seeds to move the cell
-- voronoi: distance transform
-  - can be used to texture water
-- voronoi: revisiting applications
-  - animating water
+-->
+
+## Application: Texturing water
+
+<!--
+  Plop the demo here.
+  - animate water
+  - texture water (voronoi: distance transform)
+ -->
+
+## Further reading
+
+<!--
 - further reading
   - l-systems for generating trees & fractals
   - Unity3D
-
+  - http://www.cs.tufts.edu/comp/163/notes05/voronoi_handout.pdf
+  - extension: we can use metrics other than Euclidean distance, e.g. Manhattan distance
 -->
