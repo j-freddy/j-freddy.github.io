@@ -1,0 +1,7 @@
+.icon-earmuffs {
+  @include custom-icon(url("img/misc/earmuffs.svg"));
+}
+
+.icon-earmuffs-edit {
+  @include custom-icon(url("img/misc/earmuffs-edit.svg"));
+}

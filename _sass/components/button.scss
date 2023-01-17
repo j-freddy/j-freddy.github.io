@@ -1,0 +1,16 @@
+.my-button {
+  background: $my-theme-darker;
+  border: 4px solid $my-theme-darker;
+  border-radius: 999px;
+  color: $my-lightest !important;
+
+  i {
+    color: $my-lightest;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background: $my-theme-darkest;
+    border-color: $my-theme-darkest;
+  }
+}

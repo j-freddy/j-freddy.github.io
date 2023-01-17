@@ -1,0 +1,21 @@
+.callout {
+  background-color: $my-theme-lightest;
+  border-left: 4px solid $my-theme-lighter;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.callout-warning {
+  background-color: $oc-yellow-0;
+  border-color: $oc-yellow-3;
+}
+
+.callout-danger {
+  background-color: $oc-red-1;
+  border-color: $oc-red-3;
+}
+
+.callout-success {
+  background-color: $oc-green-1;
+  border-color: $oc-green-3;
+}

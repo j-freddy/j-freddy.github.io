@@ -1,54 +1,7 @@
+{%- assign site_pages = site.data.navigation.pages -%}
+
 <header class="site-header" role="banner">
-  {%- assign site_pages = site.data.navigation -%}
-
   {%- if site_pages -%}
-    <nav class="navbar navbar-expand-md navbar-light my-navbar px-3 pt-1 pb-2">
-      <div class="container-fluid d-flex justify-content-between mt-1">
-
-        <a href="/" class="navbar-brand d-flex align-items-center">
-          <span class="icon-earmuffs"></span>
-          <b class="ms-2">FJ</b>
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            {%- for page in site_pages -%}
-            {%- if page.dropdown -%}
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle px-4 mx-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{ page.name }}
-                  </a>
-                  <ul class="dropdown-menu">
-                    {%- for subpage in page.subpages -%}
-                      <li>
-                        <a class="dropdown-item" href="{{ subpage.link }}">{{ subpage.name }}</a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                </li>
-              {%- else -%}
-                <li class="nav-item">
-                  <a class="nav-link px-4 mx-1" href="{{ page.link }}">
-                    {{ page.name }}
-                  </a>
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-        </div>
-
-        <!-- Temporary fix to get navbar centered -->
-        <a href="/" class="navbar-brand d-flex align-items-center brand-temp">
-          <span class="icon-earmuffs"></span>
-          <b class="ms-2">FJ</b>
-        </a>
-      </div>
-    </div>
-      
-    </nav>
+    {%- include components/navbar.html -%}
   {%- endif -%}
 </header>

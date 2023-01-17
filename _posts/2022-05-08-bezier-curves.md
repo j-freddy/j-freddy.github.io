@@ -10,10 +10,10 @@ summary: |
   construct a Bezier curve, discusses where they are used, and describes
   underlying mathematics.
 scripts: |
-  <script src="../assets/js/bezier-curves/point.js"></script>
-  <script src="../assets/js/bezier-curves/bezierCurve.js"></script>
-  <script src="../assets/js/bezier-curves/GUI.js"></script>
-  <script src="../assets/js/bezier-curves/main.js"></script>
+  <script src="../assets/js/blog/bezier-curves/point.js"></script>
+  <script src="../assets/js/blog/bezier-curves/bezierCurve.js"></script>
+  <script src="../assets/js/blog/bezier-curves/GUI.js"></script>
+  <script src="../assets/js/blog/bezier-curves/main.js"></script>
 ---
 
 <div class="blog-preamble">
@@ -57,9 +57,14 @@ generates a cubic Bezier curve through 3 stages of lerping.
      alt="cubic-bezier" width="240px" class="img-thumbnail">
 
 We can keep adding control points indefinitely, although quadratic and cubic
-Bezier curves are used most often. You can observe that, by construction, a
-Bezier curve is extremely lightweight! To define a cubic Bezier curve, you only
-need 4 control points. By moving the control points, we can form all kinds of
+Bezier curves are used most often.
+
+<div class="callout callout-success">
+  You can observe that, by construction, a Bezier curve is extremely
+  lightweight! To define a cubic Bezier curve, you only need 4 control points.
+</div>
+
+By moving the control points, we can form all kinds of
 curves. Here's an exotic curve below.
 
 <img src="{{img_dir}}bezier-loop.gif"
@@ -150,8 +155,10 @@ $$
 \end{align}
 $$
 
-This is faster than De Casteljau's algorithm, but less numerically stable (that
-is, less accurate under pertubed input data).
+<div class="callout callout-danger">
+  This is faster than De Casteljau's algorithm, but less numerically stable
+  (that is, less accurate under perturbed input data).
+</div>
 
 In this form, it is easy to compute the derivative of any point along a Bezier
 curve. This is useful in applied mechanics, for example, when the vertical

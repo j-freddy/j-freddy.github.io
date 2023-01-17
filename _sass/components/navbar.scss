@@ -1,0 +1,94 @@
+// TODO This file should only style .my-navbar, not .site-header
+
+.site-header {
+  // Overriding Minima
+  border-top: 6px solid $my-darker;
+  // Overriding Minima
+  border-bottom: 0;
+
+  .my-navbar {
+    // Navbar collapse size
+    $navbar-collapse: md;
+    
+    .navbar-brand {
+      font-size: 1.25em;
+      color: $my-darkest;
+      text-decoration: none;
+
+      .icon-earmuffs {
+        font-size: 1.7em;
+      }
+    }
+
+    .navbar-nav {
+      margin-left: 0;
+      font-size: 0.9em;
+
+      .nav-link {
+        text-decoration: none;
+        color: $my-grey;
+        padding: 0 32px 0 32px;
+
+        i {
+          color: $my-grey;
+        }
+
+        &:hover {
+          color: $my-darkest;
+
+          i {
+            color: $my-darkest;
+          }
+        }
+
+        @media (max-width: map-get($grid-breakpoints, $navbar-collapse)) {
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+      }
+
+      .dropdown-toggle {
+        // Remove default Bootstrap dropdown caret
+        &:after {
+          display: none;
+        }
+      }
+
+      .dropdown-menu {
+        padding: 0;
+        border-radius: 0;
+        top: 32px;
+
+        li {
+          padding: 0;
+        }
+
+        .dropdown-item {
+          padding: 0.75em 1em 0.75em 1em;
+          text-decoration: none;
+          color: $my-grey;
+          background-color: $my-background-white;
+  
+          &:hover {
+            color: $my-darkest;
+            background-color: $my-lighter;
+          }
+  
+          &:active {
+            color: $my-darkest;
+            background-color: $my-lighter;
+          }
+        }
+      }
+    }
+
+    // Temporary element to get navbar centered
+    .nav-filler {
+      visibility: hidden;
+
+      @media (max-width: map-get($grid-breakpoints, $navbar-collapse)) {
+        display: none !important;
+      }
+    }
+  } 
+}

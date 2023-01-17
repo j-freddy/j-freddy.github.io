@@ -98,9 +98,12 @@ What about these categories?
 
 ## Exploring the Other category
 
-This is where the danger zone begins. Modifying or deleting the wrong parts can
-cause functionality to break. That said, Mac will prevent you from modifying or
-deleting the *really* important files. Let's proceed with caution.
+<div class="callout callout-danger">
+  This is where the danger zone begins. Modifying or deleting the wrong parts
+  can cause functionality to break. That said, Mac will prevent you from
+  modifying or deleting the <i>really</i> important files. Let's proceed with
+  caution.
+</div>
 
 Open a Finder window and press `CMD` + `SHIFT` + `G`. In the popup, type `/`.
 
@@ -170,7 +173,9 @@ so important that Mac is disabling you from trying to scan them.
 
 Finally, the full scan will take a long time (give at least 20 minutes). You can
 tell your computer is making progress if the lovely "Operations not permitted"
-messages continue to pop up. Alright, here it is.
+messages continue to pop up.
+
+Alright, here it is.
 
 ```
 $ du -I System -d 3 | sort -n
@@ -202,10 +207,12 @@ find `local > Cellar` and `local > Homebrew` to be large. Both folders can be
 deleted if the programs you installed via Homebrew are no longer needed. I would
 advise against deleting them unless you **really need** the freed storage space.
 
-As an example, at the time of writing this article, I decided to see what would
-happen if I remove `Cellar`. Immediately, this site could no longer be hosted
-locally as I had installed Ruby on Homebrew and Ruby is required to build this
-site. Hence, I had to reinstall Ruby to host this site locally again.
+<div class="callout">
+  At the time of writing this article, I decided to see what would happen if I
+  remove <b>Cellar</b>. Immediately, this site could no longer be hosted locally
+  as I had installed Ruby on Homebrew and Ruby is required to build this site.
+  Hence, I had to reinstall Ruby to host this site locally again.
+</div>
 
 As a side note, the entire `local` folder is safe to delete, although it may
 cause inconveniences in the near future as you'll have to reinstall some

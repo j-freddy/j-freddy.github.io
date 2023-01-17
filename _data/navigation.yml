@@ -1,12 +1,16 @@
 # Used to generate navbar
-- name: Home
-  link: /
-- name: Portfolio
-  link: /portfolio
-- name: Games
-  dropdown: true
-  subpages:
-    - name: Ultimate Tic-Tac-Toe
-      link: /games/ultimate-tic-tac-toe
-- name: Blog
-  link: /blog
+homepath: /
+pages:
+  - name: Home
+    link: /
+  - name: Portfolio
+    link: /portfolio
+  - name: Games
+    dropdown: true
+    subpages:
+      - name: Ultimate Tic-Tac-Toe
+        link: /games/ultimate-tic-tac-toe
+      - name: Ultimate Pong
+        link: /games/ultimate-pong
+  - name: Blog
+    link: /blog

@@ -1,14 +1,12 @@
-<footer class="site-footer h-card pt-5">
+<footer class="site-footer h-card">
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper text-center">
     {%- assign my_date = 2022 -%}
 
     <small class="footer-text">
-      {{- site.description | escape -}}<br>
-      &copy; {{ site.author | escape }} {{ my_date }}
+      {{ site.description }}<br>
+      &copy; {{ site.author }} {{ my_date }}
     </small>
-
   </div>
-
 </footer>

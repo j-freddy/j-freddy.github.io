@@ -1,0 +1,25 @@
+body {
+  background-color: $my-background-white;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  font-family: $font-main;
+  color: $my-darkest;
+}
+
+a {
+  color: $my-theme-darkest;
+
+  i {
+    color: $my-theme-darkest;
+  }
+
+  &:visited {
+    color: $my-theme-darkest;
+  }
+}
+
+li {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

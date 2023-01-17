@@ -8,6 +8,7 @@ $my-theme-darkest: $oc-blue-9;
 $my-theme-darker: $oc-blue-8;
 $my-theme-dark: $oc-blue-7;
 $my-white: #fff;
+$my-background-white: #fdfdfd;
 $my-lightest: $oc-gray-0;
 $my-lighter-2: $oc-gray-1;
 $my-lighter: $oc-gray-2;
@@ -23,7 +24,7 @@ $bg-base-path: "img/bg/";
 $background: url($bg-base-path + "bg-trace-2.svg");
 $background-home: url($bg-base-path + "bg-trace-2-colour.svg");
 $background-donut: url($bg-base-path + "donut-hole.svg");
-$background-blog: url($bg-base-path + "birds-trace-2.png");
+$background-blog: url($bg-base-path + "birds-trace-2.svg");
 
 // Font
 $font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -40,5 +41,5 @@ $grid-breakpoints: (
 );
 
 // Overriden variables
-$spacing-unit: 30px;
-$content-width: calc(max(58vw, 1000px));
+$spacing-unit: 32px;
+$content-width: calc(max(64vw, 1024px));

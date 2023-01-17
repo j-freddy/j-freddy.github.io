@@ -1,4 +1,4 @@
-#ultimate-tic-tac-toe {
+.game-container {
   @include background-blur-default(none);
   width: 800px;
 
@@ -7,6 +7,13 @@
     border-radius: 4px;
   }
 
+  .source-link {
+    float: right;
+    text-decoration: underline;
+  }
+}
+
+#ultimate-tic-tac-toe {
   #config {
     width: 480px;
     margin: auto;
@@ -23,9 +30,16 @@
       }
     }
   }
+}
 
-  .source-link {
-    float: right;
-    text-decoration: underline;
+#ultimate-pong {
+  .wrapper {
+    width: 480px;
+    margin-bottom: 128px;
+  }
+
+  #config {
+    width: 480px;
+    margin: auto;
   }
 }

@@ -1,0 +1,111 @@
+---
+layout: game
+title: Ultimate Pong
+source_code: "https://github.com/j-freddy/ultimate-pong"
+scripts: |
+  <!-- Libraries -->
+  <script src="dist/src/lib/min/gsap.min.js"></script>
+  <!-- GUI Data -->
+  <script src="dist/src/gui/img.js"></script>
+  <script src="dist/src/gui/GUIData.js"></script>
+  <!-- Model -->
+  <script src="dist/src/model/util/utils.js"></script>
+  <script src="dist/src/model/util/collision.js"></script>
+  <script src="dist/src/model/util/point.js"></script>
+  <script src="dist/src/model/ball.js"></script>
+  <script src="dist/src/model/paddle.js"></script>
+  <script src="dist/src/model/effect/effect.js"></script>
+  <script src="dist/src/model/effect/effectBlock.js"></script>
+  <script src="dist/src/model/game.js"></script>
+  <script src="dist/src/model/ai/ai.js"></script>
+  <script src="dist/src/model/ai/aiPacifist.js"></script>
+  <script src="dist/src/model/ai/aiNaive.js"></script>
+  <script src="dist/src/model/ai/aiShortSighted.js"></script>
+  <!-- GUI -->
+  <script src="dist/src/gui/GUI.js"></script>
+  <!-- Tests -->
+  <script src="dist/test/test.js"></script>
+  <!-- App -->
+  <script src="dist/src/app.js"></script>
+---
+<!-- ======================================================================= -->
+<!-- You can view the source code here:                                      -->
+<!-- https://github.com/j-freddy/ultimate-pong                               -->
+<!-- (Note: the source code may contain some updates)                        -->
+<!-- DO NOT try to learn from the code under /dist                           -->
+<!-- The code under /dist is auto-translated from TypeScript!                -->
+<!-- ======================================================================= -->
+
+<div id="ultimate-pong">
+  <canvas id="main-canvas" width="480px" height="480px">
+    Your browser does not support canvas.
+  </canvas>
+  <div class="game-info-container">
+    <div id="game-config">
+      <button class="btn btn-dark mt-4" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#config">
+        Config
+      </button>
+      <div class="collapse multi-collapse" id="config">
+        <div class="card card-body mt-3">
+          <form>
+            <div class="btn-group" role="group"
+                aria-label="Player toggle group">
+              <input type="radio" class="btn-check" name="mode"
+                    id="1-player" autocomplete="off">
+              <label class="btn btn-outline-secondary" for="1-player">
+                1 Player
+              </label>
+            
+              <input type="radio" class="btn-check" name="mode"
+                    id="2-player" autocomplete="off" checked>
+              <label class="btn btn-outline-secondary" for="2-player">
+                2 Player
+              </label>
+            </div>
+            <button type="button" class="btn btn-dark ms-5" id="new-game">
+              New Game
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="game-instructions" class="text-start mt-5">
+      <h3>Instructions</h3>
+      <ul>
+        <li>Bottom paddle: Arrow keys</li>
+        <li>Top paddle: a & d keys</li>
+        <li>1 player: Control bottom paddle against AI</li>
+      </ul>
+  
+      <p>First to 5 points wins. Good luck!</p>
+  
+      <a data-bs-toggle="collapse" href="#advanced-details" role="button" aria-expanded="false" aria-controls="advanced-details">
+        Advanced Details
+      </a>
+      <div id="advanced-details" class="collapse mt-3">
+        <div class="card card-body">
+          <div class="callout callout-warning">
+            You do not need to read this to play the game. It describes
+            advanced mechanics if you're interested.
+          </div>
+          <ul>
+            <li>Ball moves faster (linearly) as the point goes on.</li>
+            <li>Each powerup lasts for 5 seconds. Powerups do not stack.
+            Upon collecting a powerup that is already in effects, the
+            duration resets (i.e. lasts for 5 seconds).</li>
+            <li>Ball bounce mechanics is analogous to light reflection. If
+            the paddle is moving at the point of contact, it adds spin to
+            the ball (i.e. offsets angle slightly).</li>
+            <li>Maximum ball angle with respect to the x-axis is <b>PI *
+            0.12</b>. This prevents paddles from spinning the ball such that
+            it ends up travelling parallel to the paddle.</li>
+            <li>Moving right takes priority over moving left. If you press
+            both right and left keys, the paddle moves right.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

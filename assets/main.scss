@@ -2,8 +2,8 @@
 ---
 // Variables and mixins can only be defined once
 // So to customise them, place them before importing Minima
-@import "variables"; // Custom variables / overriding variables
-@import "mixins";    // Custom mixins
+@import "const/variables"; // Custom variables / overriding variables
+@import "const/mixins";    // Custom mixins
 
 // Import Minima
 @import "minima";    // Default SCSS
