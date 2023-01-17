@@ -3,7 +3,7 @@ layout: post
 title: "Monte Carlo Tree Search"
 date: September 16, 2022
 author: Freddy
-cover_img: "blog/mcts/tree-searching.png"
+cover_img: "blog/mcts/ai-human-chess.jpg"
 summary: |
   Monte Carlo tree search is a staple algorithm in the field of machine
   learning. It is employed by some of the leading AI in strategy games like
