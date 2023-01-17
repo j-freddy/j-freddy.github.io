@@ -9,6 +9,7 @@ summary: |
   Bezier curves. But what exactly are they? This article explains how to
   construct a Bezier curve, discusses where they are used, and describes
   underlying mathematics.
+cover_src: "https://assetstore.unity.com/packages/tools/utilities/b-zier-path-creator-136082"
 scripts: |
   <script src="../assets/js/blog/bezier-curves/point.js"></script>
   <script src="../assets/js/blog/bezier-curves/bezierCurve.js"></script>
@@ -131,8 +132,8 @@ recurrence relation.
 
 $$
 \begin{align}
-     &p_i^{(0)}(t) = p_i & &i = 0, \ldots, n\\
-     &p_i^{(j)}(t) = (1 - t)p_i^{(j-1)} + t p_{i+1}^{(j-1)} & &i = 0, \ldots, n-j
+  &p_i^{(0)}(t) = p_i & &i = 0, \ldots, n\\
+  &p_i^{(j)}(t) = (1 - t)p_i^{(j-1)} + t p_{i+1}^{(j-1)} & &i = 0, \ldots, n-j
 \end{align}
 $$
 
@@ -150,8 +151,8 @@ our point along the Bezier curve.
 
 $$
 \begin{align}
-     &B(t) = \sum_{i=1}^n b_{i, n}(t) p_i & & \\
-     &b_{i, n}(t) = \binom{n}{i} (1-t)^{n-i} t^i & &\text{(Bernstein basis polynomials)}
+  &B(t) = \sum_{i=1}^n b_{i, n}(t) p_i & & \\
+  &b_{i, n}(t) = \binom{n}{i} (1-t)^{n-i} t^i & &\text{(Bernstein basis polynomials)}
 \end{align}
 $$
 

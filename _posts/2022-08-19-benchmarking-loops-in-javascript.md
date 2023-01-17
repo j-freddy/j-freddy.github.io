@@ -4,6 +4,7 @@ title: "Benchmarking Loops in JavaScript"
 date: August 19, 2022
 author: Freddy
 cover_img: "blog/benchmarking-loops-in-javascript/timer.png"
+cover_src: "https://unsplash.com/photos/vZawEq0Eexo"
 summary: |
   Back-end JavaScript and Node.js has been on the rise in recent years, so code
   performance analysis is necessary. This article presents a look into the

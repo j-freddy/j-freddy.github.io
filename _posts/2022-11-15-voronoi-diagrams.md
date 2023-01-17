@@ -73,6 +73,10 @@ The gif below demonstrates this.
 
 <img src="{{img_dir}}voronoi-growth.gif"
      alt="visualising-voronoi-growth" width="360px" class="img-thumbnail">
+<br />
+<small>
+  Source: https://commons.wikimedia.org/wiki/File:Voronoi_growth_euclidean.gif
+</small>
 
 ## Voronoi patterns in nature
 
@@ -83,21 +87,33 @@ some examples!
 
 <img src="{{img_dir}}drying-mud.png"
      alt="drying-mud" class="img-thumbnail">
+<small>
+  Source: http://www.geo.cornell.edu/geology/classes/Geo101/101images_fall.html
+</small>
 
 ### Soap bubbles
 
 <img src="{{img_dir}}soap-bubbles.jpg"
      alt="soap-bubbles" class="img-thumbnail">
+<small>
+  Source: https://www.physics.upenn.edu/duriangroup/multimedia/klebert/Foam1.jpg
+</small>
 
 ### Giraffe
 
 <img src="{{img_dir}}giraffe.jpg"
      alt="giraffe" class="img-thumbnail">
+<small>
+  Source: https://photostockeditor.com/image/giraffe-brown-giraffe-eating-grass-wildlife-59043
+</small>
 
 ### Honeycombs
 
 <img src="{{img_dir}}honeycombs.jpg"
      alt="honeycombs" class="img-thumbnail">
+<small>
+  Source: https://unsplash.com/photos/gi1f13S1-64
+</small>
 
 ## Application: Texturing water
 

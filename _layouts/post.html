@@ -36,6 +36,16 @@ scripts: |
         
           <div class="post-content my-post">
             {{ content }}
+
+            {%- if page.cover_src -%}
+              <small>
+                Cover image from:<br />
+                <a href={{ page.cover_src }}
+                   target="_blank" rel="noopener noreferrer">
+                  {{ page.cover_src }}
+                </a>
+              </small>
+            {%- endif -%}
           </div>
         
         </article>
