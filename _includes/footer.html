@@ -5,7 +5,18 @@
     {%- assign my_date = 2022 -%}
 
     <small class="footer-text">
-      {{ site.description }}<br>
+      <hr class="mb-2" />
+      {{ site.description }}<br />
+      Made with
+      <a href="https://jekyllrb.com/"
+         target="_blank" rel="noopener noreferrer">
+        Jekyll
+      </a><br />
+      More information can be found
+      <a href="{% post_url 2023-01-18-on-the-philosophy-and-design-choices-of-this-site %}"
+         target="_blank" rel="noopener noreferrer">
+        here
+      </a><br /><br />
       &copy; {{ site.author }} {{ my_date }}
     </small>
   </div>
