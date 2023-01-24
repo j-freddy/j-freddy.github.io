@@ -114,9 +114,6 @@ lines will eventually look like a curve.
 <img src="{{img_dir}}discretisation.png"
      alt="discretising-curve" width="420px" class="img-thumbnail">
 <br />
-<small>
-  Source: https://undergroundmathematics.org/introducing-calculus/r7903/solution
-</small>
 
 Bezier curves are non-linear, so we'll do the same thing. Recall the
 construction of Bezier curves: the points on the curve are defined by the lerp
