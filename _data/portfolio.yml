@@ -18,11 +18,11 @@
     College, allowing students to peer-assess each other and providing staff
     with a seamless administration interface. I was one of the main developers
     during my internship with DoC EdTech, Imperial College in Summer 2021.
-    <br><br>
+    <br /><br />
 
     I am very thankful to Ivan Procaccini, Dr. Andrea Callia D'Iddio and Dr.
     Robert Chatley who supervised me and introduced me to test-driven
-    development and other modern agile development practices.<br><br>
+    development and other modern agile development practices.<br /><br />
 
     After my internship, I volunteered to develop the official site for Doc
     EdTech at 
@@ -38,20 +38,20 @@
     - C#
   description: |
     Duel! is a 2P shooter game I developed in Unity in 1 week for Brackeys Jam
-    2020.2.<br><br>
+    2020.2.<br /><br />
 
     Given the time constraints, I opted for a simple game idea that is easily
     extendable, with a focus on providing an elegant interface and user
     experience. This involved smooth animations, a custom keybinds option, as
     well as rewriting the player physics, as Unity's default physics engine was
     rough and inconsistent. Overall, it was very exciting to work with limited
-    time.<br><br>
+    time.<br /><br />
 
-    Watch the "behind the scenes" video:<br>
+    Watch the "behind the scenes" video:<br />
     <a href="https://www.youtube.com/watch?v=2NnTHHqoIrw" target="_blank"
        rel="noopener noreferrer">
       https://www.youtube.com/watch?v=2NnTHHqoIrw
-    </a><br><br>
+    </a><br /><br />
 
     Try out the game! Grab a friend, and duel to the death!
 - name: WACC
@@ -65,14 +65,14 @@
   description: |
     WACC is an imperative language that supports fundamental constructs such as
     variables, loops, conditional branching, arrays and functions. The preview
-    image is a code snippet from a Tic-Tac-Toe AI written in WACC.<br><br>
+    image is a code snippet from a Tic-Tac-Toe AI written in WACC.<br /><br />
 
     Our challenge in the 2022 Spring term? Given 6 weeks,
     write a compiler that performs syntax and semantic analysis on any WACC
     file, then (if valid) generates executable code for the ARM11 architecture.
     The four of us successfully implemented this in Scala and Parsley (parser
     combinator library) and got a 99% score in the backend code review.
-    <br><br>
+    <br /><br />
 
 - name: SolarSearch
   img: "img/portfolio/solarsearch.png"
@@ -90,14 +90,14 @@
   description: |
     SolarSearch is powered by a deep learning neural network AI and developed
     during IC Hack 22 in 24 hours. (It was quite intense - we didn't sleep!)
-    <br><br>
+    <br /><br />
 
     Given a country, the web app generates a ranking of areas within the country
     that are most feasible for building solar farms. The ranking algorithm
     accounts for terrain, weather, atmospheric pollution and other factors,
-    using a mixture of computer vision and third-party data.<br><br>
+    using a mixture of computer vision and third-party data.<br /><br />
     
-    More details can be found here:<br>
+    More details can be found here:<br />
     <a href="https://devpost.com/software/solarsearch" target="_blank"
        rel="noopener noreferrer">
       https://devpost.com/software/solarsearch
@@ -120,7 +120,7 @@
   description: |
     I have always been an avid enjoyer of platformer games, dating back to when
     I discovered SuperTux in primary school. This is my attempt at developing
-    one in Unity, and I was quite happy with how it turned out.<br><br>
+    one in Unity, and I was quite happy with how it turned out.<br /><br />
 
     Unfortunately, I never turned this into a fully-fledged game. You can play
     the demo using the link below.
@@ -132,7 +132,7 @@
   description: |
     Pintos is an operating system with a monolithic kernel. It supports basic
     functionality such as multithreading, running user programs and file
-    systems.<br><br>
+    systems.<br /><br />
 
     Our challenge in Fall 2022 is to implement and extend its functionality,
     including non-busy wait, implementing system calls, priority scheduling and
@@ -147,7 +147,7 @@
   description: |
     During my 1st year at Imperial, the Department of Computing held an AI
     Kotlin Pawn Race, and I was one of the winners! (using a MCTS strategy)
-    <br><br>
+    <br /><br />
 
     Fast forward to the Summer term and I was
     <a href="https://github.com/j-freddy/chess" target="_blank"
