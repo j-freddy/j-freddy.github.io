@@ -7,6 +7,8 @@ Hosted on [GitHub Pages][1].
 ### Run locally
 
 ```sh
+# Install Gems
+bundle install
 # Windows
 jekyll serve
 # Mac

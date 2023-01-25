@@ -2,19 +2,21 @@
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper text-center">
-    {%- assign my_date = 2022 -%}
+    {%- assign my_date = 2023 -%}
 
     <small class="footer-text">
       <hr class="mb-2" />
       {{ site.description }}<br />
       Made with
       <a href="https://jekyllrb.com/"
-         target="_blank" rel="noopener noreferrer">
+         target="_blank" rel="noopener noreferrer"
+         class="footer-link">
         Jekyll
       </a><br />
       More information can be found
       <a href="{% post_url 2023-01-18-on-the-philosophy-and-design-choices-of-this-site %}"
-         target="_blank" rel="noopener noreferrer">
+         target="_blank" rel="noopener noreferrer"
+         class="footer-link">
         here
       </a><br /><br />
       &copy; {{ site.author }} {{ my_date }}
