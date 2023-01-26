@@ -22,8 +22,8 @@ to create something extremely fancy or technically difficult (I save them for
 other projects!). Plus, I have sufficient experience in web development to pick
 up new frameworks comfortably. The struggle is creating a site I'm satisfied
 with. After all, this is a personal site and despite not looking for something
-overly fancy and decorated, I want it to be distinct, reflective and
-representative. This is my 3rd attempt at designing my personal site and I'm
+overly fancy or decorated, I want it to be distinct, reflective and
+representative. This is my 3rd attempt at designing my personal site, and I'm
 looking to get it right this time!
 
 <div class="callout">
@@ -38,13 +38,12 @@ looking to get it right this time!
 
 ## Philosophy
 
-Before starting, I wanted a firm vision: to create a site that presents and
-maintains my identity. This stemmed from my dissatisfaction with previous
-personal sites.
+Before starting, I wanted to establish a firm vision: to create a site that
+presents and maintains my identity. This stemmed from my dissatisfaction with
+previous personal sites.
 
 I wanted to be reflected within my site: the designs, colours, backgrounds etc.
-are to be crafted with precision and care. I've thrown in some easter eggs as
-well. ;)
+are to be crafted with precision and care.
 
 I also have a side vision: to write and maintain articles. I grow increasingly
 frustrated at all these online resources with amazing content plagued by rubbish
@@ -57,7 +56,7 @@ in a clean, minimalistic environment.
 sections of each article.</sup>
 
 <div class="callout callout-success">
-  The width of the blog posts are designed for easy reading. Obviously if the
+  The width of these blog posts are designed for easy reading. Obviously if the
   text spanned the entire screen, it becomes hard to read i.e. moving to the
   next line. So what is the ideal width?<br /><br />
 
@@ -79,7 +78,7 @@ iteration was a big flaw.
 ### Jekyll
 
 [Jekyll](https://jekyllrb.com/) is a powerful static site generator that allows
-me to easily manage site resources. It also comes with built-in packages to
+you to easily manage site resources. It also comes with built-in packages to
 create and maintain blog posts easily. Finally, it comes with Liquid: a template
 language that allows loops and conditions within HTML, providing capabilities
 akin to Jinja for Flask and Django.
@@ -98,11 +97,11 @@ experience!).
 
 ### BootStrap
 
-[BootStrap](https://getbootstrap.com/) is a powerful frontend toolkit. Vanilla
-HTML&CSS do not appear often in industrial practice. For the most part, I
-leverage BootStrap's utility features and restyle built-in components like
-buttons and pills. It also offers good support for creating dynamic components
-(i.e. the site is compatible for computers and mobile devices).
+[BootStrap](https://getbootstrap.com/) is a powerful frontend toolkit. For the
+most part, I leverage BootStrap's utility features and restyle built-in
+components like buttons and pills. It also offers good support for creating
+dynamic components (i.e. the site is compatible for computers and mobile
+devices).
 
 ### SCSS
 
@@ -155,5 +154,5 @@ Inkscape. The original image is a photo I took of some birds.
 
 I wear earmuffs when cold.
 
-And that's it on the philosophy and design choises of my site! Now try to find
+And that's it on the philosophy and design choices of my site! Now try to find
 the easter eggs. :)
