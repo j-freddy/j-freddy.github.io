@@ -1,12 +1,13 @@
 ---
 layout: post
 title: "On the Philosophy and Design Choices of this Site"
-date: January 18, 2023
+date: January 26, 2023
 author: Freddy
-# TODO Earmuffs centered on airplanes background
-cover_img: "blog/voronoi-diagrams/cover.png"
+cover_img: "blog/site-philosophy/donuts.png"
 summary: |
-  Bruh
+  Why does this site look the way it looks? In this article, I explain my
+  choices and my vision, as well as a look into the web frameworks and tools
+  used.
 ---
 
 <div class="blog-preamble">
@@ -56,7 +57,15 @@ in a clean, minimalistic environment.
 sections of each article.</sup>
 
 <div class="callout callout-success">
-  TODO 80 characters width
+  The width of the blog posts are designed for easy reading. Obviously if the
+  text spanned the entire screen, it becomes hard to read i.e. moving to the
+  next line. So what is the ideal width?<br /><br />
+
+  I adopt a similar width to 80 characters per line. This is standard pratice
+  for most programming languages these days, and is thought to have been
+  inherited from teletypewriters that support 70-80 characters per line. This
+  was then adopted by IBM who developed punched cards consisting of 80
+  characters per line.
 </div>
 
 Finally, my site should not feel gloomy. The greyscale theme on a previous
@@ -65,7 +74,7 @@ iteration was a big flaw.
 <img src="{{img_dir}}old-site.png"
      alt="old-site" class="img-thumbnail">
 
-## Frameworks, Tools and APIs
+## Frameworks, tools and APIs
 
 ### Jekyll
 
@@ -107,30 +116,44 @@ step-up from vanilla CSS.
 regularly adopt whenever I find colour presentation important, e.g. presentation
 slides.
 
-My site's colours are:
+My site's main colours are:
 
-<!-- TODO Image -->
+<img src="{{img_dir}}palette.svg"
+     alt="palette" width="540px" class="img-thumbnail">
 
 ### Font Awesome
 
 [Font Awesome](https://fontawesome.com/) is a library that provides free,
 minimalistic vector icons that I sprinkle on my site.
 
-## Other Design Choices
-
-<!--
-  - earmuffs: I wear earmuffs
-  - airplanes: I used to use it as my wallpaper, this is an SVG trace
-  - donut: from donut hole, this is an SVG trace
-  - blog cover: SVG trace of clouds and birds of some photo I took
--->
+## More random information
 
 ### Airplanes
 
+The airplanes background that appears on all pages (except blog posts) is a
+cropped vector trace using Inkscape. The original image is shown below. I used
+to use it as my Desktop wallpaper.
+
+<img src="{{img_dir}}bg-og.jpg"
+     alt="airplanes-background" class="img-thumbnail">
+
 ### Donut
 
-### Blog Cover
+The donut background that appears on the home page comes from a fan illustration
+of Donut Hole by Hachi (see 2:53 of
+[video](https://www.youtube.com/watch?v=vfN-NBBfpPY)).
+
+### Blog cover
+
+The background from the main blog page is also a cropped vector trace using
+Inkscape. The original image is a photo I took of some birds.
+
+<img src="{{img_dir}}birds.jpg"
+     alt="birds-background" class="img-thumbnail">
 
 ### Earmuffs
 
 I wear earmuffs when cold.
+
+And that's it on the philosophy and design choises of my site! Now try to find
+the easter eggs. :)
