@@ -39,9 +39,3 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 # WEBrick for simple HTTP servers (Windows)
 gem "webrick", "~> 1.7"
-
-# Image lazy loading
-gem "jekyll-loading-lazy"
-
-# Opens links in a new tab
-gem "jekyll-target-blank"

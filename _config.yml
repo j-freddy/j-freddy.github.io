@@ -32,8 +32,6 @@ github_username:  j-freddy
 theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-loading-lazy
-  - jekyll-target-blank
 markdown: kramdown
 
 # Exclude from processing.
