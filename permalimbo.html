@@ -1,0 +1,17 @@
+---
+permalink: /n0tlsbg.html
+layout: page
+scripts: |
+  <script src="../assets/js/permalimbo.js"></script>
+---
+
+<div id="my-ball"></div>
+
+{%- assign limbo = site.data.permalimbo -%}
+
+{%- if limbo -%}
+  {%- for egg in limbo.rabbit -%}
+    <a href="{{ egg.url }}">:)</a>
+    <br />
+  {%- endfor -%}
+{%- endif -%}

@@ -1,3 +1,11 @@
 #my-quote {
   font-style: italic;
 }
+
+.error-paw {
+  color: $my-darkest;
+
+  &:hover {
+    font-size: 1.25em;
+  }
+}
