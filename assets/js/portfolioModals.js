@@ -14,24 +14,12 @@ function handleModals() {
 
   for (let card of projectCards) {
     let id = card.id;
-    let num = id[id.length - 1];
+    let arr = id.split("-");
+    let num = parseInt(arr[arr.length - 1]);
 
     card.addEventListener("click", () => {
       openModal(num);
     });
-  }
-
-  // Add onclick event listener to modal close button
-  const projectModalClose = document
-    .getElementsByClassName("project-modal-close");
-  
-  for (let button of projectModalClose) {
-    let id = button.id;
-    let num = id[id.length - 1];
-
-    button.addEventListener("click", () => {
-      closeModal(num);
-    })
   }
 
   // Add onclick event listener to close modal when user clicks outside
@@ -40,7 +28,8 @@ function handleModals() {
 
     if (element.classList.contains("project-modal")) {
       let id = element.id;
-      let num = id[id.length - 1];
+      let arr = id.split("-");
+      let num = parseInt(arr[arr.length - 1]);
       closeModal(num);
     }
   });

@@ -1,6 +1,57 @@
+- name: CYOA
+  img: "img/portfolio/-temp-1.png"
+  frameworks:
+    - React
+    - Vite
+    - TypeScript
+    - Python
+    - GPT-3
+    - SBERT
+    - MongoDB
+    - HTML
+    - Mantine
+    - CSS
+    - CI/CD
+    - TDD
+  description: |
+    With the prevalence of autoregressive generative models being made
+    publically available, in Autumn 2022 we created a distributed framework for
+    automated gamebook generation using OpenAI's GPT-3 model. <br /><br />
+
+    CYOA offers an extensive set of tools to allow authors to easily create, fully customise and print their gamebooks.
+
+- name: Medical Imaging Classification
+  img: "img/portfolio/-temp-2.png"
+  frameworks:
+    - PyTorch
+    - PyTorch Lightning
+    - Python
+    - NumPy
+    - Matplotlib
+    - TensorBoard
+  description: |
+    Convolutional Neural Networks (CNNs) are widely adopted to automatically
+    learn useful patterns in images for classification tasks. This is known as
+    representation learning and it traditionally requires lots of labelled data.
+    <br /><br />
+
+    What if there is an abundance of unlabelled data but a lack of labelled
+    data? Such cases occur often in practice in medical imaging. Over recent
+    years, a new type of machine learning paradigm has achieved state-of-the-art
+    performance: self-supervised learning. In particular, we perform initial
+    pretraining on our model using available unlabelled data (in hopes that some
+    general useful patterns are learned), then finetune it using the labelled
+    data.<br /><br />
+
+    My BEng individual dissertation at Imperial College (2022-23) involves an
+    extensive evaluation of contrastive and non-contrastive learning (a subset
+    of self-supervised learning) on medical imaging, with a focus on using
+    SimCLR.<br /><br />
+
+    <b>This project is WIP and is set to conclude in mid June 2023.</b>
+
 - name: Peer Assessment
   img: "img/portfolio/peer-assessment.png"
-  preview: "https://peer-assessment.doc.ic.ac.uk"
   source_code: "https://gitlab.doc.ic.ac.uk/edtech/peer-assessment"
   frameworks:
     - Flask
@@ -30,6 +81,7 @@
        rel="noopener noreferrer">
       https://edtech.pages.doc.ic.ac.uk
     </a>
+  
 - name: Duel!
   img: "img/portfolio/duel.png"
   preview: "https://litetj.itch.io/duel"
@@ -67,12 +119,11 @@
     variables, loops, conditional branching, arrays and functions. The preview
     image is a code snippet from a Tic-Tac-Toe AI written in WACC.<br /><br />
 
-    Our challenge in the 2022 Spring term? Given 6 weeks,
-    write a compiler that performs syntax and semantic analysis on any WACC
-    file, then (if valid) generates executable code for the ARM11 architecture.
-    The four of us successfully implemented this in Scala and Parsley (parser
-    combinator library) and got a 99% score in the backend code review.
-    <br /><br />
+    Our challenge in the 2022 Spring term? Given 6 weeks, write a compiler that
+    performs syntax and semantic analysis on any WACC file, then (if valid)
+    generates executable code for the ARM11 architecture. The four of us
+    successfully implemented this in Scala and Parsley (parser combinator
+    library) and got a 99% score in the backend code review. <br /><br />
 
 - name: SolarSearch
   img: "img/portfolio/solarsearch.png"
@@ -102,7 +153,33 @@
        rel="noopener noreferrer">
       https://devpost.com/software/solarsearch
     </a>
-    
+
+- name: Ten Minutes of Existence
+  img: "img/portfolio/-temp-3.png"
+  preview: "https://litetj.itch.io/ten-minutes-of-existence"
+  frameworks:
+    - Unity
+    - C#
+  description: |
+    Ten Minutes of Existence is a puzzle / adventure game I developed for the
+    GameDev.tv Community Jam - May 2020.<br /><br />
+
+    This was a fun project during the initial lockdown, especially working with
+    Shader Graph and the Universal Render Pipeline to texture and animate
+    rippling water.<br /><br />
+
+    Watch the "behind the scenes" video:<br />
+    <a href="https://www.youtube.com/watch?v=xrW_MobboxE" target="_blank"
+       rel="noopener noreferrer">
+      https://www.youtube.com/watch?v=xrW_MobboxE
+    </a><br /><br />
+
+    Walkthrough (spoilers!):<br />
+    <a href="https://www.youtube.com/watch?v=f8kdB0yYRlE" target="_blank"
+       rel="noopener noreferrer">
+      https://www.youtube.com/watch?v=f8kdB0yYRlE
+    </a><br /><br />
+
 - name: ARM Emulator
   img: "img/portfolio/c-arm.png"
   frameworks:
@@ -157,6 +234,7 @@
     myself to create a stronger AI. This time, I used Minimax with alpha-beta
     pruning, using the strategy of "space control" as a static evaluator. It
     triumphed over my Kotlin AI.
+
 - name: Genetic Algorithm Simulator
   img: "img/portfolio/genetic-algorithm-simulator.png"
   preview: "https://freddyproject.github.io/Machine_Learning_Simulator"
