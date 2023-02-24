@@ -28,6 +28,7 @@
     - Python
     - NumPy
     - Matplotlib
+    - TensorBoard
   description: |
     Convolutional Neural Networks (CNNs) are widely adopted to automatically
     learn useful patterns in images for classification tasks. This is known as
@@ -35,8 +36,8 @@
     <br /><br />
 
     What if there is an abundance of unlabelled data but a lack of labelled
-    data? Such cases occur often in pracice in medical imaging. Over recent
-    years, a new type of macing learning paradigm has achieved state-of-the-art
+    data? Such cases occur often in practice in medical imaging. Over recent
+    years, a new type of machine learning paradigm has achieved state-of-the-art
     performance: self-supervised learning. In particular, we perform initial
     pretraining on our model using available unlabelled data (in hopes that some
     general useful patterns are learned), then finetune it using the labelled
@@ -174,9 +175,9 @@
     </a><br /><br />
 
     Walkthrough (spoilers!):<br />
-    <a href="https://www.youtube.com/watch?v=xrW_MobboxE" target="_blank"
+    <a href="https://www.youtube.com/watch?v=f8kdB0yYRlE" target="_blank"
        rel="noopener noreferrer">
-      https://www.youtube.com/watch?v=xrW_MobboxE
+      https://www.youtube.com/watch?v=f8kdB0yYRlE
     </a><br /><br />
 
 - name: ARM Emulator

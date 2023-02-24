@@ -5,7 +5,7 @@ date: May 8, 2022
 author: Freddy
 cover_img: "blog/programming-bezier-curves/melt.png"
 summary: |
-  In a [previous post]({{site.baseurl}}{%- link _posts/2022-05-08-bezier-curves.md -%}),
+  In a [previous post](https://j-freddy.github.io/bezier-curves),
   we explore concepts of Bezier curves. In this article, we will write a program
   in JavaScript that draws Bezier curves. As a disclaimer, we will not be
   covering everything (e.g. using the JavaScript canvas), only the fundamentals.
