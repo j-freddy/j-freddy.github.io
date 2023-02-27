@@ -16,31 +16,37 @@ summary: |
 
 ## Motivation
 
-Say we have two types of fungi in our backyard: honey mushroom and autumn
-skullcap. We also have some data points, where each data entry records the type
+Say we have two types of fungi in our backyard: honey mushroom and velvet
+shank. We also have some data points, where each data entry records the type
 of fungi, as well as its height and cap width. We plot the data points as such.
 
-[TODO Image]
+<img src="{{img_dir}}data.png"
+     alt="fungi-data-points" width="640px" class="img-thumbnail">
 
 We can empirically observe a relationship between the features of the fungi
 (i.e. height and cap width) and its type. In fact, we can draw a line between
 the features to separate between the 2 types.
 
-This line is now a very simple model! We can use this model to predict the type
-of new fungi in our backyard. Say we go measure a fungi and get a height of 12cm
-and cap width of 11cm.
+<img src="{{img_dir}}line.png"
+     alt="fungi-data-points-line" width="640px" class="img-thumbnail">
 
-[TODO Image]
+This line is now a very simple model! We can use this model to predict the type
+of new fungi in our backyard. Say we go measure a fungi and get a height of 9
+and cap width of 12.8.
+
+<img src="{{img_dir}}line-pred.png"
+     alt="fungi-prediction" width="640px" class="img-thumbnail">
 
 The model predicts the fungi as honey mushroom. But what if we drew the line a
 bit differently? Consider the model below. The line still separates our original
-data perfectly, but now our model predicts the fungi as autumn skullcap.
+data perfectly, but now our model predicts the fungi as velvet shank.
 
-[TODO Image]
+<img src="{{img_dir}}line-alt.png"
+     alt="fungi-prediction-alt" width="640px" class="img-thumbnail">
 
 So our question is: how do we determine the "best" or optimal line?
 
-This leads us to support vector machiines (SVMs). An SVM is a very powerful
+This leads us to support vector machines (SVMs). An SVM is a very powerful
 supervised learning method that mathematically formulates a model for binary
 classification.
 
@@ -51,8 +57,8 @@ classification.
 
   Binary classification refers to the task of categorising input data into one
   of 2 classes. In our case, the input data is the set of features describing
-  the fungi: height, cap width. Our 2 classes are honey mushroom and autumn
-  skullcap.
+  the fungi: height, cap width. Our 2 classes are honey mushroom and velvet
+  shank.
   <br /><br />
 
   Supervised learning refers to training a model using data points with labels.
@@ -67,17 +73,20 @@ classification.
   groups, or perform dimensionality reduction.
 </div>
 
-We will start off with the simplest case: finding the optimal line that
-perfectly separates data points into 2 groups. Later, we consider what to do if
-no such line exists. We give 2 examples below.
+We will start off with the simplest case: finding the optimal **linear** model
+that separates data points into exactly **2** groups. Later, we briefly discuss
+generalising this to non-linear models that classify points into an arbitrary
+number of groups.
 
-[TODO Image for soft-margin classifier, and image for non-linear classifier
-(kernel trick)]
+## Binary linear classifier
 
-## Hard-margin classifier
+A hard-margin binary classifier defines a hard linear boundary that perfectly
+separates the 2 classes. We will derive the loss function from scratch.
 
-A hard-margin classifier defines a hard linear boundary that perfectly separates
-the 2 classes. We will derive the loss function from scratch.
+<div class="callout callout-warning">
+  Warning: This section is maths-heavy. You can skip to "Generalisations and
+  extensions".
+</div>
 
 ### Initial steps
 
@@ -134,7 +143,7 @@ hyperplane.
 
 ### Formulating the problem
 
-We want the maxmimum margin hyperplane: let $${c_1, c_2}$$ be the distance
+We want the maximum margin hyperplane: let $${c_1, c_2}$$ be the distance
 between the hyperplane and the closest points to it from each class. We denote
 the closest points $${x_1, x_2}$$. Hence, the hyperplane should be defined such
 that it perpendicularlly bisects the line segment formed by $$c_1$$ and $$c_2$$.
@@ -183,21 +192,69 @@ $$
 \end{align}
 $$
 
+<!-- This might not be possible => soft-margin time. -->
+
 This can be reformulated to the following optimisation problem:
+
+<!-- TODO This is already a soft-margin classifier. The hard-margin is just norm(w)^2. -->
+<!--
+  - state norm(w)^2 s.t. conditions is good
+  - but what if there is no such line?
+  - IMAGE
+  - in this case, we add a penalty term: for each training point, add a penalty
+    if missclassified. This penalty increases the more missclassified it is.
+    This is the Hinge loss.
+-->
 
 $$\min_{w, b} L(w, b) = \|w\|^2 + \lambda \sum_{i=1}^N \max{(0, 1 - y_i (w \cdot x_i + b))}$$
 
 ### Training the model: Gradient descent
 
-We formulated a loss function $$L$$ that we want to minimise.
+We formulated a loss function $$L$$ that we want to minimise. To find optimal
+values of our parameters $$w$$ and $$b$$, we initialise $$w$$ and $$b$$ to
+arbitrary values then use gradient descent to finetune them.
 
-<!--
+$$
+\begin{align}
+  w^{(k+1)} &= w^{(k)} - \alpha \triangledown_w L(w^{(k)}, b^{(k)}) \\
+  b^{(k+1)} &= b^{(k)} - \alpha \triangledown_b L(w^{(k)}, b^{(k)})
+\end{align}
+$$
 
-- gradient descent
-- advanced: kernel trick
-- frameworks? PyTorch, scikit-learn
-- good performance until 2012 when Neural Networks start to take over
-  - future: is SVM still useful?
-- follow-up blog: programming SVM
+where $${w^{(k)}, b^{(k)}}$$ are the values at iteration $$k$$ and $$\alpha$$ is
+the learning rate.
 
--->
+<div class="callout callout-info">
+  Our loss function includes the following:
+
+  $$\sum_{i=1}^N \max{(0, 1 - y_i (w \cdot x_i + b))}$$
+
+  <b>N</b> denotes the number of training data samples. If <b>N</b> is very
+  large, it takes lots of time to compute <b>L</b>. Do we have a workaround?
+  <br /><br />
+
+  The solution is to use stochastic gradient descent (SGD): instead of using the
+  entire dataset to compute <b>L</b> each iteration, we only use a random subset
+  (mini-batch). This allows us to perform each iteration faster while still
+  working towards the optimal values of <b>w</b> and <b>b</b>. The term now
+  becomes:
+
+  $$\sum_{i \in M \subset N} \max{(0, 1 - y_i (w \cdot x_i + b))}$$
+
+  where <b>M</b> is a different random subset every iteration.
+</div>
+
+After training, this is the optimal model for our fungi training data.
+
+<img src="{{img_dir}}line-optimal.png"
+     alt="fungi-optimal-model" width="640px" class="img-thumbnail">
+
+## Generalisations and extensions
+
+### Soft-margin classifier
+
+### Kernel trick
+
+## Frameworks
+
+## Are SVMs outdated?

@@ -48,7 +48,7 @@ are to be crafted with precision and care.
 I also have a side vision: to write and maintain articles. I grow increasingly
 frustrated at all these online resources with amazing content plagued by rubbish
 design or artifical distractions (e.g. ads or pop-ups that ask readers to
-subscribe to their weekly newsletter). I pledge to provide insteresting,
+subscribe to their weekly newsletter). I pledge to provide interesting,
 accessible and beginner-friendly<sup>[[1]](#note1)</sup> content presented
 in a clean, minimalistic environment.
 
