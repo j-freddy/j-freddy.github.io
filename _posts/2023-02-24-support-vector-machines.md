@@ -5,7 +5,10 @@ date: February 24, 2023
 author: Freddy
 # cover_img: "blog/site-philosophy/donuts.png"
 summary: |
-  TODO Summary
+  A support vector machine is a powerful and simple machine learning
+  architecture that used to be state-of-the-art in image classification. In this
+  article, we delve into the intricacies of support vector machines and its
+  applications in linear, non-linear, binary and multi-class classification.
 ---
 
 <div class="blog-preamble">
@@ -81,7 +84,8 @@ number of groups.
 ## Binary linear classifier
 
 A hard-margin binary classifier defines a hard linear boundary that perfectly
-separates the 2 classes. We will derive the loss function from scratch.
+separates the 2 classes. We start by deriving the optimisation problem from
+scratch.
 
 <div class="callout callout-warning">
   Warning: This section is maths-heavy. You can skip to "Generalisations and
@@ -182,7 +186,8 @@ $$mw \cdot n = 2$$
 We now use our previous observation to formulate $$n$$ as $$\frac{w}{\|w\|}$$.
 Hence, $${m = \frac{2}{\|w\|}}$$.
 
-SVM aims to solve this problem.
+A hard-margin binary linear classifier can be described as the following
+optimisation problem.
 
 $$
 \begin{align}
@@ -192,21 +197,21 @@ $$
 \end{align}
 $$
 
-<!-- This might not be possible => soft-margin time. -->
+However, what if there is no such clear-cut line?
 
-This can be reformulated to the following optimisation problem:
+<img src="{{img_dir}}data-soft.png"
+     alt="fungi-data-alt" width="640px" class="img-thumbnail">
 
-<!-- TODO This is already a soft-margin classifier. The hard-margin is just norm(w)^2. -->
-<!--
-  - state norm(w)^2 s.t. conditions is good
-  - but what if there is no such line?
-  - IMAGE
-  - in this case, we add a penalty term: for each training point, add a penalty
-    if missclassified. This penalty increases the more missclassified it is.
-    This is the Hinge loss.
--->
+In this case, we allow training points to be misclassified by no longer
+enforcing the 2 constraints - instead, we add a penalty term for every
+misclassified point. This is called a soft-margin classifier and can be
+reformulated as the Hinge loss:
 
 $$\min_{w, b} L(w, b) = \|w\|^2 + \lambda \sum_{i=1}^N \max{(0, 1 - y_i (w \cdot x_i + b))}$$
+
+If a point is correctly classified, the penalty term is $$0$$. Otherwise, the
+penalty is how badly the point is misclassified, defined by the distance to
+line: $${1 - y_i (w \cdot x_i + b)}$$.
 
 ### Training the model: Gradient descent
 
@@ -249,12 +254,83 @@ After training, this is the optimal model for our fungi training data.
 <img src="{{img_dir}}line-optimal.png"
      alt="fungi-optimal-model" width="640px" class="img-thumbnail">
 
+For our soft-margin example, the optimal model is shown below.
+
+<img src="{{img_dir}}line-optimal-soft.png"
+     alt="fungi-optimal-model-soft" width="640px" class="img-thumbnail">
+
 ## Generalisations and extensions
 
-### Soft-margin classifier
+### Multi-class classification
+
+SVMs are intrisincally for binary problems. There are ways to reformulate
+multi-class problems to be solved with SVM. Let's assume there are 4 classes:
+apple, banana, cherry, dates.
+
+- **One-to-Rest**: We decompose the original problem into 4 binary problems:
+  apple vs other classes, banana vs other classes, etc.
+- **One-to-One**: We have a binary problem for each pair of classes: apple
+  vs banana, apple vs cherry, banana vs cherry, etc.
+
+<img src="{{img_dir}}multiclass.webp"
+     alt="multiclass-example" width="420px" class="img-thumbnail">
 
 ### Kernel trick
 
+SVMs intrinsically describes linear relationships. The kernel trick applies a
+kernel that maps data points to a higher dimensional space that may be linearly
+separable.
+
+<img src="{{img_dir}}kernel-trick.png"
+     alt="kernel-trick" width="640px" class="img-thumbnail">
+
 ## Frameworks
 
+[scikit-learn](https://scikit-learn.org/stable/auto_examples/svm/plot_iris_svc.html)
+provides utilities that fully support SVMs in Python.
+
+<!-- TODO Example code -->
+
 ## Are SVMs outdated?
+
+<img src="{{img_dir}}advancement-over-time.png"
+     alt="advancement-over-time" class="img-thumbnail">
+
+The figure above shows the improvement of image classification models over time
+on the ImageNet dataset. SVMs were state-of-the-art models for image
+classification until the publication of AlexNet in 2012, which paved way for
+convolutional neural networks (CNNs) such as ResNet. Since 2017,
+state-of-the-art models have moved to transformers (like Google's BERT and
+OpenAI's GPT).
+
+Interestingly, the architecture for AlexNet is very similar to LeNet (1998) and
+neural network concepts existed in the 1980s. However, neural networks only took
+off decades later due to advancements in hardware and availability of large
+datasets.
+
+From this, we can make 2 arguments:
+
+1. The newer state-of-the-art architectures like CNNs and transformers have
+   millions (even billions) of tunable parameters. For simple tasks like digit
+   handwriting recognition, SVMs perform well (see stats below) and offer a much
+   cheaper solution to CNNs and transformers.
+2. With rapid technology advancements in many fields, SVMs has potential to once
+   again become state-of-the-art in the future.
+
+<img src="{{img_dir}}digit-recognition.png"
+     alt="digit-recognition-stats" width="360px" class="img-thumbnail">
+
+## Further reading
+
+- The [Wikipedia page](https://en.wikipedia.org/wiki/Support_vector_machine) on
+  SVMs is very well documented
+- Stanford CS229 has a [comprehensive
+  lecture](https://www.youtube.com/watch?v=lDwow4aOrtg) on SVMs, with a focus on
+  underlying mathematics and fundamentals
+- CS229: The [follow-up video](https://www.youtube.com/watch?v=8NYoQiRANpg)
+  mathematically explains the kernel trick
+- SVMs involve numerical data. For image classification, this involves
+  describing an image as a vector of floats. Simply taking the RGB values of all
+  pixels is too inefficient, so we need a way to locate interest points. One
+  such algorithm is
+  [SIFT](https://docs.opencv.org/4.x/da/df5/tutorial_py_sift_intro.html).
