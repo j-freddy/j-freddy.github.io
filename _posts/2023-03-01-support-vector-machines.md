@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Support Vector Machines"
-date: February 24, 2023
+date: March 1, 2023
 author: Freddy
-# cover_img: "blog/site-philosophy/donuts.png"
+cover_img: "blog/svm/thumb.png"
 summary: |
   A support vector machine is a powerful and simple machine learning
   architecture that used to be state-of-the-art in image classification. In this
@@ -26,32 +26,32 @@ of fungi, as well as its height and cap width. We plot the data points as such.
 <img src="{{img_dir}}data.png"
      alt="fungi-data-points" width="640px" class="img-thumbnail">
 
-We can empirically observe a relationship between the features of the fungi
-(i.e. height and cap width) and its type. In fact, we can draw a line between
-the features to separate between the 2 types.
+We can empirically observe a relationship between the features of each fungus
+(i.e. height and cap width) and its type. Let's  draw a line to separate them.
 
 <img src="{{img_dir}}line.png"
      alt="fungi-data-points-line" width="640px" class="img-thumbnail">
 
-This line is now a very simple model! We can use this model to predict the type
-of new fungi in our backyard. Say we go measure a fungi and get a height of 9
-and cap width of 12.8.
+This line describes a very simple model! We can use this line to predict the
+type of new fungi in our backyard. Say we go measure a mushroom and get a height
+of 9 and cap width of 12.8.
 
 <img src="{{img_dir}}line-pred.png"
      alt="fungi-prediction" width="640px" class="img-thumbnail">
 
-The model predicts the fungi as honey mushroom. But what if we drew the line a
-bit differently? Consider the model below. The line still separates our original
-data perfectly, but now our model predicts the fungi as velvet shank.
+The model predicts the fungus as a honey mushroom. But what if we draw the line
+a bit differently? Consider the model below. The line still separates our
+original data perfectly, but now our model predicts the fungus as a velvet
+shank.
 
 <img src="{{img_dir}}line-alt.png"
      alt="fungi-prediction-alt" width="640px" class="img-thumbnail">
 
-So our question is: how do we determine the "best" or optimal line?
+How do we determine the best line?
 
 This leads us to support vector machines (SVMs). An SVM is a very powerful
-supervised learning method that mathematically formulates a model for binary
-classification.
+supervised learning method that mathematically formulates the optimal model for
+binary classification.
 
 <div class="callout callout-info">
   Woah! I've thrown in a lot of machine learning terminology already. Let's go
@@ -60,7 +60,7 @@ classification.
 
   Binary classification refers to the task of categorising input data into one
   of 2 classes. In our case, the input data is the set of features describing
-  the fungi: height, cap width. Our 2 classes are honey mushroom and velvet
+  each fungus: height, cap width. Our 2 classes are honey mushroom and velvet
   shank.
   <br /><br />
 
@@ -137,8 +137,8 @@ Hence, $$w$$ is orthogonal to the gradient.
 We can partition a 2D plane into 2 regions using a 1D line. Similarly, we can
 partition a 3D space into 2 regions using a 2D plane.
 
-In general, we can partition an $$n$$-dimensional space using an
-$${(n-1)}$$-dimensional hyperplane.
+Let $$n$$ be the number of features. In general, we can partition an
+$$n$$-dimensional space using an $${(n-1)}$$-dimensional hyperplane.
 
 $$w \cdot x + b = 0$$
 
@@ -150,7 +150,7 @@ hyperplane.
 We want the maximum margin hyperplane: let $${c_1, c_2}$$ be the distance
 between the hyperplane and the closest points to it from each class. We denote
 the closest points $${x_1, x_2}$$. Hence, the hyperplane should be defined such
-that it perpendicularlly bisects the line segment formed by $$c_1$$ and $$c_2$$.
+that it perpendicularly bisects the line segment formed by $$c_1$$ and $$c_2$$.
 Then, $${c_1 = c_2}$$. We can always normalise our data, so we generalise $${c_1
 = 1}$$.
 
@@ -167,7 +167,8 @@ $$
 Then, our problem is to derive the margin between $${w \cdot x_1 + b = 1}$$ and
 $${w \cdot x_2 + b = -1}$$.
 
-[TODO Image - Computer Vision presentation 8 page 62]
+<img src="{{img_dir}}formulation.png"
+     alt="formulation-margin" width="480px" class="img-thumbnail">
 
 Define the margin size as $$m$$. Then $${x_2 = x_1 + mn}$$, where $$n$$ is the
 standard normal to $${w \cdot x_1 + b = 1}$$. Now, we have:
@@ -197,20 +198,22 @@ $$
 \end{align}
 $$
 
-However, what if there is no such clear-cut line?
+What if there is no such clear-cut line?
 
 <img src="{{img_dir}}data-soft.png"
      alt="fungi-data-alt" width="640px" class="img-thumbnail">
 
-In this case, we allow training points to be misclassified by no longer
+In this case, we allow some training points to be misclassified by no longer
 enforcing the 2 constraints - instead, we add a penalty term for every
 misclassified point. This is called a soft-margin classifier and can be
 reformulated as the Hinge loss:
 
 $$\min_{w, b} L(w, b) = \|w\|^2 + \lambda \sum_{i=1}^N \max{(0, 1 - y_i (w \cdot x_i + b))}$$
 
+where $$\lambda$$ is a hyperparameter corresponding to penalty strength.
+
 If a point is correctly classified, the penalty term is $$0$$. Otherwise, the
-penalty is how badly the point is misclassified, defined by the distance to
+penalty is how badly the point is misclassified, defined by the distance to the
 line: $${1 - y_i (w \cdot x_i + b)}$$.
 
 ### Training the model: Gradient descent
@@ -249,7 +252,7 @@ the learning rate.
   where <b>M</b> is a different random subset every iteration.
 </div>
 
-After training, this is the optimal model for our fungi training data.
+After training, this is our optimal model.
 
 <img src="{{img_dir}}line-optimal.png"
      alt="fungi-optimal-model" width="640px" class="img-thumbnail">
@@ -263,7 +266,7 @@ For our soft-margin example, the optimal model is shown below.
 
 ### Multi-class classification
 
-SVMs are intrisincally for binary problems. There are ways to reformulate
+SVMs are intrinsically for binary problems. There are ways to reformulate
 multi-class problems to be solved with SVM. Let's assume there are 4 classes:
 apple, banana, cherry, dates.
 
@@ -277,19 +280,89 @@ apple, banana, cherry, dates.
 
 ### Kernel trick
 
-SVMs intrinsically describes linear relationships. The kernel trick applies a
+SVMs intrinsically describe linear relationships. The kernel trick applies a
 kernel that maps data points to a higher dimensional space that may be linearly
 separable.
 
 <img src="{{img_dir}}kernel-trick.png"
      alt="kernel-trick" width="640px" class="img-thumbnail">
 
+The choice of the kernel depends on the dataset. Popular kernels include:
+- Gaussian kernel
+- sigmoid kernel
+- polynomial kernel
+- radial basis function
+
 ## Frameworks
 
 [scikit-learn](https://scikit-learn.org/stable/auto_examples/svm/plot_iris_svc.html)
-provides utilities that fully support SVMs in Python.
+provides utilities for SVMs in Python. Let's look at a simple example.
 
-<!-- TODO Example code -->
+We start by creating some dummy data.
+
+```py
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Fancy plots
+plt.style.use("ggplot")
+
+# Seed to reproduce experiment
+np.random.seed = 1969
+
+# 50 data points from each class
+n = 50
+
+# Class 1
+X0 = np.random.randn(n)
+Y0 = X0 * 2.0 + 3.0
+Y0 += np.random.randn(n) # add noise
+
+# Class 2
+X1 = np.random.randn(n)
+Y1 = X1 * 1.7 + 6.0
+Y1 += np.random.randn(n) # add noise
+
+class1 = np.vstack((X0, Y0)).T
+class2 = np.vstack((X1, Y1)).T
+
+data_points = np.vstack((class1, class2))
+labels = np.concatenate((np.zeros(n), np.ones(n)))
+
+plt.scatter(X0, Y0, alpha=0.75)
+plt.scatter(X1, Y1, alpha=0.75)
+
+plt.show()
+```
+
+<img src="{{img_dir}}sklearn.png"
+     alt="dummy-data" width="540px" class="img-thumbnail">
+
+Next, we use the provided SVM tools from scikit-learn to fit the best linear
+separater.
+
+```py
+from sklearn import svm
+from sklearn.inspection import DecisionBoundaryDisplay
+
+model = svm.SVC(kernel="linear")
+model = model.fit(data_points, labels)
+
+disp = DecisionBoundaryDisplay.from_estimator(
+    model,
+    data_points,
+    response_method="predict",
+    alpha=0.25,
+)
+
+plt.scatter(X0, Y0, alpha=0.75)
+plt.scatter(X1, Y1, alpha=0.75)
+
+plt.show()
+```
+
+<img src="{{img_dir}}sklearn-2.png"
+     alt="dummy-data-svm" width="540px" class="img-thumbnail">
 
 ## Are SVMs outdated?
 
@@ -297,16 +370,15 @@ provides utilities that fully support SVMs in Python.
      alt="advancement-over-time" class="img-thumbnail">
 
 The figure above shows the improvement of image classification models over time
-on the ImageNet dataset. SVMs were state-of-the-art models for image
-classification until the publication of AlexNet in 2012, which paved way for
-convolutional neural networks (CNNs) such as ResNet. Since 2017,
-state-of-the-art models have moved to transformers (like Google's BERT and
-OpenAI's GPT).
+on the ImageNet dataset. SVMs were state-of-the-art for image classification
+until the publication of AlexNet in 2012, which paved way for convolutional
+neural networks (CNNs) such as ResNet. Since 2017, state-of-the-art models have
+moved to transformers (like Google's BERT and OpenAI's GPT).
 
 Interestingly, the architecture for AlexNet is very similar to LeNet (1998) and
-neural network concepts existed in the 1980s. However, neural networks only took
-off decades later due to advancements in hardware and availability of large
-datasets.
+neural network concepts existed in the 1980s. However, they only took off
+decades later due to advancements in hardware and availability of large
+datasets, which are crucial for neural networks to perform well.
 
 From this, we can make 2 arguments:
 
@@ -314,8 +386,8 @@ From this, we can make 2 arguments:
    millions (even billions) of tunable parameters. For simple tasks like digit
    handwriting recognition, SVMs perform well (see stats below) and offer a much
    cheaper solution to CNNs and transformers.
-2. With rapid technology advancements in many fields, SVMs has potential to once
-   again become state-of-the-art in the future.
+2. With rapid technology advancements in many fields, SVMs have potential to
+   once again become state-of-the-art in the future.
 
 <img src="{{img_dir}}digit-recognition.png"
      alt="digit-recognition-stats" width="360px" class="img-thumbnail">
@@ -323,12 +395,12 @@ From this, we can make 2 arguments:
 ## Further reading
 
 - The [Wikipedia page](https://en.wikipedia.org/wiki/Support_vector_machine) on
-  SVMs is very well documented
+  SVMs is very well documented.
 - Stanford CS229 has a [comprehensive
   lecture](https://www.youtube.com/watch?v=lDwow4aOrtg) on SVMs, with a focus on
-  underlying mathematics and fundamentals
+  underlying mathematics and fundamentals.
 - CS229: The [follow-up video](https://www.youtube.com/watch?v=8NYoQiRANpg)
-  mathematically explains the kernel trick
+  mathematically explains the kernel trick.
 - SVMs involve numerical data. For image classification, this involves
   describing an image as a vector of floats. Simply taking the RGB values of all
   pixels is too inefficient, so we need a way to locate interest points. One
