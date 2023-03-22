@@ -9,9 +9,24 @@ scripts: |
 
 {%- assign limbo = site.data.permalimbo -%}
 
-{%- if limbo -%}
-  {%- for egg in limbo.rabbit -%}
-    <a href="{{ egg.url }}">:)</a>
-    <br />
-  {%- endfor -%}
+
+{%- if limbo.rabbit -%}
+  {%- assign subrabbit = limbo.rabbit | sample: 12 -%}
+
+  <div class="container" id="my-limbo">
+    <div class="row">
+      {%- for egg in subrabbit -%}
+        <!-- Grid framework -->
+        <div class="col-sm-3 px-2 py-2 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-body text-center p-0">
+              <a href="{{ egg.url }}" class="p-3" id="egg-{{ forloop.index }}">
+                <i class="fa-solid fa-paw"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
 {%- endif -%}
