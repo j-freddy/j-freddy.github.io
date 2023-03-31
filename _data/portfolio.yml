@@ -1,5 +1,5 @@
 - name: CYOA
-  img: "img/portfolio/-temp-1.png"
+  img: "img/portfolio/cyoa.png"
   frameworks:
     - React
     - Vite
@@ -21,7 +21,7 @@
     CYOA offers an extensive set of tools to allow authors to easily create, fully customise and print their gamebooks.
 
 - name: Medical Imaging Classification
-  img: "img/portfolio/-temp-2.png"
+  img: "img/portfolio/medmnist-contrastive.png"
   frameworks:
     - PyTorch
     - PyTorch Lightning
@@ -155,7 +155,7 @@
     </a>
 
 - name: Ten Minutes of Existence
-  img: "img/portfolio/-temp-3.png"
+  img: "img/portfolio/tmoe.png"
   preview: "https://litetj.itch.io/ten-minutes-of-existence"
   frameworks:
     - Unity
