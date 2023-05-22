@@ -5,10 +5,10 @@ date: May 22, 2023
 author: Freddy
 cover_img: "blog/image-enhancer/water-lily.jpg"
 summary: |
-  Image processing is an integral subfield of computer vision, which has been
-  on the rise in today's world of technology as part of AI. In this article, we
-  take a look at histogram equalisation: an important tool to increase contrast
-  in images. We focus on greyscale images only.
+  Image processing is an integral subfield of computer vision, a field which has
+  been on the rise as part of AI. In this article, we take a look at histogram
+  equalisation: an important tool to increase image contrast. We focus
+  exclusively on greyscale images.
 scripts: |
   <script src="../assets/js/blog/image-enhancer/main.js"></script>
   <script src="../assets/js/blog/image-enhancer/formHandler.js"></script>
@@ -41,20 +41,20 @@ greyscale. It will always output a greyscale image.)
 
 Pretty neat, right?
 
-The above program uses a technique called **histogram equalisation**. The
-fundamental motivation or goal behind histogram equalisation is to increase
-contrast of greyscale images. Image enhancing has many use cases, such as
-increasing the quality of a retro photograph for forensic analysis (or just to
-make it look nicer!) and preprocessing medical scans before feeding them to
-train a convolutional neural network.
+The program above uses a technique called **histogram equalisation**. The
+fundamental motivation behind histogram equalisation is to increase contrast of
+images. Image enhancing has many use cases, such as increasing quality of a
+retro photograph for forensic analysis (or just to make it look nicer!) and
+preprocessing medical scans before feeding them to train a convolutional neural
+network.
 
 <div class="callout callout-warning">
   <b>Disclaimer:</b> In this article, we only consider greyscale images.
   <br /><br />
 
   Histogram equalisation is mainly used for greyscale images, but it is also
-  possible to use them on colour images. We explore this in another post (coming
-  soon!).
+  possible to apply this on colour images. We explore this in another post
+  (coming soon!).
   <!-- TODO Link -->
 </div>
 
