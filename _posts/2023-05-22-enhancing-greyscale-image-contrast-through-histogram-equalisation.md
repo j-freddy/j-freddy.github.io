@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Enhancing Greyscale Images through Histogram Equalisation"
+title: "Enhancing Greyscale Image Contrast through Histogram Equalisation"
 date: May 22, 2023
 author: Freddy
 cover_img: "blog/image-enhancer/water-lily.jpg"
@@ -66,9 +66,10 @@ network.
 
 ## How does histogram equalisation work?
 
-If we want to enhance an image, we must spread out its pixel intensities. The
-easiest way to achieve this without considering the surroundings of each pixel
-would be to define a one-to-one mapping from each pixel intensity to a new one.
+If we want to enhance contrast of an image, we must spread out its pixel
+intensities. The easiest way to achieve this without considering the
+surroundings of each pixel would be to define a one-to-one mapping from each
+pixel intensity to a new one.
 
 For example, here's the (cropped) mapping for the example hills photo. Note that
 intensity values range from 0 (black) to 255 (white).
@@ -187,6 +188,8 @@ involves rendering the image onto a canvas. You can find the source code
 
 ## Further reading
 
+- In this post, we focus on enhancing image contrast. What about enhancing image
+  quality? A simple technique is to use a **high-pass filter**.
 - Histogram equalisation and image processing is a subset of both **computer
   vision** and **graphics**.
 - If you're interested in the mathematics behind deriving the formulae, the
