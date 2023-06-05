@@ -1,21 +1,21 @@
 ---
 layout: post
 title: "Histogram Equalisation for Colour Images"
-date: May 25, 2023
+date: June 6, 2023
 author: Freddy
-cover_img: "blog/image-enhancer/water-lily.jpg"
+cover_img: "blog/image-enhancer-colour/waterfall.jpg"
 summary: |
-  TODO Image processing is an integral subfield of computer vision, a field which has
-  been on the rise as part of AI. In this article, we take a look at histogram
-  equalisation: an important tool to increase image contrast. We focus
-  exclusively on greyscale images.
+  Histogram equalisation is a staple technique to increase image contrast in
+  greyscale images. In this article, we take a look into how it can be adapted
+  to be applied to colour images.
 scripts: |
-  <script src="../assets/js/blog/image-enhancer/main.js"></script>
-  <script src="../assets/js/blog/image-enhancer/formHandler.js"></script>
+  <script src="../assets/js/lib/math.min.js"></script>
+  <script src="../assets/js/blog/image-enhancer-colour/main.js"></script>
+  <script src="../assets/js/blog/image-enhancer-colour/formHandler.js"></script>
 ---
 
 <div class="blog-preamble">
-  {%- assign img_dir = "assets/img/blog/image-enhancer/" -%}
+  {%- assign img_dir = "assets/img/blog/image-enhancer-colour/" -%}
 </div>
 
 <span id="blog-summary">{{ page.summary }}</span>
@@ -23,14 +23,48 @@ scripts: |
 In a [previous post][1], we explore how to enhance image contrast through
 histogram equalisation. Let's remind ourselves of the technique.
 
-TODO
+[1]: https://j-freddy.github.io/enhancing-greyscale-image-contrast-through-histogram-equalisation
+
+The idea of histogram equalisation is to build a histogram of pixel intensities,
+then flatten the histogram to spread out the intensities. Alternatively, we
+define a mapping such that the new CDF of the histogram is straight.
+
+<div class="mb-3">
+  <img src="{{img_dir}}hills.png"
+      alt="original-image" width="324px" class="img-thumbnail me-3">
+  <img src="{{img_dir}}hist-before.png"
+      alt="original-histogram" width="324px" class="img-thumbnail">
+</div>
+
+<div class="mb-3">
+  <img src="{{img_dir}}hills-after.png"
+      alt="new-image" width="324px" class="img-thumbnail me-3">
+  <img src="{{img_dir}}hist-after.png"
+      alt="new-histogram" width="324px" class="img-thumbnail">
+</div>
 
 This is inherently a technique for greyscale images as it manipulates pixel
 intensities with a non-linear mapping.
 
-[1]: https://j-freddy.github.io/enhancing-greyscale-image-contrast-through-histogram-equalisation
-
 ## What about colour images?
+
+Before moving on, let's try the demo!
+
+(Note that this is somewhat inconsistent with different local display settings,
+so it may be a bit off for greyscale images.)
+
+<!-- Form -->
+<input type="file" id="image-input" accept="image/*" class="mb-3">
+<br />
+<!-- Original image -->
+<img id="original-image" src="{{img_dir}}hills.png" width="480px" alt="original"
+    class="img-thumbnail" />
+<!-- Enhanced image -->
+<canvas id="output-canvas" class="img-thumbnail">
+    Your browser does not support canvas.
+</canvas>
+
+([Source code][3])
 
 Colour images are usually stored as RGB: each pixel is a 3D vector **(r, g, b)**
 denoting its colour, where **r** corresponds to the intensity of red light,
@@ -42,7 +76,10 @@ denoting its colour, where **r** corresponds to the intensity of red light,
 </div>
 
 <div class="callout callout-info">
-  TODO RGBA
+  If you read the <a href="https://j-freddy.github.io/enhancing-greyscale-image-contrast-through-histogram-equalisation">previous post</a>,
+  you may have noticed that we were working with RGBA colours. This is just RGB
+  with an extra alpha channel. For example, <b>(255, 0, 0, 1)</b> is red while
+  <b>(255, 0, 0, 0.5)</b> is semi-transparent.
 </div>
 
 What if we just apply histogram equalisation separately to each of the 3 colour
@@ -70,7 +107,7 @@ resulting image back to RGB.
 
 We will use **YCbCr**. YCbCr is a family of colour spaces that are comprised of
 3 components: luma (Y) a.k.a. intensity, blue-difference chroma (Cb) and
-red-difference chroma.
+red-difference chroma (Cr).
 
 In this article, we use the version defined by ITU-R BT.601 for
 standard-definition television. We source the conversion algorithm from the
@@ -270,5 +307,3 @@ And that's it! As always, my full [source code][3] is provided. This is the
 program I used for the interactive demo at the start of the article.
 
 [3]: https://github.com/j-freddy/image-enhancer/tree/rgb
-
-<!-- TODO Demo at the top -->
