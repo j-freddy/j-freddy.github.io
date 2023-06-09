@@ -31,16 +31,16 @@ define a mapping such that the new CDF of the histogram is straight.
 
 <div class="mb-3">
   <img src="{{img_dir}}hills.png"
-      alt="original-image" width="324px" class="img-thumbnail me-3">
+      alt="original-image" width="300px" class="img-thumbnail me-3">
   <img src="{{img_dir}}hist-before.png"
-      alt="original-histogram" width="324px" class="img-thumbnail">
+      alt="original-histogram" width="300px" class="img-thumbnail">
 </div>
 
 <div class="mb-3">
   <img src="{{img_dir}}hills-after.png"
-      alt="new-image" width="324px" class="img-thumbnail me-3">
+      alt="new-image" width="300px" class="img-thumbnail me-3">
   <img src="{{img_dir}}hist-after.png"
-      alt="new-histogram" width="324px" class="img-thumbnail">
+      alt="new-histogram" width="300px" class="img-thumbnail">
 </div>
 
 This is inherently a technique for greyscale images as it manipulates pixel
