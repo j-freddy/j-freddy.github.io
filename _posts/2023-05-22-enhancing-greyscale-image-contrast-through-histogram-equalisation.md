@@ -53,9 +53,8 @@ network.
   <br /><br />
 
   Histogram equalisation is mainly used for greyscale images, but it is also
-  possible to apply this on colour images. We explore this in another post
-  (coming soon!).
-  <!-- TODO Link -->
+  possible to apply this on colour images. We explore this in
+  <a href="{{site.baseurl}}{% link _posts/2023-06-06-histogram-equalisation-for-colour-images.md %}">another</a> article.
 </div>
 
 <div class="callout callout-info">
@@ -85,9 +84,9 @@ histogram of pixel intensities.
 
 <div class="mb-3">
   <img src="{{img_dir}}hills.png"
-      alt="original-image" width="324px" class="img-thumbnail me-3">
+      alt="original-image" width="300px" class="img-thumbnail me-3">
   <img src="{{img_dir}}hist-before.png"
-      alt="original-histogram" width="324px" class="img-thumbnail">
+      alt="original-histogram" width="300px" class="img-thumbnail">
 </div>
 
 We also plot the CDF (i.e. the black line). The idea is to define the mapping so
@@ -95,9 +94,9 @@ that the new CDF resembles a straight line.
 
 <div class="mb-3">
   <img src="{{img_dir}}hills-after.png"
-      alt="new-image" width="324px" class="img-thumbnail me-3">
+      alt="new-image" width="300px" class="img-thumbnail me-3">
   <img src="{{img_dir}}hist-after.png"
-      alt="new-histogram" width="324px" class="img-thumbnail">
+      alt="new-histogram" width="300px" class="img-thumbnail">
 </div>
 
 This is how histogram equalisation works visually. Now, let's formally describe
