@@ -24,7 +24,7 @@ Click the Apple icon on the top left, then click `About This Mac`. Click on
 `Storage`.
 
 <img src="{{img_dir}}storage-categorisation.png"
-     alt="storage-categorisation" width="640px" class="img-thumbnail">
+     alt="storage-categorisation" width="640px">
 
 Chances are the dark grey bar is quite long. If you hover over it, this bar
 represents files categorised as `Other`. The later parts of this article will
@@ -36,7 +36,7 @@ sorted by size. You can also force the list to be ordered by size by clicking on
 it.
 
 <img src="{{img_dir}}applications.png"
-     alt="applications-list" width="640px" class="img-thumbnail">
+     alt="applications-list" width="640px">
 
 Note that the displayed size is the raw size of the app, not including any
 metadata and cache. If you delete an app here, you'll also want to manually
@@ -108,7 +108,7 @@ What about these categories?
 Open a Finder window and press `CMD` + `SHIFT` + `G`. In the popup, type `/`.
 
 <img src="{{img_dir}}go-to-root.png"
-     alt="going-to-root" width="640px" class="img-thumbnail">
+     alt="going-to-root" width="640px">
 
 You should now be here. This is the root directory. Every folder or file on your
 computer can be accessed from here. For example, you can reach the Desktop via
@@ -117,7 +117,7 @@ computer can be accessed from here. For example, you can reach the Desktop via
 Now press `CMD` + `SHIFT` + `.`.
 
 <img src="{{img_dir}}root-all.png"
-     alt="root-with-hidden-files" width="640px" class="img-thumbnail">
+     alt="root-with-hidden-files" width="640px">
 
 Boom! This reveals hidden folders and hidden files. These files are hidden by
 default, as they're usually system files that users do not need to interact
@@ -224,7 +224,7 @@ there are 2 large entities: `VM` (the Virtual Machine, which you can ignore) and
 `folders`.
 
 <img src="{{img_dir}}private-var-folders.png"
-     alt="folder-with-zz" width="640px" class="img-thumbnail">
+     alt="folder-with-zz" width="640px">
 
 If you try to delete any of these folders, Mac will prevent you from doing so.
 It is possible to force delete them, but this might cause unwanted side effects.

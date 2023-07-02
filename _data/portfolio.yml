@@ -20,8 +20,9 @@
 
     CYOA offers an extensive set of tools to allow authors to easily create, fully customise and print their gamebooks.
 
-- name: Medical Imaging Classification
+- name: Medical Image Classification
   img: "img/portfolio/medmnist-contrastive.png"
+  source_code: "https://github.com/j-freddy/simclr-medical-imaging"
   frameworks:
     - PyTorch
     - PyTorch Lightning
@@ -30,25 +31,26 @@
     - Matplotlib
     - TensorBoard
   description: |
-    Convolutional Neural Networks (CNNs) are widely adopted to automatically
-    learn useful patterns in images for classification tasks. This is known as
-    representation learning and it traditionally requires lots of labelled data.
+    Computer-aided diagnosis (CADx) is very important in clinical environments
+    as they assist radiologists in interpreting medical images. This involves
+    early detection of lesions, as well as enabling more accurate diagnosis.
     <br /><br />
 
-    What if there is an abundance of unlabelled data but a lack of labelled
-    data? Such cases occur often in practice in medical imaging. Over recent
-    years, a new type of machine learning paradigm has achieved state-of-the-art
-    performance: self-supervised learning. In particular, we perform initial
-    pretraining on our model using available unlabelled data (in hopes that some
-    general useful patterns are learned), then finetune it using the labelled
-    data.<br /><br />
+    AI in general is advancing very rapidly. So, can we use these new,
+    state-of-the-art AI techniques and integrate them within CADx?<br /><br />
 
-    My BEng individual dissertation at Imperial College (2022-23) involves an
-    extensive evaluation of contrastive and non-contrastive learning (a subset
-    of self-supervised learning) on medical imaging, with a focus on using
-    SimCLR.<br /><br />
+    My BEng individual thesis at Imperial College (2022-23) focuses on
+    evaluating a specific framework for medical image classification: SimCLR.
+    SimCLR is a self-supervised contrastive learning framework, which enables
+    traning large networks like ResNet with a large amount of unlabelled data
+    and a small amount of labelled data. Traditionally, supervised learning
+    requires lots of labelled data, so this is a very exciting prospect,
+    especially since clinical environments tend to lack labelled data. The
+    thesis involves proposing and evaluating novel techniques and workflows for
+    medical images, some of which gives improvements over the original SimCLR
+    paper.
 
-    <b>This project is WIP and is set to conclude in mid June 2023.</b>
+    I am very thankful to Dr. Ben Glocker for his supervision and guidance.
 
 - name: Peer Assessment
   img: "img/portfolio/peer-assessment.png"

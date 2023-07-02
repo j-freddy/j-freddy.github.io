@@ -1,11 +1,15 @@
+let openIndex = -1;
+
 function openModal(index) {
   let modalId = `project-modal-${index}`;
   document.getElementById(modalId).style.display = "block";
+  openIndex = index;
 }
 
 function closeModal(index) {
   let modalId = `project-modal-${index}`;
   document.getElementById(modalId).style.display = "none";
+  openIndex = -1;
 }
 
 function handleModals() {
@@ -22,15 +26,21 @@ function handleModals() {
     });
   }
 
-  // Add onclick event listener to close modal when user clicks outside
+  // Add onclick event listener to close modal
   window.addEventListener("click", (e) => {
     const element = e.target;
 
-    if (element.classList.contains("project-modal")) {
-      let id = element.id;
-      let arr = id.split("-");
-      let num = parseInt(arr[arr.length - 1]);
-      closeModal(num);
+    // When user clicks button or outside
+    if (element.classList.contains("modal-close") ||
+        element.classList.contains("project-modal")) {
+      closeModal(openIndex);
+    }
+  });
+
+  // Close modal by esc
+  window.addEventListener("keydown", (e) => {
+    if (openIndex !== -1 && e.key === "Escape") {
+      closeModal(openIndex);
     }
   });
 }

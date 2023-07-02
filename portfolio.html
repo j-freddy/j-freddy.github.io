@@ -31,49 +31,49 @@ scripts: |
       <!-- Popup modal -->
       <div class="w3-modal project-modal"
            id="project-modal-{{ forloop.index }}">
-        <div class="w3-modal-content w3-animate-zoom">
-          <div class="w3-card mb-5">
-            <img src="{{ assets_path }}{{ project.img }}"
-                 class="border-bottom">
-            <div class="w3-container m-3 p-3">
-              <!-- Project frameworks -->
-              {%- if project.frameworks -%}
-                {%- for framework in project.frameworks -%}
-                  <small class="badge rounded-pill my-pill ms-3">{{ framework }}</small>
-                {%- endfor -%}
+        <div class="w3-modal-content w3-card w3-animate-right project-content">
+          <img src="{{ assets_path }}{{ project.img }}"
+               class="border-bottom">
+          <span class="btn w3-display-topright modal-close"
+                id="modal-close-{{ forloop.index }}">&times;</span>
+          <div class="w3-container project-text-container">
+            <!-- Project frameworks -->
+            {%- if project.frameworks -%}
+              {%- for framework in project.frameworks -%}
+                <small class="badge rounded-pill my-pill ms-3">{{ framework }}</small>
+              {%- endfor -%}
+            {%- endif -%}
+            <!-- Project description -->
+            <div class="mt-4">
+              <h5 class="my-modal-header">Description</h5>
+              {%- if project.description -%}
+                <p>{{ project.description }}</p>
+              {%- else -%}
+                <p>
+                  A description will be written in the future<br />
+                  probably :)
+                </p>
               {%- endif -%}
-              <!-- Project description -->
-              <div class="mt-4">
-                <h5 class="my-modal-header">Description</h5>
-                {%- if project.description -%}
-                  <p>{{ project.description }}</p>
-                {%- else -%}
-                  <p>
-                    A description will be written in the future<br />
-                    probably :)
-                  </p>
-                {%- endif -%}
 
-                {%- if project.preview -%}
-                  <h5 class="my-modal-header">Preview</h5>
-                  <ul>
-                    <li><a href="{{ project.preview }}" target="_blank"
+              {%- if project.preview -%}
+                <h5 class="my-modal-header">Preview</h5>
+                <ul>
+                  <li><a href="{{ project.preview }}" target="_blank"
+                        rel="noopener noreferrer">
+                    {{ project.preview }}
+                  </a></li>
+                </ul>
+              {%- endif -%}
+              
+              {%- if project.source_code -%}
+                <h5 class="my-modal-header">Source Code</h5>
+                <ul>
+                  <li><a href="{{ project.source_code }}" target="_blank"
                           rel="noopener noreferrer">
-                      {{ project.preview }}
-                    </a></li>
-                  </ul>
-                {%- endif -%}
-                
-                {%- if project.source_code -%}
-                  <h5 class="my-modal-header">Source Code</h5>
-                  <ul>
-                    <li><a href="{{ project.source_code }}" target="_blank"
-                           rel="noopener noreferrer">
-                      {{ project.source_code }}
-                    </a></li>
-                  </ul>
-                {%- endif -%}
-              </div>
+                    {{ project.source_code }}
+                  </a></li>
+                </ul>
+              {%- endif -%}
             </div>
           </div>
         </div>
