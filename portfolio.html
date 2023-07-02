@@ -15,7 +15,7 @@ scripts: |
       <!-- Grid framework -->
       <div class="col-md-4 px-2 py-2 d-flex align-items-stretch">
         <!-- Card -->
-        <div class="card">
+        <div class="card project-card" id="project-card-{{ forloop.index }}">
           <img src="{{ assets_path }}{{ project.img }}"
                class="card-img-top border-bottom project-preview"
                id="project-preview-{{ forloop.index }}" />

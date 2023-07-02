@@ -10,7 +10,7 @@ function closeModal(index) {
 
 function handleModals() {
   // Add onclick event listener to cards
-  const projectCards = document.getElementsByClassName("project-preview");
+  const projectCards = document.getElementsByClassName("project-card");
 
   for (let card of projectCards) {
     let id = card.id;
