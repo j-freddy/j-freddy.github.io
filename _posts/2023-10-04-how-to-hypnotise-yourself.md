@@ -3,9 +3,11 @@ layout: post
 title: "How to hypnotise yourself"
 date: October 4, 2023
 author: Freddy
-cover_img: "blog/local-gpt/thumb.jpg"
+cover_img: "blog/hypnosis/pendulum.png"
 summary: |
-  TODO
+  Ever been curious about hypnosis? In this blog, we explore one of the simplest
+  catalysts for hypnosis: selective attention, as well as delving briefly into
+  the science behind it.
 ---
 
 {%- assign troxler_paper = "https://www.cell.com/neuron/pdf/S0896-6273(05)01056-1.pdf" -%}
@@ -65,4 +67,34 @@ disappear.
 <img src="{{img_dir}}troxler-effect.jpg"
      alt="fading-colours" width="640px" class="img-thumbnail">
 
-<!-- TODO see todo.md on Desktop -->
+## Staring at a mirror
+
+<img src="{{img_dir}}mirror.png"
+     alt="staring-at-a-mirror" width="480px" class="img-thumbnail">
+
+This experiment is simple: find a mirror or use the camera on your computer or
+phone. Mark a spot near the centre of your face, then stare at that spot without
+looking anywhere else **for 5 minutes** - similar to the previous experiments.
+
+This works best in a dimly lit environment. Alternatively, stare at yourself,
+but without marking a spot. This takes longer for the hypnosis and delusions to
+take effect, but the interpretation is after enough time (e.g. an hour), the
+person gets bored and end up fixating on a point anyways.
+
+## Afterthoughts
+
+Personally, I've always been interested in optical illusions, but didn't believe
+in hypnosis until I tried the mirror experiment and ended up seeing a grotesque
+reflection with 6 eyes and its left eyebrow being 10 times larger than the
+right. Current research by experts do not offer concrete explanations to such
+phenomenons, but it's fascinating how easily our minds can be tricked into
+misperceptions.
+
+In fact, we can draw some parallels between extra-terrestrial sightings and
+delusions caused by hypnosis. A lot of UFO sightings happen late at night, which
+means:
+
+1. The environment is dimly lit.
+2. The person is tired.
+
+Both of which are ingredients for hypnosis.
