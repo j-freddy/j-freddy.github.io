@@ -6,8 +6,8 @@ author: Freddy
 cover_img: "blog/hypnosis/pendulum.png"
 summary: |
   Ever been curious about hypnosis? In this blog, we explore one of the simplest
-  catalysts for hypnosis: selective attention, as well as delving briefly into
-  the science behind it.
+  catalysts for hypnosis: selective attention, and briefly talk about the
+  science behind it.
 ---
 
 {%- assign troxler_paper = "https://www.cell.com/neuron/pdf/S0896-6273(05)01056-1.pdf" -%}
@@ -19,10 +19,9 @@ summary: |
 <span id="blog-summary">{{ page.summary }}</span>
 
 <div class="callout callout-warning">
-  Disclaimer: I am not a psychologist, neurologist, nor do I specialise in a
+  Disclaimer: I am not a psychologist or neurologist, nor do I specialise in a
   related field. This is a casual article written with my experiences and
-  interpretations, as well as scientific research of an academic that is not an
-  expert in neuroscience.
+  interpretations with some academic research.
 </div>
 
 The Cambridge dictionary defines hypnosis as:
@@ -35,13 +34,13 @@ phenomena similar to dreams.
 
 ## Selective attention: Troxler's fading
 
-We'll start simple, then build our way upwards. Let's first look at a famous
+We start simple, then build our way upwards. Let's first look at a famous
 optical illusion: the **lilac chaser**.
 
 <img src="{{img_dir}}lilac-chaser.gif"
      alt="lilac-chaser-animation" width="360px" class="img-thumbnail">
 
-A few lilac spots are arranged in a circle, and they blink sequentially. If you
+A few lilac spots are arranged in a circle and they blink sequentially. If you
 fixate on the cross from a short distance (e.g. for 1 minute without your eyes
 leaving the cross), you may notice 2 things:
 1. The lilac spot blinks blue-green
@@ -61,7 +60,7 @@ leaving the cross), you may notice 2 things:
 </div>
 
 Let's try another experiment: fixate on the cross near the screen without
-looking anywhere else. After some time, the colours start fading or completely
+looking anywhere else. After some time, the colours start to fade or completely
 disappear.
 
 <img src="{{img_dir}}troxler-effect.jpg"
@@ -83,10 +82,7 @@ person gets bored and end up fixating on a point anyways.
 
 ## Afterthoughts
 
-Personally, I've always been interested in optical illusions, but didn't believe
-in hypnosis until I tried the mirror experiment and ended up seeing a grotesque
-reflection with 6 eyes and its left eyebrow being 10 times larger than the
-right. Current research by experts do not offer concrete explanations to such
+Current research by experts do not offer concrete explanations to such
 phenomenons, but it's fascinating how easily our minds can be tricked into
 misperceptions.
 
