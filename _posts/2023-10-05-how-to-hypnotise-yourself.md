@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to hypnotise yourself"
+title: "How to Hypnotise Yourself"
 date: October 5, 2023
 author: Freddy
 cover_img: "blog/hypnosis/pendulum.png"
