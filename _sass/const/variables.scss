@@ -8,7 +8,8 @@ $my-theme-darkest: $oc-blue-9;
 $my-theme-darker: $oc-blue-8;
 $my-theme-dark: $oc-blue-7;
 $my-white: #fff;
-$my-background-white: #fdfdfd;
+// Used to be #fdfdfd
+$my-background-white: #fff;
 $my-lightest: $oc-gray-0;
 $my-lighter-2: $oc-gray-1;
 $my-lighter: $oc-gray-2;
@@ -21,8 +22,10 @@ $my-black: #000;
 
 // Background
 $bg-base-path: "img/bg/";
-$background: url($bg-base-path + "bg-trace-2.svg");
-$background-home: url($bg-base-path + "bg-trace-2-colour.svg");
+// TODO Used to have background but not anymore. Either remove or keep to easily
+// add back.
+$background: none;
+$background-home: none;
 $background-donut: url($bg-base-path + "donut-hole.svg");
 $background-blog: url($bg-base-path + "birds-trace-2.svg");
 
@@ -42,4 +45,4 @@ $grid-breakpoints: (
 
 // Overriden variables
 $spacing-unit: 32px;
-$content-width: calc(max(64vw, 1024px));
+$content-width: 1088px;

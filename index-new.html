@@ -1,0 +1,30 @@
+---
+layout: page
+---
+
+{%- assign assets_path = "../assets/" -%}
+
+<div class="container" id="my-jumbotron-new">
+  <!-- Above the fold (wide-screen) -->
+  <div id="atf">
+    <img src="{{ assets_path }}img/misc/me-2023.jpg" id="home-me" />
+    <div id="atf-info">
+      <h1 class="title-name m-0">Freddy Jiang</h1>
+
+      <!-- Social media -->
+      {%- assign socials = site.data.social_media -%}
+
+      <div>
+        {%- for social in socials -%}
+          <a href="{{social.link}}" target="_blank" rel="noopener noreferrer"
+             class="btn btn-primary my-button mx-3"
+             role="button">
+            <div class="icon-container">
+              <i class="{{social.icon}}"></i>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
