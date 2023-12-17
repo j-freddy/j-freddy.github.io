@@ -1,122 +1,94 @@
-#my-home {
-  // Default padding was 30px but this leaves space at the bottom
-  padding: 0;
-  padding-top: 30px;
+#my-jumbotron {
+  // Make Jumbotron bigger for extra-large screens
+  // So the home page is mostly taken up by the title
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    padding-top: 2em;
+    padding-bottom: 3em;
+  }
 
-  #my-jumbotron {
-    // Make Jumbotron bigger for extra-large screens
-    // So the home page is mostly taken up by the title
-    @media (min-width: map-get($grid-breakpoints, xl)) {
-      padding-top: 2em;
-      padding-bottom: 3em;
-      font-size: 1.25em;
+  #atf {
+    display: flex;
+
+    #atf-left {
+      @include flex-full-center;
+      flex-direction: column;
+
+
+      #home-me {
+        $size: 324px;
+  
+        max-width: $size;
+        max-height: $size;
+        
+        @include hexagon-border(15%, 85%);
+      }
+  
+      .title {
+        font-size: 3em;
+        font-weight: 600;
+      }
+
+      .subtitle {
+        font-size: 1.75em;
+        font-weight: 600;
+      }
     }
 
-    .earmuffs-container {
-      padding-right: 2em;
+    #atf-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-      .icon-earmuffs-edit {
-        font-size: 6em;
+      .flower-crown {
+        @include flex-full-center;
+        border: 1px solid $my-light;
+        border-radius: 8px;
+        padding: 1em;
+        background: $my-white;
 
-        @media (max-width: map-get($grid-breakpoints, sm)) {
-          font-size: 8em;
+        img {
+          max-height: 96px;
         }
       }
 
-      text-align: end;
-
-      @media (max-width: map-get($grid-breakpoints, md)) {
-        text-align: center;
-      }
-    }
-  
-    .title-container {
-      .title-role {
+      .subheading {
         font-size: 1.5em;
         font-weight: 600;
-      }
-    
-      .title-name {
-        font-size: 4em;
-        font-weight: 600;
+        margin-bottom: 4px;
+        margin-left: 6px;
       }
 
-      @media (max-width: map-get($grid-breakpoints, sm)) {
-        .title-name {
-          font-size: 3em;
+      .subheading-divider {
+        margin-bottom: 1em;
+      }
+
+      #site-redirect {
+        list-style-type: none;
+
+        li:before {
+          content: "»";
+          margin-right: 4px;
+        }
+
+        li {
+          font-weight: 600;
         }
       }
 
-      text-align: start;
+      // Social media
+      .my-button-outline {
+        padding: 0.25em 0.75em;
 
-      @media (max-width: map-get($grid-breakpoints, md)) {
-        text-align: center;
+        .icon-container {
+          $fontsize: 1.25em;
+
+          @include flex-full-center;
+
+          width: $fontsize * 1.1;
+          height: $fontsize * 1.1;
+          font-size: $fontsize;
+        }
       }
-    }
-  }
-
-  // $oc-cyan-8 darkened
-  $my-colour: #415559;
-
-  .divider-1 {
-    $width: calc(max(100%, #{map-get($grid-breakpoints, md)}));
-    @include divider-bottom($width, 100px, $my-colour);
-  }
-
-  #my-container {
-    background: $background-donut, $my-colour;
-    background-size: auto 100%;
-
-    p, h1, h2, h3, h4, h5, h6, b, i {
-      color: $my-lighter;
-    }
-
-    a {
-      color: $my-theme-light;
-
-      i {
-        color: $my-theme-light;
-      }
-    }
-
-    #home-me {
-      border: 4px solid $my-darkest;
-      border-radius: 999px;
-
-      @media (max-width: map-get($grid-breakpoints, md)) {
-        max-width: 304px;
-      }
-    }
-
-    // Small screen
-    @media (max-width: map-get($grid-breakpoints, lg)) {
-      text-align: center;
-
-      #container-social {
-        @include dark-container($my-darkest);
-        border-radius: 8px;
-        text-align: start;
-      }
-    }
-
-    // Large screen
-    @media (min-width: map-get($grid-breakpoints, lg)) {
-      .container-info {
-        @include dark-container($my-darkest);
-        border-radius: 8px 32px 8px 32px !important;
-      }
-    }
-  }
-
-  .site-footer {
-    background: $my-colour;
-
-    .footer-text {
-      color: $my-lighter;
-    }
-
-    .footer-link {
-      color: $my-theme-light;
     }
   }
 }

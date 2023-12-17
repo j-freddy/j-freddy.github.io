@@ -1,97 +1,69 @@
 ---
-layout: home
+layout: page
+no-background: true
 ---
 
 {%- assign assets_path = "../assets/" -%}
 
-<div class="container text-center" id="my-jumbotron">
-  <div class="home-title mt-3 mb-5 pb-5">
-    <div class="row align-items-center">
-      <div class="col-md-5 earmuffs-container">
-        <h1><span class="icon-earmuffs-edit"></span></h1>
-      </div>
-      <div class="col title-container">
-        <h4 class="my-1 title-role">Software Engineer</h4>
-        <h1 class="title-name">Freddy Jiang</h1>
-        <p><i class="fa-solid fa-location-dot me-2"></i>United Kingdom</p>
-      </div>
+<div class="container" id="my-jumbotron">
+  <!-- Above the fold (wide-screen) -->
+  <div id="atf">
+    <div class="mx-5" id="atf-left">
+      <img src="{{ assets_path }}img/misc/me-2023.jpg" id="home-me" />
+      <h1 class="title mt-4 mb-3">Freddy Jiang</h1>
+      <h2 class="subtitle mb-0">Software Engineer</h2>
     </div>
-
-    <div class="mt-3 mb-5">
-      <a href="{% link portfolio.html %}"
-         class="btn btn-primary my-button mx-2 px-4 py-2"
-         role="button">
-        <i class="fa-solid fa-lightbulb me-2"></i>View Projects
-      </a>
-      <a href="{% link blog.html %}"
-         class="btn btn-primary my-button mx-2 px-4 py-2"
-         role="button">
-        <i class="fa-solid fa-book me-2"></i>Read Blog
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="position-relative mt-5 pt-5">
-  <div class="divider-1">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-              class="shape-fill">
-        </path>
-    </svg>
-  </div>
-</div>
-<div class="flex-grow-1" id="my-container">
-  <div class="wrapper px-5 pt-3 pb-5">
-    <div class="row">
-      <div class="col-md-4 col-lg-3 my-3">
-        <!-- Photo -->
-        <img src="{{ assets_path }}img/misc/me.png"
-             id="home-me">
+    <div class="mx-5" id="atf-right">
+      <!-- Flowers -->
+      <div class="flower-crown">
+        <img src="{{ assets_path }}img/misc/flowers.svg" id="flower-crown" />
       </div>
-      <div class="col-md my-3">
-        <!-- About me -->
-        <div class="container-info">
-          <h5><b>Welcome to my site!</b></h5>
-          <p>
-            Hi! I'm currently studying Joint Maths and Computing at Imperial
-            College London. Also a chess enthusiast, pianist and lover of
-            <a href="https://www.youtube.com/watch?v=aJKY_EeAeYc"
-               target="_blank" rel="noopener noreferrer">
-              progressive-trance vocaloid</a> music.<br /><br />
 
-            Huge fan of
-            <a href="https://www.youtube.com/watch?v=lY16T6AkhOg"
-               target="_blank"rel="noopener noreferrer">
-              Mariana's Trench</a>.<br /><br />
+      <h3 class="subheading mt-3">Hi 👋</h3>
+      <hr class="subheading-divider" />
 
-            On this site, you can explore a collection of my projects. I also
-            write casual articles on tech-related topics.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3 my-3">
-        <!-- Social media -->
-        {%- assign socials = site.data.social_media -%}
-        <div class="d-inline-block container-info" id="container-social">
-          <h5><b>Find me</b></h5>
+      <p>
+        I am a software engineer specialising in AI application and research.
+        Currently reading a master's degree in Artificial Intelligence and
+        Machine Learning at Imperial College.<br /><br />
+        
+        Also a chess enthusiast, pianist and lover of
+        <a href="https://www.youtube.com/watch?v=aJKY_EeAeYc"
+            target="_blank" rel="noopener noreferrer">
+          progressive-trance vocaloid</a> music.<br /><br />
 
-          {%- for social in socials -%}
-          <div class="row">
-            <div class="col-3">
-              <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
-                <i class="{{social.icon}} me-2"></i>
-              </a>
+        Huge fan of
+        <a href="https://www.youtube.com/watch?v=lY16T6AkhOg"
+            target="_blank"rel="noopener noreferrer">
+          Mariana's Trench</a>.
+      </p>
+
+      <ul id="site-redirect">
+        <li>
+          <a href="{% link portfolio.html %}">
+            Portfolio
+          </a>
+        </li>
+        <li>
+          <a href="{% link blog.html %}">
+            Blog
+          </a>
+        </li>
+      </ul>
+
+      <!-- Social media -->
+      {%- assign socials = site.data.social_media -%}
+
+      <div>
+        {%- for social in socials -%}
+          <a href="{{social.link}}" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline-primary my-button-outline me-2"
+            role="button">
+            <div class="icon-container">
+              <i class="{{social.icon}}"></i>
             </div>
-
-            <div class="col">
-              <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
-                {{social.platform}}
-              </a>
-            </div>
-          </div>
-          {%- endfor -%}
-        </div>
+          </a>
+        {%- endfor -%}
       </div>
     </div>
   </div>
