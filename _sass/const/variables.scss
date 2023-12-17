@@ -34,11 +34,16 @@ $font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
 // BootStrap Media
 $grid-breakpoints: (
   xs: 0,
+  xs-max: 575px,
   sm: 576px,
+  sm-max: 767px,
   md: 768px,
+  md-max: 991px,
   lg: 992px,
+  lg-max: 1199px,
   xl: 1200px,
-  xxl: 1400px
+  xl-max: 1399px,
+  xxl: 1400px,
 );
 
 // Overriden variables

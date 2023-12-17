@@ -5,15 +5,16 @@ no-background: true
 
 {%- assign assets_path = "../assets/" -%}
 
-<div class="container" id="my-jumbotron">
+<div id="my-jumbotron">
   <!-- Above the fold (wide-screen) -->
   <div id="atf">
-    <div class="mx-5" id="atf-left">
+    <div class="mx-0 mx-md-4 mx-lg-5" id="atf-left">
       <img src="{{ assets_path }}img/misc/me-2023.jpg" id="home-me" />
       <h1 class="title mt-4 mb-3">Freddy Jiang</h1>
-      <h2 class="subtitle mb-0">Software Engineer</h2>
+      <!-- mb-md-0 for responsive layout -->
+      <h2 class="subtitle mb-5 mb-md-0">Software Engineer</h2>
     </div>
-    <div class="mx-5" id="atf-right">
+    <div class="mx-0 mx-md-4 mx-lg-5" id="atf-right">
       <!-- Flowers -->
       <div class="flower-crown">
         <img src="{{ assets_path }}img/misc/flowers.svg" id="flower-crown" />

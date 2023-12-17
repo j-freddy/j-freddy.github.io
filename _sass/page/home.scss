@@ -6,8 +6,17 @@
     padding-bottom: 3em;
   }
 
+  @media (min-width: map-get($grid-breakpoints, xxl)) {
+    padding-top: 3em;
+    padding-bottom: 3em;
+  }
+
   #atf {
     display: flex;
+
+    @media (max-width: map-get($grid-breakpoints, sm-max)) {
+      flex-direction: column;
+    }
 
     #atf-left {
       @include flex-full-center;
@@ -21,16 +30,30 @@
         max-height: $size;
         
         @include hexagon-border(15%, 85%);
+
+        @media (max-width: map-get($grid-breakpoints, md-max)) {
+          $small-size: 256px;
+          max-width: $small-size;
+          max-height: $small-size;
+        }
       }
   
       .title {
         font-size: 3em;
         font-weight: 600;
+
+        @media (max-width: map-get($grid-breakpoints, md-max)) {
+          font-size: 2em;
+        }
       }
 
       .subtitle {
         font-size: 1.75em;
         font-weight: 600;
+
+        @media (max-width: map-get($grid-breakpoints, md-max)) {
+          font-size: 1.5em;
+        }
       }
     }
 
@@ -46,8 +69,19 @@
         padding: 1em;
         background: $my-white;
 
+        // For md only
+        @media (min-width: map-get($grid-breakpoints, sm)) and (max-width: calc(map-get($grid-breakpoints, sm-max))) {
+          margin-left: 4em;
+          margin-right: 4em;
+        }
+        
+
         img {
           max-height: 96px;
+
+          @media (max-width: map-get($grid-breakpoints, md-max)) {
+            max-height: 64px;
+          }
         }
       }
 
