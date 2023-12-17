@@ -19,3 +19,7 @@
 .bg-normal {
   @include background-cover($background);
 }
+
+.bg-donut {
+  @include background-cover($background-donut);
+}
