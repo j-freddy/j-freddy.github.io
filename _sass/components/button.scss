@@ -1,6 +1,6 @@
 .my-button {
   background: $my-theme-darker;
-  border: 4px solid $my-theme-darker;
+  border: 2px solid $my-theme-darker;
   border-radius: 999px;
   color: $my-lightest !important;
 
@@ -12,5 +12,26 @@
     text-decoration: none;
     background: $my-theme-darkest;
     border-color: $my-theme-darkest;
+  }
+}
+
+.my-button-outline {
+  border: 2px solid $my-theme-darker;
+  border-radius: 999px;
+  color: $my-theme-darker !important;
+
+  i {
+    color: $my-theme-darker;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background: $my-theme-darkest;
+    border-color: $my-theme-darkest;
+    color: $my-lightest !important;
+
+    i {
+      color: $my-lightest;
+    }
   }
 }

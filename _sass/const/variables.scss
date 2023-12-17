@@ -22,9 +22,7 @@ $my-black: #000;
 
 // Background
 $bg-base-path: "img/bg/";
-// TODO Used to have background but not anymore. Either remove or keep to easily
-// add back.
-$background: none;
+$background: url($bg-base-path + "bg-trace-2.svg");
 $background-home: none;
 $background-donut: url($bg-base-path + "donut-hole.svg");
 $background-blog: url($bg-base-path + "birds-trace-2.svg");

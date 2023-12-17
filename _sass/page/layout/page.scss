@@ -1,6 +1,4 @@
 .page-body {
-  @include background-cover($background);
-
   #title-jumbotron {
     @include background-blur-default($background-blog);
     height: calc(max(20vw, 280px));
@@ -16,4 +14,8 @@
       font-weight: 600;
     }
   }
+}
+
+.bg-normal {
+  @include background-cover($background);
 }

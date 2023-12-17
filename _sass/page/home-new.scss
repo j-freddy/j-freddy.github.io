@@ -8,36 +8,81 @@
 
   #atf {
     display: flex;
-    justify-content: space-evenly;
 
-    #home-me {
-      $size: 360px;
-
-      max-width: $size;
-      max-height: $size;
-    }
-
-    #atf-info {
-      display: flex;
+    #atf-left {
+      @include flex-full-center;
       flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
 
-      .title-name {
-        font-size: 4em;
+
+      #home-me {
+        $size: 324px;
+  
+        max-width: $size;
+        max-height: $size;
+        
+        @include hexagon-border(15%, 85%);
+      }
+  
+      .title {
+        font-size: 3em;
         font-weight: 600;
       }
 
-      .my-button {
+      .subtitle {
+        font-size: 1.75em;
+        font-weight: 600;
+      }
+    }
+
+    #atf-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .flower-crown {
+        @include flex-full-center;
+        border: 1px solid $my-light;
+        border-radius: 8px;
         padding: 1em;
+        background: $my-white;
+
+        img {
+          max-height: 96px;
+        }
+      }
+
+      .subheading {
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-bottom: 4px;
+        margin-left: 6px;
+      }
+
+      .subheading-divider {
+        margin-bottom: 1em;
+      }
+
+      #site-redirect {
+        list-style-type: none;
+
+        li:before {
+          content: "»";
+          margin-right: 4px;
+        }
+
+        li {
+          font-weight: 600;
+        }
+      }
+
+      // Social media
+      .my-button-outline {
+        padding: 0.25em 0.75em;
 
         .icon-container {
           $fontsize: 1.25em;
 
-          // TODO Create mixin: flex-full-center
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          @include flex-full-center;
 
           width: $fontsize * 1.1;
           height: $fontsize * 1.1;

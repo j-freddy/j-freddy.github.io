@@ -1,5 +1,6 @@
 ---
 layout: page
+no-background: true
 ---
 
 {%- assign assets_path = "../assets/" -%}
@@ -7,9 +8,48 @@ layout: page
 <div class="container" id="my-jumbotron-new">
   <!-- Above the fold (wide-screen) -->
   <div id="atf">
-    <img src="{{ assets_path }}img/misc/me-2023.jpg" id="home-me" />
-    <div id="atf-info">
-      <h1 class="title-name m-0">Freddy Jiang</h1>
+    <div class="mx-5" id="atf-left">
+      <img src="{{ assets_path }}img/misc/me-2023.jpg" id="home-me" />
+      <h1 class="title mt-4 mb-3">Freddy Jiang</h1>
+      <h2 class="subtitle mb-0">Software Engineer</h2>
+    </div>
+    <div class="mx-5" id="atf-right">
+      <!-- Flowers -->
+      <div class="flower-crown">
+        <img src="{{ assets_path }}img/misc/flowers.svg" id="flower-crown" />
+      </div>
+
+      <h3 class="subheading mt-3">Hi 👋</h3>
+      <hr class="subheading-divider" />
+
+      <p>
+        I am a software engineer specialising in AI application and research.
+        Currently reading a master's degree in Artificial Intelligence and
+        Machine Learning at Imperial College.<br /><br />
+        
+        Also a chess enthusiast, pianist and lover of
+        <a href="https://www.youtube.com/watch?v=aJKY_EeAeYc"
+            target="_blank" rel="noopener noreferrer">
+          progressive-trance vocaloid</a> music.<br /><br />
+
+        Huge fan of
+        <a href="https://www.youtube.com/watch?v=lY16T6AkhOg"
+            target="_blank"rel="noopener noreferrer">
+          Mariana's Trench</a>.
+      </p>
+
+      <ul id="site-redirect">
+        <li>
+          <a href="{% link portfolio.html %}">
+            Portfolio
+          </a>
+        </li>
+        <li>
+          <a href="{% link blog.html %}">
+            Blog
+          </a>
+        </li>
+      </ul>
 
       <!-- Social media -->
       {%- assign socials = site.data.social_media -%}
@@ -17,8 +57,8 @@ layout: page
       <div>
         {%- for social in socials -%}
           <a href="{{social.link}}" target="_blank" rel="noopener noreferrer"
-             class="btn btn-primary my-button mx-3"
-             role="button">
+            class="btn btn-outline-primary my-button-outline me-2"
+            role="button">
             <div class="icon-container">
               <i class="{{social.icon}}"></i>
             </div>

@@ -60,3 +60,20 @@
     color: $my-lighter;
   }
 }
+
+@mixin hexagon-border($x, $y) {
+  clip-path: polygon(
+    $x 0%,
+    $y 0%,
+    100% 50%,
+    $y 100%,
+    $x 100%,
+    0% 50%
+  );
+}
+
+@mixin flex-full-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
