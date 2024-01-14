@@ -1,15 +1,22 @@
 ---
 layout: post
 title: "The UCI Protocol for Chess Engines"
-date: January 13, 2024
+date: January 14, 2024
 author: Freddy
-cover_img: "blog/hypnosis/pendulum.png"
+cover_img: "blog/chess-uci-protocol/thumbnail.webp"
 summary: |
-  TODO
+  Let's dive into the world of chess engines and how they communicate with
+  various sites like Lichess and Chess.com. Taking an existing engine, we'll
+  implement a handler that matches a popular protocol called UCI. Finally, we'll
+  briefly look at how to connect it to Lichess.
 ---
 
+
 <div class="blog-preamble">
-  {%- assign img_dir = "assets/img/blog/hypnosis/" -%}
+  {%- assign img_dir = "assets/img/blog/chess-uci-protocol/" -%}
+  {%- assign thibault_blog = "https://lichess.org/@/thibault/blog/how-to-create-a-lichess-bot/FuKyvDuB" -%}
+  {%- assign mirroredbot = "https://lichess.org/@/MirroredBot" -%}
+  {%- assign maia = "https://lichess.org/@/maia9" -%}
 </div>
 
 <span id="blog-summary">{{ page.summary }}</span>
@@ -18,8 +25,6 @@ summary: |
 <div class="callout callout-warning">
   Disclaimer: This article is slightly more technical than my other articles.
 </div>
-
-[TODO Try to add more images]
 
 Chess is a very popular board game. It has been around for centuries. These
 days, you can play chess online on sites like [Lichess][lichess] or
@@ -35,6 +40,9 @@ being rolled out. To integrate these engines with the interfaces like LiChess,
 there must be a method for 2-way communication. For example, the interface sends
 the current board to the engine, then the engine sends back a move.
 
+<img src="{{img_dir}}stockfish.png"
+     alt="stockfish-logo" width="240px">
+
 But that isn't all! There are other important information. The engine might want
 to know how much time each player has, or whether someone has offered a draw.
 The interface might want to know whether the engine is ready to receive a new
@@ -49,7 +57,8 @@ at one of the most popular protocols: UCI.
 One of the earliest user interfaces for chess that supported engines is
 XBoard (a.k.a. WinBoard), developed by Tim Mann in 1991.
 
-[TODO Insert image of XBoard]
+<img src="{{img_dir}}xboard.png"
+     alt="xboard-4.4.0" width="420px" class="img-thumbnail">
 
 XBoard uses the **Chess Engine Communication Protocol** (CECP), which was
 sufficient in those days. However, as chess engines became stronger and
@@ -63,6 +72,9 @@ champion Shredder, proposed a new protocol alongside Rudolf Huber: the
 addresses the limitations of CECP. It allows communication via standard
 input/output text commands and long algebraic notation.
 
+<img src="{{img_dir}}shredder.jpg"
+     alt="shredder-chess-interface" class="img-thumbnail">
+
 ## Example: Implementing UCI in Python
 
 The current specification is available to download from the [Shredder][uci-spec]
@@ -72,9 +84,8 @@ site (under *Download UCI Chess Engine Protocol*).
 
 Let's implement a bare-bones UCI handler from the engine's perspective.
 
-Assume we have written an AI class with a method `choose_move` that takes
-in the board state. We'll use the popular [python-chess][python-chess] library
-for game logic.
+Assume we have written an AI class with a method `choose_move` that takes in the
+board state. We'll use the [python-chess][python-chess] library for game logic.
 
 [python-chess]: https://python-chess.readthedocs.io/en/latest/
 
@@ -188,19 +199,54 @@ We can ignore all other commands for now, as they are not compulsory.
 For a full example, see
 [https://github.com/j-freddy/chess-ai/blob/master/uci.py](https://github.com/j-freddy/chess-ai/blob/master/uci.py)
 
-<!--
-PLAN
+## Hooking the engine with LiChess
 
-- example: LiChess
-  - LiChess supports .exe engines that implement the UCI protocol
-  - use PyInstaller to convert the Python repo into a standalone .exe with -F
-    flag
-  - https://github.com/j-freddy/lichess-bot
-  - to create a LiChess bot, read the docs
-    - https://github.com/lichess-bot-devs/lichess-bot
-    - disclaimer: this blog will not teach you how to set up a LiChess bot. Read
-      the docs. They are very well maintained. But, you are expected to know
-      basic software engineering concepts.
-  - since we didn't implement the UCI protocol completely, we need to update
-    config.yml and comment out some options
--->
+Lichess is a popular, open-source chess interface. Let's configure it to host
+our engine by using the official Python [bridge][bridge] between API and
+engines. The [source code][bot-source] is available.
+
+[bridge]: https://github.com/lichess-bot-devs/lichess-bot
+[bot-source]: https://github.com/j-freddy/chess-ai
+
+
+<div class="callout callout-warning">
+  This article will <b>not</b> teach you how to set up a Lichess bot. To do
+  that, read <a href="{{thibault_blog}}">Thibault's post</a>. The documentation is
+  very well maintained, so you are in good hands if you are a developer.
+</div>
+
+The bridge supports binary `.exe` engines that implement UCI. We can use
+PyInstaller to convert our Python repo into a standalone `.exe` file:
+
+```sh
+pyinstaller -F uci.py
+```
+
+Following the documentation instructions, we copy the `.exe` file to `engines/`
+in the bridge repo and update `config.yml` accordingly. In particular, we have
+to comment out the `uci_options` configurations, since we skipped over them in
+our bare-bones UCI implementation.
+
+Finally, run the bridge:
+
+```py
+python lichess-bot.py -v
+```
+
+<div class="callout callout-info">
+  Here's my bot on LiChess: <a href="{{mirroredbot}}">MirroredBot</a>. It's
+  probably offline, but it has played a few games.<br /><br />
+
+  I've only ever hosted it locally. That's why it's offline most of the time.
+  Some bots, like <a href="{{maia}}">Maia</a>, are always online. How can we do
+  that?<br /><br />
+
+  In today's world of cloud computing and microservices, we can rent a server
+  and host our bot from there. Essentially, this just means renting a computer
+  device in some data centre (e.g. one affiliated with Amazon Web Services),
+  accessing it remotely, cloning and setting up the bridge like we've done
+  before and running <b><i>python lichess-bot.py -v</i></b>.<br /><br />
+
+  <img src="{{img_dir}}data-centre.jpg"
+     alt="aws-data-centre">
+</div>

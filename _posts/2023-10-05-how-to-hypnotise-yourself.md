@@ -10,10 +10,10 @@ summary: |
   science behind it.
 ---
 
-{%- assign troxler_paper = "https://www.cell.com/neuron/pdf/S0896-6273(05)01056-1.pdf" -%}
 
 <div class="blog-preamble">
   {%- assign img_dir = "assets/img/blog/hypnosis/" -%}
+  {%- assign troxler_paper = "https://www.cell.com/neuron/pdf/S0896-6273(05)01056-1.pdf" -%}
 </div>
 
 <span id="blog-summary">{{ page.summary }}</span>
