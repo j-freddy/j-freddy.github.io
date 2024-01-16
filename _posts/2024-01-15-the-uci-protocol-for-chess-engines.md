@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "The UCI Protocol for Chess Engines"
-date: January 14, 2024
+date: January 15, 2024
 author: Freddy
 cover_img: "blog/chess-uci-protocol/thumbnail.webp"
 summary: |
-  Let's dive into the world of chess engines and how they communicate with
-  various sites like Lichess and Chess.com. Taking an existing engine, we'll
-  implement a handler that matches a popular protocol called UCI. Finally, we'll
-  briefly look at how to connect it to Lichess.
+  Let's dive into the world of chess engines and how they communicate with sites
+  like Lichess and Chess.com. We'll take an existing engine and implement a
+  handler for a popular protocol called UCI. Finally, we'll briefly look at how
+  to connect it to Lichess.
 ---
 
 
@@ -23,13 +23,12 @@ summary: |
 
 
 <div class="callout callout-warning">
-  Disclaimer: This article is slightly more technical than my other articles.
+  Disclaimer: This article is more technical than my other articles.
 </div>
 
 Chess is a very popular board game. It has been around for centuries. These
-days, you can play chess online on sites like [Lichess][lichess] or
-[Chess.com][chess.com]. Such sites provide an **interface** for users to play
-chess.
+days, you can use sites like [Lichess][lichess] or [Chess.com][chess.com]. Such
+sites provide an **interface** for users to play chess.
 
 [lichess]: https://lichess.org
 [chess.com]: https://chess.com
@@ -62,15 +61,15 @@ XBoard (a.k.a. WinBoard), developed by Tim Mann in 1991.
 
 XBoard uses the **Chess Engine Communication Protocol** (CECP), which was
 sufficient in those days. However, as chess engines became stronger and
-stronger, they soon became able to play multiple games at once. CECP is a stated
-protocol, which means the engine state depends on the previous commands. Context
+stronger, they soon were able to play multiple games at once. CECP is a stated
+protocol, which means the engine state depends on previous commands. Context
 switching between multiple games is possible but chaotic.
 
 In 2000, Stefan Meyer-Kahlen, the author of multi-time World Computer Chess
 champion Shredder, proposed a new protocol alongside Rudolf Huber: the
 **Universal Chess Interface** (UCI). This is a stateless protocol which
 addresses the limitations of CECP. It allows communication via standard
-input/output text commands and long algebraic notation.
+input/output text-based messages and long algebraic notation.
 
 <img src="{{img_dir}}shredder.jpg"
      alt="shredder-chess-interface" class="img-thumbnail">
@@ -90,7 +89,9 @@ board state. We'll use the [python-chess][python-chess] library for game logic.
 [python-chess]: https://python-chess.readthedocs.io/en/latest/
 
 Essentially, we need a listener for commands from the interface. Since the
-pipeline is the standard input/output, we can simply use a `while True` loop.
+pipeline is the standard input/output, we can simply use an infinite `while`
+loop. We will later see that we can handle the `quit` command by calling
+`sys.exit()`.
 
 ```py
 import chess
@@ -124,7 +125,7 @@ def service_uci_command(command: str, board: chess.Board, ai: AI):
 Python 3.10 introduced `match` expressions, so let's try that for readability
 instead of `if/else` statements.
 
-We start off with the all the simple commands.
+We start off with the simple commands.
 
 ```py
 import sys
@@ -161,8 +162,8 @@ invoke the AI to calculate the next move.
             print(f"bestmove {move}")
 ```
 
-Finally, there's 1 last command that we must handle: `position`. This allows the
-interface to tell the engine the current board state. There are 2 options:
+Finally, there's one last command that we must handle: `position`. This allows
+the interface to tell the engine the current board state. There are 2 options:
 1. `position fen <fen> moves ....`
 2. `position startpos moves ....`
 
@@ -202,10 +203,10 @@ For a full example, see
 ## Hooking the engine with LiChess
 
 Lichess is a popular, open-source chess interface. Let's configure it to host
-our engine by using the official Python [bridge][bridge] between API and
-engines. The [source code][bot-source] is available.
+our engine by forking the official Python [bridge][bridge] between API and
+engines. The [source code][bot-source] for the engine itself is also available.
 
-[bridge]: https://github.com/lichess-bot-devs/lichess-bot
+[bridge]: https://github.com/j-freddy/lichess-bot
 [bot-source]: https://github.com/j-freddy/chess-ai
 
 
@@ -222,10 +223,12 @@ PyInstaller to convert our Python repo into a standalone `.exe` file:
 pyinstaller -F uci.py
 ```
 
-Following the documentation instructions, we copy the `.exe` file to `engines/`
+Following the [documentation instructions][doc-instr], we copy the `.exe` file to `engines/`
 in the bridge repo and update `config.yml` accordingly. In particular, we have
 to comment out the `uci_options` configurations, since we skipped over them in
 our bare-bones UCI implementation.
+
+[doc-instr]: https://github.com/lichess-bot-devs/lichess-bot/wiki/Create-a-custom-engine
 
 Finally, run the bridge:
 
