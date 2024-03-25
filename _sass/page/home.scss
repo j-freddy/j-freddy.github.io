@@ -110,17 +110,9 @@
       }
 
       // Social media
-      .my-button-outline {
-        padding: 0.25em 0.75em;
-
-        .icon-container {
-          $fontsize: 1.25em;
-
-          @include flex-full-center;
-
-          width: $fontsize * 1.1;
-          height: $fontsize * 1.1;
-          font-size: $fontsize;
+      .social-badge {
+        &:hover {
+          text-decoration: none;
         }
       }
     }

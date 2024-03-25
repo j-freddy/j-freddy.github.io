@@ -59,13 +59,16 @@ background-donut: true
 
       <div>
         {%- for social in socials -%}
-          <a href="{{social.link}}" target="_blank" rel="noopener noreferrer"
-            class="btn btn-outline-primary my-button-outline me-2"
-            role="button">
-            <div class="icon-container">
-              <i class="{{social.icon}}"></i>
-            </div>
-          </a>
+          {%- unless social.hidden -%}
+            <a
+              class="social-badge"
+              href="{{social.link}}" target="_blank" rel="noopener noreferrer"
+            >
+              <img src="{{social.badge}}" alt="{{social.platform}}"
+                   class="me-2 my-2"
+              />
+            </a>
+          {%- endunless -%}
         {%- endfor -%}
       </div>
     </div>

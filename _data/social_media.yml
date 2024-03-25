@@ -2,19 +2,24 @@
   username: j-freddy
   icon: fa-brands fa-github
   link: "https://github.com/j-freddy"
+  badge: "https://img.shields.io/badge/GitHub-@j--freddy-2dba4e?style=for-the-badge&logo=linkedin&logoColor=white"
 - platform: LinkedIn
   username: Freddy Jiang
   icon: fa-brands fa-linkedin
   link: "https://www.linkedin.com/in/jiangfreddy/"
+  badge: "https://img.shields.io/badge/LinkedIn-@jiangfreddy-1c7ed6?style=for-the-badge&logo=linkedin&logoColor=white"
 - platform: Instagram
   username: jiang.freddy
   icon: fa-brands fa-instagram
   link: "https://www.instagram.com/jiang.freddy/"
+  hidden: true
 - platform: Discord
   username: RDg0#9896
   icon: fa-brands fa-discord
   link: "https://discordapp.com/users/362278194851872770"
+  hidden: true
 - platform: LiChess
   username: afMirrorUR
   icon: fa-solid fa-chess-king
   link: "https://lichess.org/@/afMirrorUR"
+  hidden: true
