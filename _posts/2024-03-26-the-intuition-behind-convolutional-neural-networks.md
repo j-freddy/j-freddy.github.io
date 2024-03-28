@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "The Intuition behind Convolutional Neural Networks"
-date: Mar 26, 2024
+date: Mar 28, 2024
 author: Freddy
-cover_img: "blog/local-gpt/thumb.jpg"
+cover_img: "blog/convnets/neuron.jpg"
 summary: |
   Before convolutional neural networks became popular, neural networks would
   often struggle with 2D data like image classification and image segmentation.
@@ -26,40 +26,40 @@ as we can in practical settings), whether it be via machine learning or other
 methods.
 
 For example, image classification involves mapping an image to a class label,
-while image segmentation involves mapping an image to a pixel-wise mask (or
-simply, an image to another image).
+while image segmentation involves mapping an image to a pixel-wise mask (that
+is, an image to another image).
 
-Before convolutional neural networks (ConvNets) became mainstream, neural
-networks often consisted of fully-connected (FC) layers. The gist of an FC layer
-can be boiled down to a linear layer followed by an activation function.
+Before convolutional neural networks (CNNs) became mainstream, neural networks
+often consisted of fully-connected (FC) layers. The building block of an FC
+layer can be described as a linear layer followed by an activation function.
 
 <div class="callout callout-info">
   You are probably familiar with this scalar linear equation:
 
   $$ z = mx + c $$
 
-  When <b>x</b> and <b>y</b> are vectors, <b>m</b> becomes a matrix and <b>c</b>
+  When <b>x</b> and <b>z</b> are vectors, <b>m</b> becomes a matrix and <b>c</b>
   becomes a vector, which we denote as <b>W</b> and <b>b</b> respectively.
 
   $$ z = Wx + b $$
 
-  Then, we apply the activation function, e.g. sigmoid.
+  Then, we apply a non-linear activation function, e.g. sigmoid.
 
   $$ \hat{y} = \sigma(z) = \sigma(Wx + b) $$
 
   This is an FC layer that maps a 1-channel input to a 1-channel output.
 </div>
 
-A linear layer with activation is a **universal approximator**. This means given
-**any** input, the weights $${W}$$ and bias $${b}$$ can be tuned such that the
-ouput is very close to the true output.
+A linear layer with a non-linear activation function is a **universal
+approximator**. This means given **any** input, the weights $${W}$$ and bias
+$${b}$$ can be chosen such that the ouput $${\hat{y}}$$ is very close to the
+true output $${y}$$.
 
-Let's consider a binary image segmentation task, for example, given an image,
-identify the cat. To simplify the task, assume the image is greyscale. A naive
-approach would be to take each pixel intensity value and concatenate them into a
-1D vector. Then, apply a linear layer with sigmoid activation to output another
-1D vector of the same shape, which can be unfolded to represent the segmented
-output. However, there are 2 major problems:
+Let's consider a binary image segmentation task: given an image, identify the
+cat. A naive approach would be to take each pixel colour value and concatenate
+them into a 1D vector. Then, apply a linear layer with sigmoid activation to
+output another 1D vector of the same shape, which can be unfolded to represent
+the segmented output. However, there are 2 major problems:
 
 1. Neighbouring pixels are related to each other. By concatenating the image, we
    are losing spatial information.
@@ -77,8 +77,9 @@ network performs well on the training image.
       alt="train-segmented" width="324px" class="img-thumbnail">
 </div>
 
-However, our 1-layer network is very rigid and generates the same mask every
-time without variation. It incorrectly segments the test image.
+However, our 1-layer network is very rigid. Due to the bias-variance tradeoff,
+it has very low variance and generates a similar mask for the test image,
+incorrectly segmenting it.
 
 <div class="mb-3">
   <img src="{{img_dir}}cat-2.png"
@@ -91,22 +92,23 @@ time without variation. It incorrectly segments the test image.
 In this case, even though we are using a global approximator, it is not good
 enough - we'd have to retrain the network every time we encounter a new image.
 More generalisable models involve deeper layers to capture local patterns, but
-stacking FC layers result in a large number of parameters which is infeasible
-for imaging tasks. Plus, spatial information is still not being leveraged.
+stacking FC layers on top of each other result in a large number of parameters
+which is infeasible for imaging tasks. Plus, spatial information is still not
+being leveraged.
 
-This motivates the need for ConvNets. In this post, we will focus on ConvNets
-for 2D data, such as images.
+This motivates the need for CNNs. In this post, we will focus on CNNs
+for 2D data, like images.
 
 ## Convolutional Neural Networks
 
 In essence, what we've previously done was to look at the entire image at once
-in 1 FC layer. The idea behind ConvNets is to shrink this window down, and look
-at patches of the image at a time.
+in 1 FC layer. The idea behind CNNs is to shrink this window down and look at
+patches of the image at a time.
 
 Since each neuron now only has access to its corresponding patch, it is forced
 to learn local patterns. We continue to add more layers, increasing its
-receptive field so the neurons in deeper layers can learn global patterns while
-preserving spatial invariance.
+receptive field so that the neurons in deeper layers can learn global patterns
+while preserving spatial invariance.
 
 Let's dive into the details.
 
@@ -215,19 +217,24 @@ This is what it looks like in action.
 <img src="{{img_dir}}convolution.gif"
      alt="convolution-gif" width="480px" class="img-thumbnail">
 
+A key observation is that we are reusing the kernel for each patch, so the
+number of weights in our model remains small and manageable.
+
 Now, we have a 4x4 output. This is known as a **feature map**. Each cell in the
-feature map is a neuron with a receptive field of 3x3, that is, its value is
+feature map is a neuron with a receptive field of 3x3. That is, its value is
 dependent on a 3x3 patch of the original input image.
 
 <div class="callout callout-warning">
   Typically, we'd apply an activation function after the convolution
   to output the feature map to introduce non-linearity. I've omitted this for
-  simplicity.<br /><br />
+  simplicity. I've also omitted the bias term, although the bias is sometimes
+  not used in practice, especially if the data has been normalised.<br /><br />
 
   Here, the ReLU activation is commonly used, as it can be interpreted as a
-  gate: if the value is negative, it prevents gradient flow during backprop,
-  thus the neuron gets switched off. This is useful for controlling which areas
-  of the image the deeper layers focus on - a bit like attention.
+  gate: if the value is negative, it prevents gradient flow during backprop (the
+  stage where the model weights get updated and the network learns), thus the
+  neuron gets switched off. This is useful for controlling which areas of the
+  image the deeper layers focus on - a bit like attention.
 </div>
 
 Let's perform another convolution on the feature map with a different kernel.
@@ -251,11 +258,11 @@ $$
 $$
 
 Now, we have another feature map. Each neuron has a receptive field of 5x5, so
-its vision is almost the entire 6x6 image! This allows the neuron to learn
-global patterns that build upon the local patterns learned in the previous
-layer.
+its vision is almost the entire 6x6 image! This allows the neurons in this 2nd
+layer to learn global patterns that build upon the local patterns learned in the
+previous layer.
 
-Towards the end of the convolutional network, we sometimes would flatten the
+Towards the end of the convolutional network, we would sometimes flatten the
 feature map into a 1D vector and pass it through an FC layer with an activation
 function (like we did in our initial approach).
 
@@ -290,22 +297,21 @@ responsible for detecting the pointy ears, another channel to detect the tail,
 and so on. Each channel's responsibility can be more abstract: edge detection,
 gradient contour, etc.
 
-Finally, we'd aggregate all of our information on the subtasks (i.e. flattening
-all feature maps) to predict the output. For segmentation in particular, we'd
-use transposed convolutions to upscale the feature maps back to the original
-image. We haven't covered this, but the intuition is the same.
+Finally, we aggregate all of our information on the subtasks (i.e. flattening
+all feature maps) to predict the output. For segmentation in particular, we
+would use transposed convolutions to upscale the feature maps back to the
+original image. This is not covered in this post, but the intuition is the same.
 
 ## Further Reading
 
-We have covered the motivation behind ConvNets and the intuition behind
-convolution operators and how ConvNets work.
+This article covers the motivation behind CNNs and the intuition behind
+convolution operators and how CNNs work.
 
 In practice, the architecture is delicate and many other techniques are applied
-to ensure the network trains well and generalises well to unseen data. These
-include:
+to ensure the network trains well and generalises to unseen data. These include:
 
-- **Pooling** to accelerate increase in receptive fields and decrease in feature
-  map size.
+- **Pooling** to accelerate the growth of receptive fields and decrease in
+  feature map size.
 - **Batch Normalisation** - note how in our example calculations, the values get
   very large very quickly. Normalising the values after each layer helps with
   model stability.
@@ -313,4 +319,4 @@ include:
   connections** to enable gradient flow. This allows very deep networks
   (hundreds of layers) to train well and perform in complex tasks like
   classifying an image into 1000 classes.
-- Data augmentation, dropout, and other techniques to prevent overfitting.
+- Data augmentation, dropout and other techniques to prevent overfitting.
