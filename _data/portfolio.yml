@@ -1,25 +1,3 @@
-- name: CYOA
-  img: "img/portfolio/cyoa.png"
-  frameworks:
-    - React
-    - Vite
-    - TypeScript
-    - Python
-    - GPT-3
-    - SBERT
-    - MongoDB
-    - HTML
-    - Mantine
-    - CSS
-    - CI/CD
-    - TDD
-  description: |
-    With the prevalence of autoregressive generative models being made
-    publically available, in Autumn 2022 we created a distributed framework for
-    automated gamebook generation using OpenAI's GPT-3 model. <br /><br />
-
-    CYOA offers an extensive set of tools to allow authors to easily create, fully customise and print their gamebooks.
-
 - name: Medical Image Classification
   img: "img/portfolio/medmnist-contrastive.png"
   source_code: "https://github.com/j-freddy/simclr-medical-imaging"
@@ -108,6 +86,42 @@
     </a><br /><br />
 
     Try out the game! Grab a friend, and duel to the death!
+
+- name: CYOA
+  img: "img/portfolio/cyoa.png"
+  frameworks:
+    - React
+    - Vite
+    - TypeScript
+    - Python
+    - GPT-3
+    - SBERT
+    - MongoDB
+    - HTML
+    - Mantine
+    - CSS
+    - CI/CD
+    - TDD
+  description: |
+    With the prevalence of autoregressive generative models being made
+    publically available, in Autumn 2022 we created a distributed framework for
+    automated gamebook generation using OpenAI's GPT-3 model.<br /><br />
+
+    CYOA offers an extensive set of tools to allow authors to easily create,
+    fully customise and print their gamebooks.<br /><br />
+
+    Frontend:
+    <a href="https://github.com/j-freddy/icl-cyoa-frontend" target="_blank"
+       rel="noopener noreferrer">
+      https://github.com/j-freddy/icl-cyoa-frontend
+    </a><br />
+
+    Backend:
+    <a href="https://github.com/j-freddy/icl-cyoa-backend" target="_blank"
+       rel="noopener noreferrer">
+      https://github.com/j-freddy/icl-cyoa-backend
+    </a>
+
 - name: WACC
   img: "img/portfolio/wacc.png"
   frameworks:
