@@ -1,5 +1,7 @@
 - name: NVAE for Cardiac Shape Analysis
   img: "img/portfolio/cardiac-shape-analysis.png"
+  start_date: "March 2024"
+  end_date: "September 2024"
   frameworks:
     - Nouveau VAE
     - PyTorch
@@ -31,6 +33,8 @@
 
 - name: Contrastive Learning for Medical Imaging
   img: "img/portfolio/medmnist-contrastive.png"
+  start_date: "November 2022"
+  end_date: "June 2023"
   source_code: "https://github.com/j-freddy/simclr-medical-imaging"
   frameworks:
     - SimCLR
@@ -65,6 +69,8 @@
 
 - name: LLMs for Detecting PCL
   img: "img/portfolio/nlp-pcl.png"
+  start_date: "February 2024"
+  end_date: "March 2024"
   source_code: https://gitlab.doc.ic.ac.uk/ffj20/nlp-cw
   frameworks:
     - RoBERTa
@@ -95,6 +101,8 @@
 
 - name: Data Animations
   img: "img/portfolio/data-animations.png"
+  start_date: "April 2023"
+  end_date: "May 2023"
   source_code: "https://github.com/j-freddy/data-animations"
   frameworks:
     - pyglet
@@ -112,6 +120,8 @@
 
 - name: Duel!
   img: "img/portfolio/duel.png"
+  start_date: "August 2020"
+  end_date: "August 2020"
   preview: "https://litetj.itch.io/duel"
   frameworks:
     - Unity
@@ -137,6 +147,8 @@
 
 - name: Ten Minutes of Existence
   img: "img/portfolio/tmoe.png"
+  start_date: "May 2020"
+  end_date: "June 2020"
   preview: "https://litetj.itch.io/ten-minutes-of-existence"
   frameworks:
     - Unity
@@ -163,6 +175,8 @@
 
 - name: Peer Assessment
   img: "img/portfolio/peer-assessment.png"
+  start_date: "June 2021"
+  end_date: "September 2021"
   source_code: "https://gitlab.doc.ic.ac.uk/edtech/peer-assessment"
   frameworks:
     - Flask
@@ -195,6 +209,8 @@
 
 - name: Create Your Own Adventure
   img: "img/portfolio/cyoa.png"
+  start_date: "October 2022"
+  end_date: "January 2023"
   frameworks:
     - React
     - Vite
