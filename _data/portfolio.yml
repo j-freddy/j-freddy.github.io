@@ -1,4 +1,4 @@
-- name: Hierarchical VAEs for Cardiac Shape Analysis
+- name: NVAE for Cardiac Shape Analysis
   img: "img/portfolio/cardiac-shape-analysis.png"
   frameworks:
     - Nouveau VAE
