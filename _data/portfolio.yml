@@ -13,23 +13,38 @@
     - Altair
     - TensorBoard
   description: |
-    In generative AI, variational autoencoders (VAEs) are often used in anomaly
-    detection, due to their low-dimensional latent representation space which
-    acts as an excellent feature extractor. They have been applied to medical
-    shape analysis to provide population-level visualisations and to correct
-    anatomically invalid segmentations.<br /><br />
+    My MSc dissertation at Imperial College (2023-24) involves using
+    state-of-the-art generative AI frameworks to learn population-level patterns
+    in the shape of cardiac components. Analysis of these shapes are crucial for
+    reliable diagnosis of heart diseases. A snippet of my abstract is provided
+    below.<br /><br />
 
-    In 2020, a new hierarchical VAE framework was proposed: Nouveau VAE. This
-    framework has powerful capabilities in both reconstruction and generation
-    quality, the latter of which used to be a limitation of VAEs (compared to
-    GANs and diffusion models).<br /><br />
+    <quote><i>
+      "Cardiovascular diseases (CVDs) cause over 20 million deaths annually, with
+      a third occuring prematurely in people under the age of 70. However, CVDs
+      are largely preventable with early detection and intervention. Over recent
+      years, there has been rapid progression in the development of automated
+      techniques for cardiac magnetic resonance imaging (MRI) analysis. Accurate
+      delineation of cardiac components is crucial to assist in anomaly
+      detection and diagnosis, and shape analysis is an essential
+      prerequisite.<br /><br />
 
-    My MSc individual thesis at Imperial College (2023-24) is on adapting the
-    Nouveau VAE framework to evaluate its potential in cardiac shape analysis.
-    In particular, I focus on tasks where both reconstruction and generation are
-    important.<br /><br />
+      The emergence of deep learning has introduced powerful frameworks capable
+      of automating the process of learning compact shape representations.
+      Variational autoencoders (VAEs) are a class of generative models that
+      excel at learning efficient low-dimensional representations of complex
+      data. In particular, the Nouveau VAE (NVAE) is a deep hierarchical VAE
+      that is the state-of-the-art among its class in encoding fine-grained
+      details in high-resolution images.
+      
+      In this dissertation, we examine how the NVAE framework can be applied to
+      cardiac shape analysis..."<br /><br />
+    </i></quote>
 
-    <b>Ongoing. Expected completion: September 2024.</b>
+    I am very grateful to Prof. Elsa Angelini and Prof. Loïc Le Folgoc for
+    supervising me.<br /><br />
+
+    <b>Source code will be available soon.</b>
 
 - name: Contrastive Learning for Medical Imaging
   img: "img/portfolio/medmnist-contrastive.png"
@@ -54,18 +69,18 @@
     AI in general is advancing very rapidly. So, can we use these new,
     state-of-the-art AI techniques and integrate them within CADx?<br /><br />
 
-    My BEng individual thesis at Imperial College (2022-23) focuses on
-    evaluating a specific framework for medical imaging: SimCLR. SimCLR is a
-    self-supervised contrastive learning framework, which enables pretraining
-    large convolutional networks like ResNet with unlabelled data. As a result,
-    only a small amount of labelled data is required for downstream tasks like
+    My BEng dissertation at Imperial College (2022-23) focuses on evaluating a
+    specific framework for medical imaging: SimCLR. SimCLR is a self-supervised
+    contrastive learning framework, which enables pretraining large
+    convolutional networks like ResNet with unlabelled data. As a result, only a
+    small amount of labelled data is required for downstream tasks like
     finetuning the model for classification. Traditionally, supervised learning
     requires lots of labelled data, so this is a very exciting prospect,
     especially since clinical environments tend to lack labelled data. The
     thesis involves proposing and evaluating novel techniques and workflows for
     medical images that improveme over existing SimCLR methods.
 
-    I am very thankful to Dr. Ben Glocker for his supervision and guidance.
+    I am very thankful to Prof. Ben Glocker for his supervision and guidance.
 
 - name: LLMs for Detecting PCL
   img: "img/portfolio/nlp-pcl.png"
