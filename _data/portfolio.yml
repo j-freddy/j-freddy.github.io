@@ -13,11 +13,12 @@
     - Altair
     - TensorBoard
   description: |
-    My MSc dissertation at Imperial College (2023-24) involves using
-    state-of-the-art generative AI frameworks to learn population-level patterns
-    in the shape of cardiac components. Analysis of these shapes are crucial for
-    reliable diagnosis of heart diseases. A snippet of my abstract is provided
-    below.<br /><br />
+    My MSc dissertation at Imperial College (2023-24), which won the Winton
+    Capital Applied Computing MSc Prize, involves using state-of-the-art
+    generative AI frameworks to learn population-level patterns in the shape of
+    cardiac components. Analysis of these shapes are crucial for reliable
+    diagnosis of heart diseases. A snippet of my abstract is provided below.<br
+    /><br />
 
     <quote><i>
       "Cardiovascular diseases (CVDs) cause over 20 million deaths annually, with
